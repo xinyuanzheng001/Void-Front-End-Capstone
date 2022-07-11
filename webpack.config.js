@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const path = require('path');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
@@ -36,6 +36,21 @@ module.exports = {
     extensions: ['', '.jsx', '.js'],
     enforceExtension: false,
   },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, '/client/dist'),
+    open: true,
+    compress: true,
+    hot: true,
+    port: 3000,
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        API_KEY: JSON.stringify(process.env.API_KEY),
+      },
+    }),
+  ],
   // devServer: {
   //   index: "",
   //   proxy: {
