@@ -44,7 +44,7 @@ var getProductDetail = function getProductDetail(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -144,7 +144,7 @@ var getProductMetaData = function getProductMetaData(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -244,7 +244,7 @@ var getProductQuestion = function getProductQuestion(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -344,7 +344,7 @@ var getProductReviews = function getProductReviews(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -444,7 +444,7 @@ var getProductStyle = function getProductStyle(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -544,7 +544,7 @@ var getRelatedProducts = function getRelatedProducts(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -605,9 +605,66 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 /*!*************************************!*\
   !*** ./client/src/actions/types.js ***!
   \*************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/client/src/actions/types.js: Unexpected token (16:1)\n\n\u001b[0m \u001b[90m 14 |\u001b[39m   \u001b[32m'GET_PRODUCT_REVIEW_METADATA_FAIL'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mGET_PRODUCT_QUESTION_REQUEST\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'GET_PRODUCT_QUESTION_REQUEST'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mGET_PRODUCT_QUESTION_SUCCESS\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'GET_PRODUCT_QUESTION_SUCCESS'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mGET_PRODUCT_QUESTION_FAIL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'GET_PRODUCT_QUESTION_FAIL'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at instantiate (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:359:12)\n    at Object.raise (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:3339:19)\n    at Object.unexpected (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:3377:16)\n    at Object.jsxParseIdentifier (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7783:12)\n    at Object.jsxParseNamespacedName (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7793:23)\n    at Object.jsxParseElementName (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7804:21)\n    at Object.jsxParseOpeningElementAt (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7903:22)\n    at Object.jsxParseElementAt (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7935:33)\n    at Object.jsxParseElement (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:8020:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "GET_PRODUCT_DETAIL_FAIL": () => (/* binding */ GET_PRODUCT_DETAIL_FAIL),
+/* harmony export */   "GET_PRODUCT_DETAIL_REQUEST": () => (/* binding */ GET_PRODUCT_DETAIL_REQUEST),
+/* harmony export */   "GET_PRODUCT_DETAIL_SUCCESS": () => (/* binding */ GET_PRODUCT_DETAIL_SUCCESS),
+/* harmony export */   "GET_PRODUCT_QUESTION_FAIL": () => (/* binding */ GET_PRODUCT_QUESTION_FAIL),
+/* harmony export */   "GET_PRODUCT_QUESTION_REQUEST": () => (/* binding */ GET_PRODUCT_QUESTION_REQUEST),
+/* harmony export */   "GET_PRODUCT_QUESTION_SUCCESS": () => (/* binding */ GET_PRODUCT_QUESTION_SUCCESS),
+/* harmony export */   "GET_PRODUCT_REVIEWS_FAIL": () => (/* binding */ GET_PRODUCT_REVIEWS_FAIL),
+/* harmony export */   "GET_PRODUCT_REVIEWS_REQUEST": () => (/* binding */ GET_PRODUCT_REVIEWS_REQUEST),
+/* harmony export */   "GET_PRODUCT_REVIEWS_SUCCESS": () => (/* binding */ GET_PRODUCT_REVIEWS_SUCCESS),
+/* harmony export */   "GET_PRODUCT_REVIEW_METADATA_FAIL": () => (/* binding */ GET_PRODUCT_REVIEW_METADATA_FAIL),
+/* harmony export */   "GET_PRODUCT_REVIEW_METADATA_REQUEST": () => (/* binding */ GET_PRODUCT_REVIEW_METADATA_REQUEST),
+/* harmony export */   "GET_PRODUCT_REVIEW_METADATA_SUCCESS": () => (/* binding */ GET_PRODUCT_REVIEW_METADATA_SUCCESS),
+/* harmony export */   "GET_PRODUCT_STYLE_FAIL": () => (/* binding */ GET_PRODUCT_STYLE_FAIL),
+/* harmony export */   "GET_PRODUCT_STYLE_REQUEST": () => (/* binding */ GET_PRODUCT_STYLE_REQUEST),
+/* harmony export */   "GET_PRODUCT_STYLE_SUCCESS": () => (/* binding */ GET_PRODUCT_STYLE_SUCCESS),
+/* harmony export */   "GET_RELATED_PRODUCTS_FAIL": () => (/* binding */ GET_RELATED_PRODUCTS_FAIL),
+/* harmony export */   "GET_RELATED_PRODUCTS_REQUEST": () => (/* binding */ GET_RELATED_PRODUCTS_REQUEST),
+/* harmony export */   "GET_RELATED_PRODUCTS_SUCCESS": () => (/* binding */ GET_RELATED_PRODUCTS_SUCCESS)
+/* harmony export */ });
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var GET_PRODUCT_DETAIL_REQUEST = 'GET_PRODUCT_DETAIL_REQUEST';
+var GET_PRODUCT_DETAIL_SUCCESS = 'GET_PRODUCT_DETAIL_SUCCESS';
+var GET_PRODUCT_DETAIL_FAIL = 'GET_PRODUCT_DETAIL_FAIL';
+var GET_PRODUCT_STYLE_REQUEST = 'GET_PRODUCT_STYLE_REQUEST';
+var GET_PRODUCT_STYLE_SUCCESS = 'GET_PRODUCT_STYLE_SUCCESS';
+var GET_PRODUCT_STYLE_FAIL = 'GET_PRODUCT_STYLE_FAIL';
+var GET_PRODUCT_REVIEW_METADATA_REQUEST = 'GET_PRODUCT_REVIEW_METADATA_REQUEST';
+var GET_PRODUCT_REVIEW_METADATA_SUCCESS = 'GET_PRODUCT_REVIEW_METADATA_SUCCESS';
+var GET_PRODUCT_REVIEW_METADATA_FAIL = 'GET_PRODUCT_REVIEW_METADATA_FAIL';
+var GET_PRODUCT_QUESTION_REQUEST = 'GET_PRODUCT_QUESTION_REQUEST';
+var GET_PRODUCT_QUESTION_SUCCESS = 'GET_PRODUCT_QUESTION_SUCCESS';
+var GET_PRODUCT_QUESTION_FAIL = 'GET_PRODUCT_QUESTION_FAIL';
+var GET_PRODUCT_REVIEWS_REQUEST = 'GET_PRODUCT_REVIEWS_REQUEST';
+var GET_PRODUCT_REVIEWS_SUCCESS = 'GET_PRODUCT_REVIEWS_SUCCESS';
+var GET_PRODUCT_REVIEWS_FAIL = 'GET_PRODUCT_REVIEWS_FAIL';
+var GET_RELATED_PRODUCTS_REQUEST = 'GET_RELATED_PRODUCTS_REQUEST';
+var GET_RELATED_PRODUCTS_SUCCESS = 'GET_RELATED_PRODUCTS_SUCCESS';
+var GET_RELATED_PRODUCTS_FAIL = 'GET_RELATED_PRODUCTS_FAIL';
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
 
 /***/ }),
 
@@ -1110,7 +1167,7 @@ function Stars(_ref) {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
       axios__WEBPACK_IMPORTED_MODULE_2___default().get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta?product_id=".concat(product_id), {
         headers: {
-          Authorization: "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"
+          Authorization: "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"
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -2254,9 +2311,9 @@ function ProductScreen() {
     dispatch((0,_actions_relatedProductsAction__WEBPACK_IMPORTED_MODULE_11__["default"])(id));
   }, [id, dispatch]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_styles_Container_styled__WEBPACK_IMPORTED_MODULE_5__.Container, {
-    children: loading === false && styleLoading === false && relatedProductsLoading === false && metaDataLoading === false && reviewsLoading === false( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
+    children: loading === false && styleLoading === false && relatedProductsLoading === false && metaDataLoading === false && reviewsLoading === false && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_detail_Detail__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_relatedProducts_RelatedProducts__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_question_Questions__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
-    }))
+    })
   });
 }
 
@@ -2607,9 +2664,416 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 /*!**************************************!*\
   !*** ./client/src/reducers/index.js ***!
   \**************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/client/src/reducers/index.js: Unexpected token (6:1)\n\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m relatedProductsReducer \u001b[36mfrom\u001b[39m \u001b[32m'./relatedProductsReducer'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mimport\u001b[39m productReviewMetaDataReducer \u001b[36mfrom\u001b[39m \u001b[32m'./productReviewMetaDataReducer'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m \u001b[36mimport\u001b[39m productQuestionReducer \u001b[36mfrom\u001b[39m \u001b[32m'./productQuestionReducer'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 8 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 9 |\u001b[39m \u001b[36mimport\u001b[39m productReviewsReducer \u001b[36mfrom\u001b[39m \u001b[32m'./productReviewsReducer'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at instantiate (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:359:12)\n    at Object.raise (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:3339:19)\n    at Object.unexpected (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:3377:16)\n    at Object.jsxParseIdentifier (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7783:12)\n    at Object.jsxParseNamespacedName (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7793:23)\n    at Object.jsxParseElementName (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7804:21)\n    at Object.jsxParseOpeningElementAt (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7903:22)\n    at Object.jsxParseElementAt (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:7935:33)\n    at Object.jsxParseElement (/Users/Juan/Desktop/HR-Immersive/Void-Front-End-Capstone/node_modules/@babel/parser/lib/index.js:8020:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _productDetailReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./productDetailReducer */ "./client/src/reducers/productDetailReducer.js");
+/* harmony import */ var _productStyleReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./productStyleReducer */ "./client/src/reducers/productStyleReducer.js");
+/* harmony import */ var _relatedProductsReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./relatedProductsReducer */ "./client/src/reducers/relatedProductsReducer.js");
+/* harmony import */ var _productReviewMetaDataReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./productReviewMetaDataReducer */ "./client/src/reducers/productReviewMetaDataReducer.js");
+/* harmony import */ var _productQuestionReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./productQuestionReducer */ "./client/src/reducers/productQuestionReducer.js");
+/* harmony import */ var _productReviewsReducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./productReviewsReducer */ "./client/src/reducers/productReviewsReducer.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_6__.combineReducers)({
+  productDetail: _productDetailReducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+  productStyle: _productStyleReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  productMetaData: _productReviewMetaDataReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  productQuestion: _productQuestionReducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  productReviews: _productReviewsReducer__WEBPACK_IMPORTED_MODULE_5__["default"],
+  relatedProducts: _relatedProductsReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+}));
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./client/src/reducers/productDetailReducer.js":
+/*!*****************************************************!*\
+  !*** ./client/src/reducers/productDetailReducer.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ productDetailReducer)
+/* harmony export */ });
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./client/src/actions/types.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+ // eslint-disable-next-line default-param-last
+
+function productDetailReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_DETAIL_REQUEST:
+      return {
+        loading: true
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_DETAIL_SUCCESS:
+      return {
+        loading: false,
+        productDetail: action.payload
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_DETAIL_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+}
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./client/src/reducers/productQuestionReducer.js":
+/*!*******************************************************!*\
+  !*** ./client/src/reducers/productQuestionReducer.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ productQuestionReducer)
+/* harmony export */ });
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./client/src/actions/types.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+
+function productQuestionReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_QUESTION_REQUEST:
+      return {
+        loading: true
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_QUESTION_SUCCESS:
+      return {
+        loading: false,
+        productQuestions: action.payload
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_QUESTION_FAIL:
+      return {
+        loading: false,
+        error: action.payload.results
+      };
+
+    default:
+      return state;
+  }
+}
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./client/src/reducers/productReviewMetaDataReducer.js":
+/*!*************************************************************!*\
+  !*** ./client/src/reducers/productReviewMetaDataReducer.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ productReviewMetaDataReducer)
+/* harmony export */ });
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./client/src/actions/types.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+
+function productReviewMetaDataReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_REVIEW_METADATA_REQUEST:
+      return {
+        loading: true
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_REVIEW_METADATA_SUCCESS:
+      return {
+        loading: false,
+        productMetaData: action.payload
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_REVIEW_METADATA_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+}
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./client/src/reducers/productReviewsReducer.js":
+/*!******************************************************!*\
+  !*** ./client/src/reducers/productReviewsReducer.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ productReviewsReducer)
+/* harmony export */ });
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./client/src/actions/types.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+
+function productReviewsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_REVIEWS_REQUEST:
+      return {
+        loading: true
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_REVIEWS_SUCCESS:
+      return {
+        loading: false,
+        productReviews: action.payload
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_REVIEWS_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+}
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./client/src/reducers/productStyleReducer.js":
+/*!****************************************************!*\
+  !*** ./client/src/reducers/productStyleReducer.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ productStyleReducer)
+/* harmony export */ });
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./client/src/actions/types.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+ // eslint-disable-next-line default-param-last
+
+function productStyleReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_STYLE_REQUEST:
+      return {
+        loading: true
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_STYLE_SUCCESS:
+      return {
+        loading: false,
+        productStyle: action.payload
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_PRODUCT_STYLE_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+}
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./client/src/reducers/relatedProductsReducer.js":
+/*!*******************************************************!*\
+  !*** ./client/src/reducers/relatedProductsReducer.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ relatedProductsReducer)
+/* harmony export */ });
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./client/src/actions/types.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+ // eslint-disable-next-line default-param-last
+
+function relatedProductsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_RELATED_PRODUCTS_REQUEST:
+      return {
+        loading: true
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_RELATED_PRODUCTS_SUCCESS:
+      return {
+        loading: false,
+        relatedProducts: action.payload
+      };
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__.GET_RELATED_PRODUCTS_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+}
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (false) {}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
 
 /***/ }),
 
@@ -32190,10 +32654,10 @@ function N(e) {
   return e && "string" == typeof e.styledComponentId;
 }
 
-var A = "undefined" != typeof process && (({"API_KEY":"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"}).REACT_APP_SC_ATTR || ({"API_KEY":"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"}).SC_ATTR) || "data-styled",
+var A = "undefined" != typeof process && (({"API_KEY":"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"}).REACT_APP_SC_ATTR || ({"API_KEY":"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"}).SC_ATTR) || "data-styled",
     C = "5.3.5",
     I = "undefined" != typeof window && "HTMLElement" in window,
-    P = Boolean("boolean" == typeof SC_DISABLE_SPEEDY ? SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).SC_DISABLE_SPEEDY : "production" !== "development"),
+    P = Boolean("boolean" == typeof SC_DISABLE_SPEEDY ? SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).SC_DISABLE_SPEEDY : "production" !== "development"),
     O = {},
     R =  true ? {
   1: "Cannot create styled-component for component: %s.\n\n",
