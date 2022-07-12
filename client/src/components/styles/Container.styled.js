@@ -6,3 +6,8 @@ export const Container = styled.div`
   padding: 0 20px;
   margin: 0 auto;
 `;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
