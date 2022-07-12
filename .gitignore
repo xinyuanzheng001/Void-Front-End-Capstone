@@ -81,7 +81,6 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 # dist
-client/dist/
 
 # Gatsby files
 .cache/
@@ -103,3 +102,4 @@ client/dist/
 
 # TernJS port file
 .tern-port
+
