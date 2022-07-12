@@ -26,7 +26,7 @@ export default function ImageGallery() {
       >
         {show.map((item, index) => (
           <img
-            src={item.thumbnail_url}
+            src={item.url}
             alt="img"
             key={index}
             style={{ width: '50px', height: '50px', margin: '5px' }}

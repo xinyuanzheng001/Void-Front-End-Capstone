@@ -4,6 +4,7 @@ import Stars from './Stars';
 import ImageGallery from './ImageGallery';
 import Category from './Category';
 import Title from './Title';
+import Style from './Style';
 
 export default function Detail() {
   const productDetail = useSelector((state) => state.productDetail);
@@ -16,6 +17,7 @@ export default function Detail() {
         <Stars />
         <Category />
         <Title />
+        <Style />
       </div>
     </div>
   );
