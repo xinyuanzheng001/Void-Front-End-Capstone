@@ -41,7 +41,7 @@ export default function ProductScreen() {
         styleLoading === false &&
         relatedProductsLoading === false &&
         metaDataLoading === false &&
-        reviewsLoading === false (
+        reviewsLoading === false && (
           <>
             <Detail />
             <RelatedProducts />

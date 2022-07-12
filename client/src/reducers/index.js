@@ -10,7 +10,7 @@ export default combineReducers({
   productDetail: productDetailReducer,
   productStyle: productStyleReducer,
   productMetaData: productReviewMetaDataReducer,
-  productQuestion: productQuestionReducer
-  productReviews: productReviewsReducer
+  productQuestion: productQuestionReducer,
+  productReviews: productReviewsReducer,
   relatedProducts: relatedProductsReducer
 });
