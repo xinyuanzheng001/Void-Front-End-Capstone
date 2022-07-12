@@ -41,7 +41,7 @@ var getProductDetail = function getProductDetail(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -123,7 +123,7 @@ var getProductStyle = function getProductStyle(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -353,6 +353,39 @@ function Rating() {
 
 /***/ }),
 
+/***/ "./client/src/components/relatedProducts/RelatedCard.jsx":
+/*!***************************************************************!*\
+  !*** ./client/src/components/relatedProducts/RelatedCard.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RelatedCard)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function RelatedCard() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/37320",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: ["Infinity Stones", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "placeholder",
+        children: "Hey, I'm a related card!"
+      })]
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./client/src/components/relatedProducts/RelatedProducts.jsx":
 /*!*******************************************************************!*\
   !*** ./client/src/components/relatedProducts/RelatedProducts.jsx ***!
@@ -366,12 +399,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _RelatedCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RelatedCard */ "./client/src/components/relatedProducts/RelatedCard.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 function RelatedProducts() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "relatedProducts"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      children: "RELATED PRODUCTS"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_RelatedCard__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 }
 
