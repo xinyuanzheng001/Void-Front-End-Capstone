@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import axios from 'axios';
 import {
   SingleStarContainer,
   SingleStarFill,
@@ -8,9 +9,27 @@ import {
 } from '../styles/Stars.styled';
 import star from '../../images/star.png';
 
-export default function Stars() {
+export default function Stars({ product_id }) {
   const productMetaData = useSelector((state) => state.productMetaData);
-  const { ratings } = productMetaData.productMetaData;
+  const [productData, setProductData] = useState({});
+  if (product_id !== undefined) {
+    useEffect(() => {
+      axios
+        .get(
+          `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta?product_id=${product_id}`,
+          {
+            headers: {
+              Authorization: process.env.API_KEY
+            }
+          }
+        )
+        .then(({ data }) => setProductData(data))
+        .catch((err) => console.log(err));
+    }, [product_id]);
+    console.log(productMetaData);
+  }
+  const { ratings } =
+    product_id === undefined ? productMetaData.productMetaData : productData;
   let rates = 0;
   let totalPeople = 0;
   for (var i in ratings) {
