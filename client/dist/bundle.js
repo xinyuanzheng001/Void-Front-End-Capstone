@@ -703,11 +703,6 @@ function App() {
     })
   });
 }
-_c = App;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "App");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -745,15 +740,11 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
 
 function Category() {
-  _s();
-
   var productDetail = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productDetail;
   });
@@ -762,16 +753,6 @@ function Category() {
     children: category
   });
 }
-
-_s(Category, "pCeqVmhpkWWOru8D4Ju4hmEq3jo=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Category;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Category");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -813,8 +794,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
@@ -825,8 +804,6 @@ var _s = __webpack_require__.$Refresh$.signature();
 
 
 function Detail() {
-  _s();
-
   var productDetail = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productDetail;
   }); // eslint-disable-next-line object-curly-newline
@@ -848,16 +825,6 @@ function Detail() {
     })]
   });
 }
-
-_s(Detail, "pCeqVmhpkWWOru8D4Ju4hmEq3jo=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Detail;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Detail");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -894,8 +861,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s2 = __webpack_require__.$Refresh$.signature();
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -913,8 +878,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function ImageGallery() {
-  _s2();
-
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       currentImage = _useState2[0],
@@ -962,16 +925,6 @@ function ImageGallery() {
   });
 }
 
-_s2(ImageGallery, "zloa89f4mRwlQQMm5lOt6ho0EMA=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = ImageGallery;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "ImageGallery");
-
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
 	$ReactRefreshModuleId$
@@ -1008,8 +961,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s2 = __webpack_require__.$Refresh$.signature();
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1028,8 +979,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Select(_ref) {
-  _s2();
-
   var sizes = _ref.sizes,
       quantity = _ref.quantity;
 
@@ -1041,7 +990,7 @@ function Select(_ref) {
   var generateArray = function generateArray(num) {
     var range = [];
 
-    for (var i = 0; i < num; i++) {
+    for (var i = 0; i < num && i < 15; i++) {
       range.push(i + 1);
     }
 
@@ -1082,14 +1031,6 @@ function Select(_ref) {
   });
 }
 
-_s2(Select, "yMBcJ1rXHsHPvrbbYGMUiUgedq4=");
-
-_c = Select;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Select");
-
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
 	$ReactRefreshModuleId$
@@ -1129,8 +1070,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s2 = __webpack_require__.$Refresh$.signature();
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1151,8 +1090,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Stars(_ref) {
-  _s2();
-
   var product_id = _ref.product_id;
   var productMetaData = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productMetaData;
@@ -1254,16 +1191,6 @@ function Stars(_ref) {
   });
 }
 
-_s2(Stars, "/2Q78TVVxltUXcN13VqOdpG6zKk=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Stars;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Stars");
-
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
 	$ReactRefreshModuleId$
@@ -1304,8 +1231,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s2 = __webpack_require__.$Refresh$.signature();
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1328,8 +1253,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Style() {
-  _s2();
-
   var productStyle = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productStyle;
   });
@@ -1397,16 +1320,6 @@ function Style() {
   });
 }
 
-_s2(Style, "Jjq53Ecz0UMGy8JmQPABRdZBLps=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Style;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Style");
-
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
 	$ReactRefreshModuleId$
@@ -1443,16 +1356,12 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
 
 
 function Title() {
-  _s();
-
   var productDetail = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productDetail;
   });
@@ -1463,16 +1372,6 @@ function Title() {
     })
   });
 }
-
-_s(Title, "pCeqVmhpkWWOru8D4Ju4hmEq3jo=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Title;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Title");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1518,11 +1417,6 @@ function AddAQuestion() {
     children: "Add A Question"
   });
 }
-_c = AddAQuestion;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "AddAQuestion");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1589,11 +1483,6 @@ function Answer() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LoadAnswers__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
-_c = Answer;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Answer");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1664,11 +1553,6 @@ function HelpfulAnswer() {
     })]
   });
 }
-_c = HelpfulAnswer;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "HelpfulAnswer");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1737,11 +1621,6 @@ function HelpfulQuestion() {
     })]
   });
 }
-_c = HelpfulQuestion;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "HelpfulQuestion");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1789,11 +1668,6 @@ function LoadAnswers() {
     })
   });
 }
-_c = LoadAnswers;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "LoadAnswers");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1839,11 +1713,6 @@ function MoreQuestions() {
     children: "More Answered Questions"
   });
 }
-_c = MoreQuestions;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "MoreQuestions");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1901,11 +1770,6 @@ function Question() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_HelpfulQuestion__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Answer__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 }
-_c = Question;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Question");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1947,8 +1811,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
@@ -1961,8 +1823,6 @@ var _s = __webpack_require__.$Refresh$.signature();
 
 
 function Questions() {
-  _s();
-
   var _useParams = (0,react_router__WEBPACK_IMPORTED_MODULE_7__.useParams)(),
       id = _useParams.id;
 
@@ -1985,16 +1845,6 @@ function Questions() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MoreQuestions__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddAQuestion__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
   });
 }
-
-_s(Questions, "WciYAOPW95z33hC9bq7wbZC5VLg=", false, function () {
-  return [react_router__WEBPACK_IMPORTED_MODULE_7__.useParams, react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Questions;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Questions");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -2031,15 +1881,11 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
 
 function Rating() {
-  _s();
-
   var productReviews = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productReviews;
   });
@@ -2049,16 +1895,6 @@ function Rating() {
     })
   });
 }
-
-_s(Rating, "pTKEy09AxXSbSHcnx6T0jRA49ME=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = Rating;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "Rating");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -2096,16 +1932,12 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
 
 
 function RelatedCard() {
-  _s();
-
   var productStyle = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productStyle;
   });
@@ -2144,16 +1976,6 @@ function RelatedCard() {
     })
   });
 }
-
-_s(RelatedCard, "Mq43EK2iUaP4BVdTKSdxEOCWpY0=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = RelatedCard;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "RelatedCard");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -2201,11 +2023,6 @@ function RelatedProducts() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_RelatedCard__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 }
-_c = RelatedProducts;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "RelatedProducts");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -2255,8 +2072,6 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 
-var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 
@@ -2275,8 +2090,6 @@ var _s = __webpack_require__.$Refresh$.signature();
 
 
 function ProductScreen() {
-  _s();
-
   // 37311 - First product ID in the API
   var _useParams = (0,react_router__WEBPACK_IMPORTED_MODULE_14__.useParams)(),
       id = _useParams.id;
@@ -2316,16 +2129,6 @@ function ProductScreen() {
     })
   });
 }
-
-_s(ProductScreen, "ntAMSzojeYGe2jgImfMFYWK1rWI=", false, function () {
-  return [react_router__WEBPACK_IMPORTED_MODULE_14__.useParams, react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
-});
-
-_c = ProductScreen;
-
-var _c;
-
-__webpack_require__.$Refresh$.register(_c, "ProductScreen");
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
