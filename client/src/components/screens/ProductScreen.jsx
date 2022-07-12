@@ -9,6 +9,7 @@ import RelatedProducts from '../relatedProducts/RelatedProducts';
 import getProductDetail from '../../actions/productDetailAction';
 import getProductStyle from '../../actions/productStyleAction';
 import getProductMetaData from '../../actions/productMetaDataAction';
+import getProductReviews from '../../actions/productReviewsAction';
 import axios from 'axios';
 
 export default function ProductScreen() {
@@ -19,13 +20,16 @@ export default function ProductScreen() {
   const productDetail = useSelector((state) => state.productDetail);
   const productStyle = useSelector((state) => state.productStyle);
   const productMetaData = useSelector((state) => state.productMetaData);
+  const productReviews = useSelector((state) => state.productReviews);
   const { loading } = productDetail;
   const { loading: styleLoading } = productStyle;
   const { loading: metaDataLoading } = productMetaData;
+  const { loading: reviewsLoading } = productReviews;
   useEffect(() => {
     dispatch(getProductDetail(id));
     dispatch(getProductStyle(id));
     dispatch(getProductMetaData(id));
+    dispatch(getProductReviews(id));
   }, [id, dispatch]);
   return (
     <Container>
