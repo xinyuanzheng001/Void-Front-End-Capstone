@@ -28,7 +28,6 @@ export default function Questions() {
       <div>
         <Question />
         <Question />
-       {/* {QuestionsList} */}
       </div>
       <MoreQuestions />
       <AddAQuestion />
