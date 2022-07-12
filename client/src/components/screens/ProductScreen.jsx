@@ -4,9 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import Detail from '../detail/Detail';
 import Questions from '../question/Questions';
 import Rating from '../rating/Rating';
+import { Container } from '../styles/Container.styled';
 import RelatedProducts from '../relatedProducts/RelatedProducts';
 import getProductDetail from '../../actions/productDetailAction';
 import getProductStyle from '../../actions/productStyleAction';
+import getProductMetaData from '../../actions/productMetaDataAction';
+import getRelatedProducts from '../../actions/relatedProductsAction';
+import axios from 'axios';
 
 export default function ProductScreen() {
   // 37311 - First product ID in the API
@@ -15,23 +19,31 @@ export default function ProductScreen() {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   const productStyle = useSelector((state) => state.productStyle);
+  const productMetaData = useSelector((state) => state.productMetaData);
+  const relatedProducts = useSelector((state) => state.relatedProducts);
   const { loading } = productDetail;
+  const { loading: styleLoading } = productStyle;
+  const { loading: metaDataLoading } = productMetaData;
+  const { loading: relatedProductsLoading } = relatedProducts;
   useEffect(() => {
     dispatch(getProductDetail(id));
     dispatch(getProductStyle(id));
+    dispatch(getProductMetaData(id));
+    dispatch(getRelatedProducts(id));
   }, [id, dispatch]);
-  console.log(loading);
-  console.log(productStyle);
   return (
-    <div>
-      {loading === false && (
-        <>
-          <Detail />
-          <Questions />
-          <Rating />
-          <RelatedProducts />
-        </>
-      )}
-    </div>
+    <Container>
+      {loading === false &&
+        styleLoading === false &&
+        relatedProductsLoading === false &&
+        metaDataLoading === false && (
+          <>
+            <Detail />
+            <RelatedProducts />
+            <Questions />
+            <Rating />
+          </>
+        )}
+    </Container>
   );
 }
