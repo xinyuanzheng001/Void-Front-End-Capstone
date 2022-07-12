@@ -9,6 +9,6 @@ export default combineReducers({
   productDetail: productDetailReducer,
   productStyle: productStyleReducer,
   productMetaData: productReviewMetaDataReducer,
-  productReviews: productReviewsReducer
+  productReviews: productReviewsReducer,
   relatedProducts: relatedProductsReducer
 });

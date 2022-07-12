@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Stars from
+import { useSelector } from 'react-redux';
 import RelatedCard from './RelatedCard';
 
 export default function RelatedProducts() {
@@ -10,3 +12,5 @@ export default function RelatedProducts() {
     </div>
   );
 }
+
+//
