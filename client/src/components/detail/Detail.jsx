@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Stars from './Stars';
 import ImageGallery from './ImageGallery';
@@ -7,17 +7,21 @@ import Title from './Title';
 import Style from './Style';
 
 export default function Detail() {
-  const productDetail = useSelector((state) => state.productDetail);
+  const productStyle = useSelector((state) => state.productStyle);
+  const { results } = productStyle.productStyle;
+  const [style, setStyle] = useState(results[0].photos);
   // eslint-disable-next-line object-curly-newline
-  const { name, slogan, description, category } = productDetail.productDetail;
+  const changeStyleHandler = (selectedStyle) => {
+    setStyle(selectedStyle);
+  };
   return (
     <div style={{ display: 'flex' }}>
-      <ImageGallery />
-      <div style={{ marginLeft: '20px' }}>
+      <ImageGallery style={style} />
+      <div style={{ marginLeft: '20px', width: '500px' }}>
         <Stars />
         <Category />
         <Title />
-        <Style />
+        <Style changeStyleHandler={changeStyleHandler} />
       </div>
     </div>
   );
