@@ -3,7 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+// const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -38,7 +38,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, '/client/dist'),
     open: true,
     compress: true,
     hot: false,
@@ -49,8 +48,7 @@ module.exports = {
       'process.env': {
         API_KEY: JSON.stringify(process.env.API_KEY)
       }
-    }),
-    new ReactRefreshPlugin()
+    })
   ]
   // devServer: {
   //   index: "",
