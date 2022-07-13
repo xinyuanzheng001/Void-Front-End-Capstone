@@ -5,6 +5,8 @@ import relatedProductsReducer from './relatedProductsReducer';
 import productReviewMetaDataReducer from './productReviewMetaDataReducer';
 import productQuestionReducer from './productQuestionReducer';
 import productReviewsReducer from './productReviewsReducer';
+import relatedDetailsReducer from './relatedDetailsReducer';
+import relatedStyleReducer from './relatedStyleReducer';
 
 export default combineReducers({
   productDetail: productDetailReducer,
@@ -12,5 +14,6 @@ export default combineReducers({
   productMetaData: productReviewMetaDataReducer,
   productQuestion: productQuestionReducer,
   productReviews: productReviewsReducer,
-  relatedProducts: relatedProductsReducer
+  relatedProducts: relatedProductsReducer,
+  relatedDetails: relatedDetailsReducer
 });
