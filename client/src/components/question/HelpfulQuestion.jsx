@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HelpfulQuestion() {
+export default function HelpfulQuestion(props) {
   return (
     <div style={{ display: 'inline' }}>
       <span style={{ margin: '10px' }}>
