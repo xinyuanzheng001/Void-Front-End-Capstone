@@ -32,7 +32,7 @@ export default function Stars({ product_id }) {
     product_id === undefined ? productMetaData.productMetaData : productData;
   let rates = 0;
   let totalPeople = 0;
-  for (var i in ratings) {
+  for (let i in ratings) {
     rates += Number(ratings[i]) * Number(i);
     totalPeople += Number(ratings[i]);
   }

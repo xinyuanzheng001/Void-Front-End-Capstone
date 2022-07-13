@@ -80,7 +80,7 @@ export default function ImageGallery({ style }) {
             src={item.url}
             alt="img"
             key={index}
-            onClick={(e) => onClickHandler(e.target.src, index)}
+            onClick={(e) => onClickHandler(e.target.src)}
             style={{ border: currentImage === item.url ? '2px red solid' : '' }}
           />
         ))}

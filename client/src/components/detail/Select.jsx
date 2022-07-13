@@ -6,7 +6,7 @@ export default function Select({ sizes, quantity }) {
   const [selected, setSelected] = useState('');
   const generateArray = (num) => {
     const range = [];
-    for (var i = 0; i < num && i < 15; i++) {
+    for (let i = 0; i < num && i < 15; i++) {
       range.push(i + 1);
     }
     return range;
