@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-export default function Rating() {
+export default function ReviewTiles() {
   const { productReviews } = useSelector((state) => state.productReviews);
 
   return (
