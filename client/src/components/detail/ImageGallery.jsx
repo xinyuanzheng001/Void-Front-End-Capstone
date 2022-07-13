@@ -6,13 +6,11 @@ export default function ImageGallery() {
   const productStyle = useSelector((state) => state.productStyle);
   const { results } = productStyle.productStyle;
   const show = results[2].photos;
-  show.map((item) => console.log('url----', item.url));
-  console.log(results);
   return (
     <div
       style={{
         height: '60vh',
-        width: '70%',
+        minWidth: '800px',
         border: '1px red solid',
         display: 'flex'
       }}
