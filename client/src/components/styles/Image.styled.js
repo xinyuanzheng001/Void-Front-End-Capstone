@@ -40,6 +40,7 @@ export const FillImage = styled.img`
 `;
 
 export const FillImageContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
 `;
@@ -60,7 +61,7 @@ export const FSiconUpDownArrow = styled.i`
 `;
 
 export const FSiconLeftRightArrow = styled.i`
-  margin: auto 10px;
+  margin: auto 0;
   font-size: 20px;
   &: hover {
     cursor: pointer;

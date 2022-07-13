@@ -21,6 +21,8 @@ export default function ImageGallery({ style }) {
     } else {
       setDisplayList(style.slice());
     }
+    setFirstImageIndex(0);
+    setCurrentImageIndex(0);
   }, [style]);
   const onClickHandler = (src) => {
     setCurrentImage(src);
@@ -98,6 +100,7 @@ export default function ImageGallery({ style }) {
           <FSiconLeftRightArrow
             className="fa-solid fa-angle-left"
             onClick={prevDisplayImage}
+            style={{ marginLeft: '25px' }}
           />
         )}
         <FillImage src={currentImage} />
@@ -105,6 +108,7 @@ export default function ImageGallery({ style }) {
           <FSiconLeftRightArrow
             className="fa-solid fa-angle-right"
             onClick={nextDisplayImage}
+            style={{ marginRight: '25px' }}
           />
         )}
       </FillImageContainer>

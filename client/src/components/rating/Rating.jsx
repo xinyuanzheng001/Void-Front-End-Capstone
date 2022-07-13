@@ -17,20 +17,9 @@ export default function Rating() {
   return (
     <>
       <h3>RATINGS & REVIEWS</h3>
-<<<<<<< HEAD
-      {productReviews.productReviews.results.map((review, index) => {
-        return (
-          <div key={index}>
-            {' '}
-            Summary: {review.summary} Rating: {review.rating}{' '}
-          </div>
-        );
-      })}
-=======
       <RatingBreakdown />
       <ProductBreakdown />
       <ReviewTiles />
->>>>>>> 4fa672789106fd47accc7ae936eed5153dcdd444
     </>
   );
 }
