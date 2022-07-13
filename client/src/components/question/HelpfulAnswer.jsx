@@ -6,7 +6,7 @@ export default function HelpfulAnswer(props) {
       <span style={{ margin: '10px' }}>
         Helpful?
         <u style={{ margin: '5px' }}>Yes</u>
-        <span>(#OfYeses)</span>
+        <span>({props.helpfulness})</span>
       </span>
       <span style={{ margin: '10px' }}>|</span>
       <u style={{ margin: '5px' }}>Report</u>
