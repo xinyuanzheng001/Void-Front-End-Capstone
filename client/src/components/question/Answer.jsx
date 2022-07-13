@@ -1,6 +1,5 @@
 import React from 'react';
 import HelpfulAnswer from './HelpfulAnswer';
-import LoadAnswers from './LoadAnswers';
 
 export default function Answer(props) {
   return (
@@ -14,7 +13,6 @@ export default function Answer(props) {
         <span style={{margin:'5px'}}>{props.answer.date}</span>
         <HelpfulAnswer helpfulness={props.answer.helpfulness}/>
       </span>
-      <LoadAnswers />
     </div>
   );
 }
