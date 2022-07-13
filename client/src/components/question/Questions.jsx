@@ -21,7 +21,7 @@ export default function Questions() {
   let QuestionsList
   if (productQuestions.productQuestions) {
     QuestionsList = productQuestions.productQuestions.results.map((question) => {
-      return <Question key={Math.random()} question={question}/>
+      return <Question key={question.question_id} question={question}/>
     })
   }
 
