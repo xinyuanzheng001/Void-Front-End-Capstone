@@ -44,7 +44,7 @@ var getProductDetail = function getProductDetail(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -144,7 +144,7 @@ var getProductMetaData = function getProductMetaData(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -244,7 +244,7 @@ var getProductQuestion = function getProductQuestion(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -344,7 +344,7 @@ var getProductReviews = function getProductReviews(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -444,7 +444,7 @@ var getProductStyle = function getProductStyle(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -544,7 +544,7 @@ var getRelatedProducts = function getRelatedProducts(id) {
               });
               config = {
                 headers: {
-                  Authorization: "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"
+                  Authorization: "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"
                 }
               };
               _context.next = 5;
@@ -1167,7 +1167,7 @@ function Stars(_ref) {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
       axios__WEBPACK_IMPORTED_MODULE_2___default().get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta?product_id=".concat(product_id), {
         headers: {
-          Authorization: "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"
+          Authorization: "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"
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -2037,21 +2037,45 @@ var _s = __webpack_require__.$Refresh$.signature();
 
 
 
+
 function Rating() {
   _s();
 
   var productReviews = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.productReviews;
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+  var productMetaData = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.productMetaData;
+  });
+  var ratings = Object.values(productMetaData.productMetaData.ratings);
+
+  var avgRatingFinder = function avgRatingFinder(array) {
+    var result = 0;
+    var reviews = 0;
+
+    for (var i = 0; i < array.length; i++) {
+      result += Number(array[i]) * (i + 1);
+      reviews += Number(array[i]);
+    }
+
+    return result / reviews;
+  };
+
+  var avgRating = avgRatingFinder(ratings);
+  console.log(avgRating);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
       children: "RATINGS & REVIEWS"
-    })
+    }), productReviews.productReviews.results.map(function (review) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [' ', "Summary: ", review.summary, " Rating: ", review.rating, ' ']
+      });
+    })]
   });
 }
 
-_s(Rating, "pTKEy09AxXSbSHcnx6T0jRA49ME=", false, function () {
-  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
+_s(Rating, "SNZiO6FqvffUZ8Z+jHELiVYhaOQ=", false, function () {
+  return [react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector, react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector];
 });
 
 _c = Rating;
@@ -32654,10 +32678,10 @@ function N(e) {
   return e && "string" == typeof e.styledComponentId;
 }
 
-var A = "undefined" != typeof process && (({"API_KEY":"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"}).REACT_APP_SC_ATTR || ({"API_KEY":"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"}).SC_ATTR) || "data-styled",
+var A = "undefined" != typeof process && (({"API_KEY":"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"}).REACT_APP_SC_ATTR || ({"API_KEY":"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"}).SC_ATTR) || "data-styled",
     C = "5.3.5",
     I = "undefined" != typeof window && "HTMLElement" in window,
-    P = Boolean("boolean" == typeof SC_DISABLE_SPEEDY ? SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).SC_DISABLE_SPEEDY : "production" !== "development"),
+    P = Boolean("boolean" == typeof SC_DISABLE_SPEEDY ? SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).REACT_APP_SC_DISABLE_SPEEDY : "undefined" != typeof process && void 0 !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && "" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY ? "false" !== ({"API_KEY":"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"}).SC_DISABLE_SPEEDY && ({"API_KEY":"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"}).SC_DISABLE_SPEEDY : "production" !== "development"),
     O = {},
     R =  true ? {
   1: "Cannot create styled-component for component: %s.\n\n",
