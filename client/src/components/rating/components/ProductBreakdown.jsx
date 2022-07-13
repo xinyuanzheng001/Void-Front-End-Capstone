@@ -20,10 +20,11 @@ export default function ProductBreakdown() {
   return (
     <>
       {charartisticList.map((char) => {
+        let percentFill = (Number(characteristics[char].value) / 5 * 100);
         return (
           <div key={characteristics[char].id}>
             <p> {char}</p>
-            <p>{characteristics[char].value}</p>
+            <p>{percentFill}</p>
             <p>
               {labels[char][0]} {labels[char][1]}
             </p>
