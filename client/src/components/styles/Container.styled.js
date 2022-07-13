@@ -10,4 +10,6 @@ export const Container = styled.div`
 export const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
+  margin-top: 16px;
 `;

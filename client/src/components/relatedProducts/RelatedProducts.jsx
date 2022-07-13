@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Stars from
+import Stars from '../detail/Stars';
 import { useSelector } from 'react-redux';
 import RelatedCard from './RelatedCard';
 
