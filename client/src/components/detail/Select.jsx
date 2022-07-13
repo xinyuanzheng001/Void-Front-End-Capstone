@@ -23,14 +23,14 @@ export default function Select({ sizes, quantity }) {
       <SelectSize name="size" onChange={onChangeHandler}>
         <option>SELECT SIZE</option>
         {sizes.map((size, index) => (
-          <option value={size} key={index}>
+          <option value={size} key={index} data-testid="size-options">
             {size}
           </option>
         ))}
       </SelectSize>
       <SelectQuantity name="quantity">
         {selectedQuantity.map((q, index) => (
-          <option value={q} key={index}>
+          <option value={q} key={index} data-testid="qty-options">
             {q}
           </option>
         ))}
