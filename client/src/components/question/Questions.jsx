@@ -12,25 +12,28 @@ export default function Questions() {
   let { id } = useParams();
   id = id >= 37311 ? id : 37311;
   const dispatch = useDispatch();
-  const productQuestions = useSelector((state) => state.productQuestions);
+  const productQuestions = useSelector((state) => state.productQuestion);
 
   useEffect(() => {
     dispatch(getProductQuestion(id));
   }, [id, dispatch]);
 
-  // let QuestionsList = productQuestions.map((question) => {
-  //   return <Question key={Math.random()} question={question}/>
-  // })
+  let QuestionsList
+  if (productQuestions.productQuestions) {
+    QuestionsList = productQuestions.productQuestions.results.map((question) => {
+      return <Question key={Math.random()} question={question}/>
+    })
+  }
 
   return (
     <div>
       <h2>Questions & Answers</h2>
       <div>
-        <Question />
-        <Question />
+        {QuestionsList}
       </div>
       <MoreQuestions />
       <AddAQuestion />
     </div>
   );
 }
+

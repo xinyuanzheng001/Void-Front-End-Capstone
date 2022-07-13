@@ -105,4 +105,4 @@ typings/
 
 client/dist
 
-!client/dist/index.html
+# !client/dist/index.html
