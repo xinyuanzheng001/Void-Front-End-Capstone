@@ -12,10 +12,15 @@ export default function RatingBreakdown() {
   const { productMetaData } = useSelector((state) => state.productMetaData);
   const percent = percentRec(productMetaData.recommended);
 
+  let percentMessage;
+  if (percent && percent >= 0) {
+    percentMessage = <p>{percent}% of reviews recommend this product</p>;
+  }
+
   return (
     <>
       {averageNumber(productMetaData.ratings)} <Stars />
-      <p>{percent}% of reviews recommend this product</p>
+      {percentMessage}
     </>
   );
 }
