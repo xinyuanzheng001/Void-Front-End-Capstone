@@ -10,7 +10,7 @@ export default function Rating() {
       <h3>RATINGS & REVIEWS</h3>
       {productReviews.productReviews.results.map((review) => {
         return (
-          <div>
+          <div key={review.review_id}>
             {' '}
             Summary: {review.summary} Rating: {review.rating}{' '}
           </div>
