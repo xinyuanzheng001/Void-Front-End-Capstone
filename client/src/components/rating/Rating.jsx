@@ -8,9 +8,9 @@ export default function Rating() {
   return (
     <>
       <h3>RATINGS & REVIEWS</h3>
-      {productReviews.productReviews.results.map((review) => {
+      {productReviews.productReviews.results.map((review, index) => {
         return (
-          <div>
+          <div key={index}>
             {' '}
             Summary: {review.summary} Rating: {review.rating}{' '}
           </div>
