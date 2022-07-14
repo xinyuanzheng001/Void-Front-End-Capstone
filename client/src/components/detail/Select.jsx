@@ -62,7 +62,7 @@ export default function Select({ sizes, quantity, style }) {
   };
 
   const addItemHandler = () => {
-    setFav(true);
+    // setFav(true);
     const item = {
       product_id: id,
       product_name: name,
