@@ -21,6 +21,8 @@ export default function ImageGallery({ style }) {
     } else {
       setDisplayList(style.slice());
     }
+    setFirstImageIndex(0);
+    setCurrentImageIndex(0);
   }, [style]);
   const onClickHandler = (src) => {
     setCurrentImage(src);
@@ -73,6 +75,7 @@ export default function ImageGallery({ style }) {
           <FSiconUpDownArrow
             className="fa-solid fa-angle-up"
             onClick={prevDisplayList}
+            // style={{ marginBottom: '25px' }}
           ></FSiconUpDownArrow>
         )}
         {displayList.map((item, index) => (
@@ -81,7 +84,9 @@ export default function ImageGallery({ style }) {
             alt="img"
             key={index}
             onClick={(e) => onClickHandler(e.target.src)}
-            style={{ border: currentImage === item.url ? '2px red solid' : '' }}
+            style={{
+              border: currentImage === item.url ? '2px red solid' : ''
+            }}
           />
         ))}
         {displayList.length !== 0 &&
@@ -90,6 +95,7 @@ export default function ImageGallery({ style }) {
             <FSiconUpDownArrow
               className="fa-solid fa-angle-down"
               onClick={nextDisplayList}
+              // style={{ marginTop: '25px' }}
             ></FSiconUpDownArrow>
           )}
       </SquareImageContainer>
@@ -98,6 +104,7 @@ export default function ImageGallery({ style }) {
           <FSiconLeftRightArrow
             className="fa-solid fa-angle-left"
             onClick={prevDisplayImage}
+            style={{ marginLeft: '25px' }}
           />
         )}
         <FillImage src={currentImage} />
@@ -105,6 +112,7 @@ export default function ImageGallery({ style }) {
           <FSiconLeftRightArrow
             className="fa-solid fa-angle-right"
             onClick={nextDisplayImage}
+            style={{ marginRight: '25px' }}
           />
         )}
       </FillImageContainer>
