@@ -15,5 +15,6 @@ export default combineReducers({
   productQuestion: productQuestionReducer,
   productReviews: productReviewsReducer,
   relatedProducts: relatedProductsReducer,
-  relatedDetails: relatedDetailsReducer
+  relatedDetails: relatedDetailsReducer,
+  relatedStyle: relatedStyleReducer,
 });

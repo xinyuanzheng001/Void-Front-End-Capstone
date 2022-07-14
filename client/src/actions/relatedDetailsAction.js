@@ -3,14 +3,14 @@ import {
   GET_RELATED_DETAILS_SUCCESS,
   GET_RELATED_DETAILS_FAIL,
   GET_RELATED_DETAILS_REQUEST
-} from './types'
+} from './types';
 
 const getRelatedDetails = (relatedIds) => async (dispatch) => {
   try {
     dispatch({
       type: GET_RELATED_DETAILS_REQUEST
     });
-    var relatedStore = [];
+    const relatedStore = [];
     const config = {
       headers: {
         Authorization: process.env.API_KEY
@@ -22,15 +22,13 @@ const getRelatedDetails = (relatedIds) => async (dispatch) => {
         config
       );
 
-        relatedStore.push(data);
-
+      relatedStore.push(data);
     }
 
     dispatch({
       type: GET_RELATED_DETAILS_SUCCESS,
       payload: relatedStore
     });
-
   } catch (error) {
     dispatch({
       type: GET_RELATED_DETAILS_FAIL,

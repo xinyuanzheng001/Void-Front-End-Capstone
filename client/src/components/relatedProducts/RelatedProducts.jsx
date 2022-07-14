@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 //import Stars from
 import { useSelector, useDispatch } from 'react-redux';
-=======
-// import Stars from
-import { useSelector } from 'react-redux';
->>>>>>> 697e11f28fcbdd08311c4d8e105cb26d03b2551a
 import RelatedCard from './RelatedCard';
 import getRelatedDetails from '../../actions/relatedDetailsAction';
+import getRelatedStyle from '../../actions/relatedStyleAction';
 
 
 export default function RelatedProducts() {
@@ -30,7 +26,7 @@ export default function RelatedProducts() {
   return (
     <div>
       <h3>RELATED PRODUCTS</h3>
-    <div style ={{display: "flex", justifyContent:"space-around", width: "1000px"}}>
+    <div style ={{display: "flex", justifyContent:"space-around"}}>
       {cards}
       {/* Map the related cards based on info from the store */}
     </div>
