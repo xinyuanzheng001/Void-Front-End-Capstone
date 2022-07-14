@@ -1,5 +1,4 @@
 const averageNumber = (obj) => {
-  let values = Object.values(obj);
   let result = 0;
   let reviews = 0;
 

@@ -16,20 +16,21 @@ export default function ProductBreakdown() {
     Fit: ['Runs tight', 'Runs loose']
   };
 
-
   return (
     <>
       {charartisticList.map((char) => {
-        let percentFill = (Number(characteristics[char].value) / 5 * 100);
-        return (
-          <div key={characteristics[char].id}>
-            <p> {char}</p>
-            <p>{percentFill}</p>
-            <p>
-              {labels[char][0]} {labels[char][1]}
-            </p>
-          </div>
-        );
+        let percentFill = (Number(characteristics[char].value) / 5) * 100;
+        if (characteristics[char].value) {
+          return (
+            <div key={characteristics[char].id}>
+              <p> {char}</p>
+              <p>{percentFill}</p>
+              <p>
+                {labels[char][0]} {labels[char][1]}
+              </p>
+            </div>
+          );
+        }
       })}
     </>
   );
