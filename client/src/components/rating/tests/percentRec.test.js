@@ -10,10 +10,11 @@ const percentToInt = {
   true: '400'
 };
 
-test('Returns null when there are no reviews', () => {
-  expect(percentRec(noReviews)).toBe(null);
+test('Returns 0 when there are no reviews', () => {
+  expect(percentRec(noReviews)).toBe(0);
 });
 
 test('Should round percentage to nearest whole number', () => {
   expect(percentRec(percentToInt)).toBe(92);
 });
+nm

@@ -13,9 +13,9 @@ const oneDecimal = {
 };
 
 test('Returns average rating of 1', () => {
-  expect(averageNumber(oneRating)).toBe(3);
+  expect(averageNumber(oneRating)).toBe('3.0');
 });
 
 test('Should round average to 1 decimal place', () => {
-  expect(averageNumber(oneDecimal)).toBe(3.9);
+  expect(averageNumber(oneDecimal)).toBe('3.9');
 });
