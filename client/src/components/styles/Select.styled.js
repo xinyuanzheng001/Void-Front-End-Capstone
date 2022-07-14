@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const SelectSize = styled.select`
-  height: 50px;
-  width: 60%;
+  height: 60px;
+  width: 65%;
   padding: 15px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   color: grey;
   border: grey 1.5px solid;
@@ -12,13 +12,37 @@ export const SelectSize = styled.select`
 `;
 
 export const SelectQuantity = styled.select`
-  height: 50px;
-  width: 30%;
+  height: 60px;
+  width: 25%;
   padding: 15px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   color: grey;
   border: grey 1.5px solid;
   margin-top: 15px;
-  margin-left: 15px;
+  margin-left: auto;
+`;
+
+export const AddItem = styled.div`
+  height: 60px;
+  width: 80%;
+  font-size: 20px;
+  font-weight: bold;
+  color: grey;
+  border: grey 1.5px solid;
+  margin-top: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const FavIcon = styled.div`
+  height: 60px;
+  width: 15%;
+  border: grey 1.5px solid;
+  margin-top: 15px;
+  margin-left: auto;
+  &:hover {
+    cursor: pointer;
+  }
 `;

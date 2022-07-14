@@ -75,6 +75,7 @@ export default function ImageGallery({ style }) {
           <FSiconUpDownArrow
             className="fa-solid fa-angle-up"
             onClick={prevDisplayList}
+            // style={{ marginBottom: '25px' }}
           ></FSiconUpDownArrow>
         )}
         {displayList.map((item, index) => (
@@ -83,7 +84,9 @@ export default function ImageGallery({ style }) {
             alt="img"
             key={index}
             onClick={(e) => onClickHandler(e.target.src)}
-            style={{ border: currentImage === item.url ? '2px red solid' : '' }}
+            style={{
+              border: currentImage === item.url ? '2px red solid' : ''
+            }}
           />
         ))}
         {displayList.length !== 0 &&
@@ -92,6 +95,7 @@ export default function ImageGallery({ style }) {
             <FSiconUpDownArrow
               className="fa-solid fa-angle-down"
               onClick={nextDisplayList}
+              // style={{ marginTop: '25px' }}
             ></FSiconUpDownArrow>
           )}
       </SquareImageContainer>

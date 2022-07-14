@@ -36,10 +36,12 @@ export default function Style({ changeStyleHandler }) {
         quantity.push(results[index].skus[key].quantity);
       }
     }
-    console.log(results[index].name);
+    console.log(results[index]);
+    console.log(results[index].style_id);
     console.log('sizes: ', sizes);
     console.log('qty: ', quantity);
   };
+
   return (
     <div>
       {results[selectedStyle].sale_price === null ? (
@@ -77,7 +79,11 @@ export default function Style({ changeStyleHandler }) {
           </div>
         ))}
       </FlexImageContainer>
-      <Select sizes={sizes} quantity={quantity} />
+      <Select
+        sizes={sizes}
+        quantity={quantity}
+        style={results[selectedStyle]}
+      />
     </div>
   );
 }
