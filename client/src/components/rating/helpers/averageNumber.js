@@ -9,7 +9,7 @@ const averageNumber = (obj) => {
   }
 
   if (reviews === 0) {
-    return 0;
+    return '0.0';
   } else {
     let average = result / reviews;
     let rounded = Math.round(average * 10) / 10;
