@@ -9,7 +9,12 @@ export default function HelpfulQuestion(props) {
         <span>({props.helpfulness})</span>
       </span>
       <span style={{ margin: '10px' }}>|</span>
-      <u style={{ margin: '10px' }}>Add Answer</u>
+      <u
+        onClick={() => props.setAnswerForm(!props.showAnswerForm)}
+        style={{ margin: '10px' }}
+      >
+        Add Answer
+      </u>
     </div>
   );
 }

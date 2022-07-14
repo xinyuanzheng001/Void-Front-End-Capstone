@@ -3,7 +3,7 @@ const percentRec = (obj) => {
   let total = rec + Number(obj.false) || 0;
 
   if (total === 0) {
-    return null;
+    return 0;
   } else {
     let percent = (rec / total) * 100
     return Math.round(percent);

@@ -13,8 +13,7 @@ const averageNumber = (obj) => {
   } else {
     let average = result / reviews;
     let rounded = Math.round(average * 10) / 10;
-    parseFloat(rounded.toFixed(1));
-    return rounded;
+    return rounded.toFixed(1).padEnd(3, '.0');
   }
 };
 
