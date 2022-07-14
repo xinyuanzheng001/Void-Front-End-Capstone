@@ -4,7 +4,7 @@ import {
   ADD_ITEM_TO_CART_FAIL
 } from './types';
 
-const addItemToCart = (item) => (dispatch) => {
+const addItemToCart = (item) => (dispatch, getState) => {
   dispatch({
     type: ADD_ITEM_TO_CART_SUCCESS,
     payload: {
@@ -18,6 +18,7 @@ const addItemToCart = (item) => (dispatch) => {
       favorite: item.favorite
     }
   });
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
 
 export default addItemToCart;

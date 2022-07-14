@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { FlexContainer } from '../styles/Container.styled';
 import { FlexImageContainer, CircleImage } from '../styles/Image.styled';
 import { LineThroughPrice, DiscountPrice } from '../styles/Price.styled';
@@ -8,7 +9,9 @@ import './style.css';
 
 export default function Style({ changeStyleHandler }) {
   const productStyle = useSelector((state) => state.productStyle);
+  const { id } = useParams();
   const { results } = productStyle.productStyle;
+
   const [selectedStyle, setSelectedStyle] = useState(0);
 
   const allKeys = Object.keys(results);
@@ -26,7 +29,6 @@ export default function Style({ changeStyleHandler }) {
       quantity.push(skus[key].quantity);
     }
   }
-
   const onChangeHandler = (index) => {
     setSelectedStyle(index);
     changeStyleHandler(results[index].photos);
@@ -36,10 +38,6 @@ export default function Style({ changeStyleHandler }) {
         quantity.push(results[index].skus[key].quantity);
       }
     }
-    console.log(results[index]);
-    console.log(results[index].style_id);
-    console.log('sizes: ', sizes);
-    console.log('qty: ', quantity);
   };
 
   return (
