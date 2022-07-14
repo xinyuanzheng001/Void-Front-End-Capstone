@@ -1,5 +1,6 @@
 import React from 'react';
 import HelpfulAnswer from './HelpfulAnswer';
+import moment from 'moment';
 
 export default function Answer(props) {
   return (
@@ -10,7 +11,7 @@ export default function Answer(props) {
       </div>
       <span>
         by {props.answer.answerer_name}
-        <span style={{margin:'5px'}}>{props.answer.date}</span>
+        <span style={{margin:'5px'}}>{moment(`${props.answer.date}`).format("LL")}</span>
         <HelpfulAnswer helpfulness={props.answer.helpfulness}/>
       </span>
     </div>

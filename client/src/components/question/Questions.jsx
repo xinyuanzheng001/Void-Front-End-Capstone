@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import Question from './Question';
 import MoreQuestions from './MoreQuestions';
-import AddAQuestion from './AddAQuestion';
 import { useParams } from 'react-router';
 import getProductQuestion from '../../actions/productQuestionAction';
 import AddAnswerForm from './AddAnswerForm';
@@ -15,6 +15,7 @@ export default function Questions() {
   id = id >= 37311 ? id : 37311;
   const dispatch = useDispatch();
   const productQuestions = useSelector((state) => state.productQuestion);
+  const [showQuestionForm, setQuestionForm] = useState(false);
 
   useEffect(() => {
     dispatch(getProductQuestion(id));
@@ -22,6 +23,11 @@ export default function Questions() {
 
   let QuestionsList;
   let showLoadQuestions;
+  let questionForm;
+
+  if (showQuestionForm) {
+    questionForm = <AddQuestionForm />;
+  }
 
   if (productQuestions.productQuestions) {
     showLoadQuestions =
@@ -43,9 +49,13 @@ export default function Questions() {
       <h2>Questions & Answers</h2>
       <div>{QuestionsList}</div>
       {showLoadQuestions}
-      <AddAQuestion />
-      <AddAnswerForm />
-      <AddQuestionForm />
+      <button
+        style={{ margin: '10px' }}
+        onClick={() => setQuestionForm(!showQuestionForm)}
+      >
+        Add A Question
+      </button>
+      {questionForm}
     </div>
   );
 }
