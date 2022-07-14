@@ -46,9 +46,11 @@ export default function Select({ sizes, quantity, style }) {
   //   console.log(defaultSize);
   //   console.log(defaultQty);
   // }, [style.style_id]);
-  const currentProduct = localCarts.filter(
-    (item) => item.product_id === id && item.style_id === style.style_id
-  );
+  const currentProduct = localCarts
+    ? localCarts.filter(
+        (item) => item.product_id === id && item.style_id === style.style_id
+      )
+    : [];
   const defaultQty =
     currentProduct.length >= 1 ? currentProduct[0].selected_qty : 0;
   const defaultSize =
