@@ -13,3 +13,10 @@ export const FlexContainer = styled.div`
   width: 80%;
   margin-top: 16px;
 `;
+
+export const FlexSelectContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justtify-content: space-between;
+`;
