@@ -12,7 +12,11 @@ import {
   StarBar,
   StarFill,
   StarRight
-} from '../styles/RatingContainer.styled';
+} from '../styles/RatingBreakdown.styled';
+import {
+  RatingContainer,
+  TableContainer
+} from '../styles/FlexContainers.styled';
 
 //Helper Functions
 import averageNumber from '../helpers/averageNumber';
@@ -34,25 +38,30 @@ export default function RatingBreakdown() {
 
   return (
     <>
-      {averageNumber(productMetaData.ratings)} <Stars />
-      {starBreakdown.map((star, index) => {
-        return (
-          <StarContainer key={index}>
-            <StarLeft>
-              <div>{5 - index} Stars</div>
-            </StarLeft>
-            <StarMiddle>
-              <StarBar>
-                <StarFill fill={star[0]}></StarFill>
-              </StarBar>
-            </StarMiddle>
-            <StarRight>
-              {star[1]}
-            </StarRight>
-          </StarContainer>
-        );
-      })}
-      {percentMessage}
+      <RatingContainer>
+        <span className="rating">{averageNumber(productMetaData.ratings)}</span>
+        <span>
+          <Stars />
+        </span>
+      </RatingContainer>
+      <TableContainer>
+        {starBreakdown.map((star, index) => {
+          return (
+            <StarContainer key={5 - index}>
+              <StarLeft>
+                <div>{5 - index} Stars</div>
+              </StarLeft>
+              <StarMiddle>
+                <StarBar>
+                  <StarFill fill={star[0]}></StarFill>
+                </StarBar>
+              </StarMiddle>
+              <StarRight>{star[1]}</StarRight>
+            </StarContainer>
+          );
+        })}
+        <span>{percentMessage}</span>
+      </TableContainer>
     </>
   );
 }
