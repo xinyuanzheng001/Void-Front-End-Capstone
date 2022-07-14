@@ -1,11 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+//Helper Functions
+import totalReviews from '../helpers/totalReviews';
+
 export default function ReviewTiles() {
   const { productReviews } = useSelector((state) => state.productReviews);
+  const { productMetaData } = useSelector((state) => state.productMetaData);
 
   return (
     <>
+      <p>{totalReviews(productMetaData.ratings)} reviews, sorted by</p>
       {productReviews.results.map((review) => {
         return (
           <div key={review.review_id}>
@@ -14,5 +19,5 @@ export default function ReviewTiles() {
         );
       })}
     </>
-  )
+  );
 }

@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 //import Stars from
 import { useSelector, useDispatch } from 'react-redux';
-=======
-// import Stars from
-import { useSelector } from 'react-redux';
->>>>>>> 697e11f28fcbdd08311c4d8e105cb26d03b2551a
 import RelatedCard from './RelatedCard';
 import getRelatedDetails from '../../actions/relatedDetailsAction';
 
