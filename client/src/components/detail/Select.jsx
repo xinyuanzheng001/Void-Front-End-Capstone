@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FlexContainer, FlexSelectContainer } from '../styles/Container.styled';
-import { SingleStarOutline } from '../styles/Stars.styled';
+import { SingleStarOutline, HeartIcon } from '../styles/Stars.styled';
 import {
   SelectSize,
   SelectQuantity,
@@ -10,15 +10,14 @@ import {
 } from '../styles/Select.styled';
 import addItemToCart from '../../actions/cartAction';
 import star from '../../images/star.png';
+import heart from '../../images/heart-solid.svg';
 
 export default function Select({ sizes, quantity, style }) {
-  const [fav, setFav] = useState(false);
+  const localCarts = JSON.parse(localStorage.getItem('cartItems'));
+
+  const [error, setError] = useState(false);
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQty, setSelectedQty] = useState(1);
-  const [currentProduct, setCurrentProduct] = useState([]);
-  const [defaultSize, setDefaultSize] = useState('');
-  const [defaultQty, setDefaultQty] = useState(0);
-  const [error, setError] = useState(false);
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -26,17 +25,25 @@ export default function Select({ sizes, quantity, style }) {
   const productDetail = useSelector((state) => state.productDetail);
   const { id, name } = productDetail.productDetail;
 
-  useEffect(() => {
-    setCurrentProduct(cartItems.filter((item) => item.product_id === id));
-    if (currentProduct.length !== 0) {
-      console.log(currentProduct[0].selected_qty);
-      console.log(currentProduct[0].selected_size);
-      setDefaultQty(Number(currentProduct[0].selected_qty));
-      setDefaultSize(currentProduct[0].selected_size);
-      console.log('-------------');
-    }
-  }, [id]);
+  const [defaultSize, setDefaultSize] = useState('');
+  const [defaultQty, setDefaultQty] = useState(0);
+  const [fav, setFav] = useState(false);
 
+  useEffect(() => {
+    const currentProduct = localCarts.filter(
+      (item) => item.product_id === id && item.style_id === style.style_id
+    );
+    if (currentProduct.length >= 1) {
+      setDefaultSize(currentProduct[0].selected_size);
+      setDefaultQty(currentProduct[0].selected_qty);
+      setFav(currentProduct[0].favorite);
+    } else {
+      setFav(false);
+    }
+    console.log(currentProduct);
+    console.log(defaultSize);
+    console.log(defaultQty);
+  }, [style.style_id]);
   const dispatch = useDispatch();
 
   const generateArray = (num) => {
@@ -55,6 +62,7 @@ export default function Select({ sizes, quantity, style }) {
   };
 
   const addItemHandler = () => {
+    setFav(true);
     const item = {
       product_id: id,
       product_name: name,
@@ -64,9 +72,8 @@ export default function Select({ sizes, quantity, style }) {
       style_name: style.name,
       price:
         style.sale_price === null ? style.original_price : style.sale_price,
-      favorite: fav
+      favorite: true
     };
-    console.log(item);
     dispatch(addItemToCart(item));
   };
   return (
@@ -77,7 +84,7 @@ export default function Select({ sizes, quantity, style }) {
           onChange={onChangeHandler}
           defaultValue={defaultSize}
         >
-          {currentProduct.length === 0 && <option value="">SELECT SIZE</option>}
+          <option value="">SELECT SIZE</option>
           {sizes.map((size, index) => (
             <option value={size} key={index} data-testid="size-options">
               {size}
@@ -111,7 +118,25 @@ export default function Select({ sizes, quantity, style }) {
         <FavIcon>
           <div style={{ margin: 'auto' }}>
             <p style={{ textAlign: 'center' }}>
-              <SingleStarOutline src={star} />
+              {fav ? (
+                // <SingleStarOutline src={heart} style={{ color: 'red' }} />
+                <i
+                  className="fa-solid fa-heart"
+                  style={{
+                    color: 'red',
+                    padding: 'auto',
+                    fontSize: '25px'
+                  }}
+                ></i>
+              ) : (
+                <i
+                  className="fa-solid fa-star"
+                  style={{
+                    fontSize: '25px',
+                    color: 'lightgreen'
+                  }}
+                ></i>
+              )}
             </p>
           </div>
         </FavIcon>

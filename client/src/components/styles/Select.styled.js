@@ -42,7 +42,4 @@ export const FavIcon = styled.div`
   border: grey 1.5px solid;
   margin-top: 15px;
   margin-left: auto;
-  &:hover {
-    cursor: pointer;
-  }
 `;

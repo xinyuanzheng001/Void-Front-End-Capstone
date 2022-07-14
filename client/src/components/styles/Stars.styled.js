@@ -19,3 +19,8 @@ export const SingleStarOutline = styled.img`
   height: 25px;
   width: 18px;
 `;
+
+export const HeartIcon = styled.i`
+  height: 25px;
+  width: 18px;
+`;

@@ -6,14 +6,17 @@ import {
   ImageGalleryContainer,
   FSiconUpDownArrow,
   FSiconLeftRightArrow,
-  FillImageContainer
+  FillImageContainer,
+  FSiconExpand,
+  FSRightArrowAndExpandContainer
 } from '../styles/Image.styled';
 
-export default function ImageGallery({ style }) {
+export default function ImageGallery({ style, expandViewController }) {
   const [currentImage, setCurrentImage] = useState('');
   const [displayList, setDisplayList] = useState([]);
   const [firstImageIndex, setFirstImageIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [expandView, setExpandView] = useState(false);
   useEffect(() => {
     setCurrentImage(style[0].url);
     if (style.length > 7) {
@@ -67,8 +70,12 @@ export default function ImageGallery({ style }) {
     setCurrentImage(style[currentImageIndex - 1].url);
     setCurrentImageIndex(currentImageIndex - 1);
   };
+  const expandViewHandler = () => {
+    expandViewController(!expandView);
+    setExpandView(!expandView);
+  };
   return (
-    <ImageGalleryContainer>
+    <ImageGalleryContainer style={{ width: expandView ? '100%' : '' }}>
       {/* <SquareImageContainer style={{ margin: 'auto 0' }}> */}
       <SquareImageContainer>
         {displayList.length !== 0 && displayList[0].url !== style[0].url && (
@@ -104,17 +111,24 @@ export default function ImageGallery({ style }) {
           <FSiconLeftRightArrow
             className="fa-solid fa-angle-left"
             onClick={prevDisplayImage}
-            style={{ marginLeft: '25px' }}
+            style={{ paddingLeft: '30px' }}
           />
         )}
         <FillImage src={currentImage} />
-        {displayList.length !== 0 && currentImageIndex !== style.length - 1 && (
-          <FSiconLeftRightArrow
-            className="fa-solid fa-angle-right"
-            onClick={nextDisplayImage}
-            style={{ marginRight: '25px' }}
-          />
-        )}
+        <FSRightArrowAndExpandContainer>
+          <FSiconExpand
+            className="fa-solid fa-expand"
+            onClick={expandViewHandler}
+          ></FSiconExpand>
+          {displayList.length !== 0 &&
+            currentImageIndex !== style.length - 1 && (
+              <FSiconLeftRightArrow
+                className="fa-solid fa-angle-right"
+                onClick={nextDisplayImage}
+                style={{ paddingBottom: '25px' }}
+              />
+            )}
+        </FSRightArrowAndExpandContainer>
       </FillImageContainer>
     </ImageGalleryContainer>
   );

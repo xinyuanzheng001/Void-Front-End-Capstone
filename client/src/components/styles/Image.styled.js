@@ -17,8 +17,10 @@ export const CircleImage = styled.img`
 `;
 
 export const SquareImage = styled.img`
-  height: 50px;
-  width: 50px;
+  height: 9%;
+  width: 110%;
+  max-width: 50px;
+  max-height: 50px;
   margin: 5px;
   &:hover {
     cursor: pointer;
@@ -28,7 +30,7 @@ export const SquareImage = styled.img`
 export const SquareImageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
+  padding-left: 30px;
   margin-top: 20px;
   height: 100%;
 `;
@@ -67,4 +69,17 @@ export const FSiconLeftRightArrow = styled.i`
   &: hover {
     cursor: pointer;
   }
+`;
+
+export const FSiconExpand = styled.i`
+  margin-top: 25px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const FSRightArrowAndExpandContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
 `;
