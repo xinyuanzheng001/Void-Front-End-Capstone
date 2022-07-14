@@ -18,8 +18,12 @@ export default function Questions() {
     dispatch(getProductQuestion(id));
   }, [id, dispatch]);
 
-  let QuestionsList
+  let QuestionsList;
+  let showLoadQuestions;
+
   if (productQuestions.productQuestions) {
+    showLoadQuestions = Object.keys(productQuestions.productQuestions.results).length > 2 ? <MoreQuestions /> : <></>
+
     QuestionsList = productQuestions.productQuestions.results.map((question) => {
       return <Question key={question.question_id} question={question}/>
     })
@@ -31,7 +35,7 @@ export default function Questions() {
       <div>
         {QuestionsList}
       </div>
-      <MoreQuestions />
+      {showLoadQuestions}
       <AddAQuestion />
     </div>
   );
