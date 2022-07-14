@@ -5,7 +5,7 @@ import {
   GET_RELATED_STYLE_FAIL
 } from './types';
 
-const getRelatedStyle = (id) => async (dispatch) => {
+const getRelatedStyle = (relatedIds) => async (dispatch) => {
   try {
     dispatch({
       type: GET_RELATED_STYLE_REQUEST
@@ -15,13 +15,19 @@ const getRelatedStyle = (id) => async (dispatch) => {
         Authorization: process.env.API_KEY
       }
     };
-    const { data } = await axios.get(
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${id}/styles`,
-      config
-    );
+    const relatedStylesStore = [];
+    console.log({relatedIds})
+    for (const item of relatedIds) {
+      const { data } = await axios.get(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${item}/styles`,
+        config
+      );
+        console.log("SOMETHING")
+      relatedStylesStore.push(data);
+    }
     dispatch({
       type: GET_RELATED_STYLE_SUCCESS,
-      payload: data
+      payload: relatedStylesStore
     });
   } catch (error) {
     dispatch({

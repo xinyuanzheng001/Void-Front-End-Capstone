@@ -8,12 +8,18 @@ import getRelatedStyle from '../../actions/relatedStyleAction';
 export default function RelatedProducts() {
   const { relatedProducts } = useSelector((state) => state.relatedProducts);
   const dispatch = useDispatch();
+  console.log({ relatedProducts });
   useEffect(() => {
     dispatch(getRelatedDetails(relatedProducts));
+    dispatch(getRelatedStyle(relatedProducts));
   }, [relatedProducts, dispatch]);
   const { relatedDetails, loading } = useSelector(
     (state) => state.relatedDetails
   );
+  const { relatedStyle, loading: relatedStyleLoading } = useSelector(
+    (state) => state.relatedStyle
+  );
+  console.log({ relatedStyle }, {relatedDetails}, {relatedStyleLoading});
 
   var cards = '';
   if (!loading && relatedDetails) {
@@ -22,21 +28,16 @@ export default function RelatedProducts() {
         <RelatedCard
           item={item}
           key={index}
+          index = {index}
           style={{ display: 'flex', padding: '200px' }}
         />
       );
     });
   }
-
+  console.log({ cards });
   return (
     <div>
       <h3>RELATED PRODUCTS</h3>
-<<<<<<< HEAD
-    <div style ={{display: "flex", justifyContent:"space-around"}}>
-      {cards}
-      {/* Map the related cards based on info from the store */}
-    </div>
-=======
       <div
         style={{
           display: 'flex',
@@ -45,9 +46,7 @@ export default function RelatedProducts() {
         }}
       >
         {cards}
-        {/* Map the related cards based on info from the store */}
       </div>
->>>>>>> 6b3500453b4d9b32e417d02cfae92c2a95a99d7d
     </div>
   );
 }

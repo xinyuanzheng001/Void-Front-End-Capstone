@@ -3,20 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import getRelatedStyle from '../../actions/relatedStyleAction';
 
-export default function RelatedCard({ item }) {
+export default function RelatedCard({ item, index }) {
   const { id, name, category, default_price } = item;
   const dispatch = useDispatch();
-  const productStyle = useSelector((state) => state.productStyle);
+
   const productDetail = useSelector((state) => state.productDetail);
-  useEffect(() => {
-    dispatch(getRelatedStyle(id));
-  }, [id, dispatch]);
   const { relatedStyle, loading } = useSelector((state) => state.relatedStyle);
+  var photo = ''
   if (!loading && relatedStyle) {
+    photo = relatedStyle[index].results[0].photos[0].url
     console.log(relatedStyle)
     var {results} = relatedStyle
-    var photo = results[0].photos[0].url
 
+  }
     return (
       <Link to={`/${id}`}>
         <div
@@ -28,12 +27,13 @@ export default function RelatedCard({ item }) {
             outline: '2px solid black'
           }}
         >
-          <img
+           <img
             src={photo}
             style={{ width: '177px' }}
             alt="related product"
-          />
+        />
           <p>{category}</p>
+          <p>test</p>
           <span className="placeholder" style={{ fontWeight: 'bold' }}>
             {name}
           </span>
@@ -41,5 +41,5 @@ export default function RelatedCard({ item }) {
         </div>
       </Link>
     );
-  }
+
 }
