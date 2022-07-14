@@ -25,25 +25,40 @@ export default function Select({ sizes, quantity, style }) {
   const productDetail = useSelector((state) => state.productDetail);
   const { id, name } = productDetail.productDetail;
 
-  const [defaultSize, setDefaultSize] = useState('');
-  const [defaultQty, setDefaultQty] = useState(0);
-  const [fav, setFav] = useState(false);
+  // const [defaultSize, setDefaultSize] = useState('');
+  // const [defaultQty, setDefaultQty] = useState(0);
+  // const [fav, setFav] = useState(false);
 
-  useEffect(() => {
-    const currentProduct = localCarts.filter(
-      (item) => item.product_id === id && item.style_id === style.style_id
-    );
-    if (currentProduct.length >= 1) {
-      setDefaultSize(currentProduct[0].selected_size);
-      setDefaultQty(currentProduct[0].selected_qty);
-      setFav(currentProduct[0].favorite);
-    } else {
-      setFav(false);
-    }
-    console.log(currentProduct);
-    console.log(defaultSize);
-    console.log(defaultQty);
-  }, [style.style_id]);
+  // useEffect(() => {
+  //   const currentProduct = localCarts.filter(
+  //     (item) => item.product_id === id && item.style_id === style.style_id
+  //   );
+  //   if (currentProduct.length >= 1) {
+  //     setDefaultSize(currentProduct[0].selected_size);
+  //     setDefaultQty(currentProduct[0].selected_qty);
+  //     setFav(currentProduct[0].favorite);
+  //   } else {
+  //     setDefaultSize('');
+  //     setDefaultQty(0);
+  //     setFav(false);
+  //   }
+  //   console.log(currentProduct);
+  //   console.log(defaultSize);
+  //   console.log(defaultQty);
+  // }, [style.style_id]);
+  const currentProduct = localCarts
+    ? localCarts.filter(
+        (item) => item.product_id === id && item.style_id === style.style_id
+      )
+    : [];
+  const defaultQty =
+    currentProduct.length >= 1 ? currentProduct[0].selected_qty : 0;
+  const defaultSize =
+    currentProduct.length >= 1 ? currentProduct[0].selected_size : '';
+  const fav = currentProduct.length >= 1 ? currentProduct[0].favorite : false;
+  console.log(currentProduct);
+  console.log(defaultQty);
+  console.log(defaultSize);
   const dispatch = useDispatch();
 
   const generateArray = (num) => {
@@ -62,7 +77,6 @@ export default function Select({ sizes, quantity, style }) {
   };
 
   const addItemHandler = () => {
-    // setFav(true);
     const item = {
       product_id: id,
       product_name: name,
@@ -94,7 +108,7 @@ export default function Select({ sizes, quantity, style }) {
         <SelectQuantity
           name="quantity"
           onChange={(e) => setSelectedQty(e.target.value)}
-          defaultValue={defaultQty}
+          defaultValue={Number(defaultQty)}
         >
           {selectedQuantity.map((q, index) => (
             <option value={q} key={index} data-testid="qty-options">
