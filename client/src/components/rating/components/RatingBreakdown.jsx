@@ -14,7 +14,7 @@ import {
   StarRight
 } from '../styles/RatingBreakdown.styled';
 import {
-  RatingContainer,
+  RatingBreakdownContainer,
   TableContainer
 } from '../styles/FlexContainers.styled';
 
@@ -27,10 +27,11 @@ import totalReviews from '../helpers/totalReviews';
 export default function RatingBreakdown() {
   const { productMetaData } = useSelector((state) => state.productMetaData);
   const percent = percentRec(productMetaData.recommended);
+  const reviews = totalReviews(productMetaData.ratings);
 
   let percentMessage;
-  if (totalReviews(productMetaData.ratings) !== 0 && percent >= 0) {
-    percentMessage = <p>{percent}% of reviews recommend this product</p>;
+  if (reviews !== 0 && percent >= 0) {
+    percentMessage = <p>{percent}% of {reviews} reviews recommend this product</p>;
   } else {
     percentMessage = <p>There are no reviews for this product yet</p>;
   }
@@ -39,12 +40,12 @@ export default function RatingBreakdown() {
 
   return (
     <>
-      <RatingContainer>
+      <RatingBreakdownContainer>
         <span className="rating">{averageNumber(productMetaData.ratings)}</span>
         <span>
           <Stars />
         </span>
-      </RatingContainer>
+      </RatingBreakdownContainer>
       <TableContainer>
         {starBreakdown.map((star, index) => {
           return (

@@ -1,39 +1,35 @@
 import styled from 'styled-components';
 
-export const StarContainer = styled.div`
-  display: flex;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: #E5E7E9;
-  }
-`;
-
-export const StarLeft = styled.div`
+export const CharLabelTop = styled.div`
   float: left;
-  width: 15%;
+  width: 100%;
   margin-top: 5px;
 `;
 
-export const StarMiddle = styled.div`
+export const CharLabelLeft = styled.div`
   float: left;
-  width: 75%;
+  width: 50%;
   margin-top: 5px;
 `;
 
-export const StarRight = styled.div`
+export const CharLabelRight = styled.div`
   text-align: right;
   margin-top: 5px;
 `;
 
-export const StarBar = styled.div`
-  width: 100%;
-  background-color: #F2F3F4;
-  text-align: center;
+export const CharBar = styled.div`
+  margin-top: 15px;
+  border-top: 10px solid;
+  border-color: #f2f3f4;
+  border-radius: 4px;
 `;
 
-export const StarFill = styled.div`
-  width: ${({ fill }) => Number(fill)}%;
-  height: 20px;
-  background-color: #27AE60;
+export const CharFill = styled.div`
+  position: relative;
+  left: ${({ fill }) => Number(fill)}%;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #99A3A4;
 `;

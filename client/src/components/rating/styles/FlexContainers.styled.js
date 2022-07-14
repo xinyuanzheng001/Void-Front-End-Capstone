@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
-export const RatingContainer = styled.div`
+export const ProductBreakdownContainer = styled.div`
+  box: border-box;
+  width: 25%;
+  font-size: 1.3vw;
+`;
+
+export const RatingBreakdownContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 30%;
+  width: 25%;
   font-size: 2vw;
 
   .rating {
@@ -13,8 +19,8 @@ export const RatingContainer = styled.div`
 
 export const TableContainer = styled.div`
   box: border-box;
-  width: 30%;
-  font-size: 1.3vw;
+  width: 25%;
+  font-size: 1vw;
 
   span {
     display: flex;
