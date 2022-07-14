@@ -22,13 +22,14 @@ import {
 import averageNumber from '../helpers/averageNumber';
 import percentRec from '../helpers/percentRec';
 import starCounter from '../helpers/starCounter';
+import totalReviews from '../helpers/totalReviews';
 
 export default function RatingBreakdown() {
   const { productMetaData } = useSelector((state) => state.productMetaData);
   const percent = percentRec(productMetaData.recommended);
 
   let percentMessage;
-  if (percent && percent >= 0) {
+  if (totalReviews(productMetaData.ratings) !== 0 && percent >= 0) {
     percentMessage = <p>{percent}% of reviews recommend this product</p>;
   } else {
     percentMessage = <p>There are no reviews for this product yet</p>;
