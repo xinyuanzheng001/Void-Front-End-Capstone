@@ -29,7 +29,8 @@ export const SquareImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 20px;
-  padding-top: 20px;
+  margin-top: 20px;
+  height: 100%;
 `;
 
 export const FillImage = styled.img`
@@ -40,6 +41,7 @@ export const FillImage = styled.img`
 `;
 
 export const FillImageContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
 `;
@@ -52,7 +54,7 @@ export const ImageGalleryContainer = styled.div`
 `;
 
 export const FSiconUpDownArrow = styled.i`
-  margin: 10px auto;
+  margin: 0 auto;
   font-size: 20px;
   &:hover {
     cursor: pointer;
@@ -60,7 +62,7 @@ export const FSiconUpDownArrow = styled.i`
 `;
 
 export const FSiconLeftRightArrow = styled.i`
-  margin: auto 10px;
+  margin: auto 0;
   font-size: 20px;
   &: hover {
     cursor: pointer;
