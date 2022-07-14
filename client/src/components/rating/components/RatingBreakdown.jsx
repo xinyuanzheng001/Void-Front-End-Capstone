@@ -4,6 +4,16 @@ import { useSelector } from 'react-redux';
 //Components
 import Stars from '../../detail/Stars';
 
+//Styles
+import {
+  StarContainer,
+  StarLeft,
+  StarMiddle,
+  StarBar,
+  StarFill,
+  StarRight
+} from '../styles/RatingContainer.styled';
+
 //Helper Functions
 import averageNumber from '../helpers/averageNumber';
 import percentRec from '../helpers/percentRec';
@@ -27,9 +37,19 @@ export default function RatingBreakdown() {
       {averageNumber(productMetaData.ratings)} <Stars />
       {starBreakdown.map((star, index) => {
         return (
-          <p key={index + 1}>
-            {5 - index} Stars Percent: {star[0]} Total: {star[1]}
-          </p>
+          <StarContainer key={index}>
+            <StarLeft>
+              <div>{5 - index} Stars</div>
+            </StarLeft>
+            <StarMiddle>
+              <StarBar>
+                <StarFill fill={star[0]}></StarFill>
+              </StarBar>
+            </StarMiddle>
+            <StarRight>
+              {star[1]}
+            </StarRight>
+          </StarContainer>
         );
       })}
       {percentMessage}
