@@ -16,13 +16,11 @@ const getRelatedStyle = (relatedIds) => async (dispatch) => {
       }
     };
     const relatedStylesStore = [];
-    console.log({relatedIds})
     for (const item of relatedIds) {
       const { data } = await axios.get(
         `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${item}/styles`,
         config
       );
-        console.log("SOMETHING")
       relatedStylesStore.push(data);
     }
     dispatch({

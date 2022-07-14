@@ -10,7 +10,6 @@ export default function relatedStyleReducer(state = {}, action) {
     case GET_RELATED_STYLE_REQUEST:
       return { loading: true };
     case GET_RELATED_STYLE_SUCCESS:
-      console.log("PAYLOAD", action.payload)
       return { loading: false, relatedStyle: action.payload };
     case GET_RELATED_STYLE_FAIL:
       console.log(action.payload)

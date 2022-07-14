@@ -21,7 +21,6 @@ const getRelatedDetails = (relatedIds) => async (dispatch) => {
         `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${item}`,
         config
       );
-      console.log("SOMETHING HAPPENED IN DETAILS")
       relatedStore.push(data);
     }
 

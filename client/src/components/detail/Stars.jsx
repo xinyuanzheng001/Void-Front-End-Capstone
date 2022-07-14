@@ -26,7 +26,7 @@ export default function Stars({ product_id }) {
         .then(({ data }) => setProductData(data))
         .catch((err) => console.log(err));
     }, [product_id]);
-    console.log(productMetaData);
+    // console.log(productMetaData);
   }
   const { ratings } =
     product_id === undefined ? productMetaData.productMetaData : productData;

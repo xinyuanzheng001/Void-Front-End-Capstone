@@ -4,11 +4,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import RelatedCard from './RelatedCard';
 import getRelatedDetails from '../../actions/relatedDetailsAction';
 import getRelatedStyle from '../../actions/relatedStyleAction';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import transparentStar from '../../images/transparentstar.png';
 
 export default function RelatedProducts() {
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3.5,
+    slidesToScroll: 2
+  };
+
   const { relatedProducts } = useSelector((state) => state.relatedProducts);
   const dispatch = useDispatch();
-  console.log({ relatedProducts });
   useEffect(() => {
     dispatch(getRelatedDetails(relatedProducts));
     dispatch(getRelatedStyle(relatedProducts));
@@ -19,33 +30,28 @@ export default function RelatedProducts() {
   const { relatedStyle, loading: relatedStyleLoading } = useSelector(
     (state) => state.relatedStyle
   );
-  console.log({ relatedStyle }, {relatedDetails}, {relatedStyleLoading});
 
   var cards = '';
+  var slidingCards = '';
   if (!loading && relatedDetails) {
     var cards = relatedDetails.map((item, index) => {
-      return (
-        <RelatedCard
-          item={item}
-          key={index}
-          index = {index}
-          style={{ display: 'flex', padding: '200px' }}
-        />
-      );
+      return <RelatedCard item={item} key={index} index={index} />;
     });
+    function RelatedSlider() {
+      return <Slider {...settings}>{cards}</Slider>;
+    }
+    var slidingCards = RelatedSlider();
+    console.log({ cards });
   }
-  console.log({ cards });
+
   return (
-    <div>
+    <div style={{ width: '1000px', backgroundColor: 'white' }}>
       <h3>RELATED PRODUCTS</h3>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          width: '1000px'
-        }}
-      >
-        {cards}
+      <div style={{ width: '790px' /* backgroundColor:'#f5f5f5' */ }}>
+        {slidingCards}
+        {/* <Slider {...settings} style={{padding: '30px',}}>
+       {cards}
+      </Slider> */}
       </div>
     </div>
   );
