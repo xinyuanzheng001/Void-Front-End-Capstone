@@ -12,7 +12,8 @@ import ProductBreakdown from './components/ProductBreakdown';
 import {
   MainContainer,
   BreakdownContainer,
-  ReviewContainer
+  ReviewContainer,
+  StyledFooter
 } from './styles/FlexContainers.styled';
 
 //Helper Functions
@@ -34,7 +35,9 @@ export default function Rating() {
         <ReviewContainer>
           <ReviewHeader />
           <ReviewTiles />
-          <ReviewFooter />
+          <StyledFooter>
+            <ReviewFooter />
+          </StyledFooter>
         </ReviewContainer>
       </MainContainer>
     </>

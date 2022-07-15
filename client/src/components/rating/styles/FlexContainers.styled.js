@@ -18,7 +18,7 @@ export const BreakdownContainer = styled.div`
   width 25%;
   min-width: 350px;
   padding: 10px;
-`
+`;
 
 export const ProductBreakdownContainer = styled.div`
   box: border-box;
@@ -36,7 +36,6 @@ export const RatingBreakdownContainer = styled.div`
   .rating {
     font-size: 3.5em;
   }
-
 `;
 
 export const TableContainer = styled.div`
@@ -60,4 +59,11 @@ export const ReviewContainer = styled.div`
   height: 100%;
   min-width: 350px;
   padding: 10px;
+`;
+
+export const StyledFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px;
 `

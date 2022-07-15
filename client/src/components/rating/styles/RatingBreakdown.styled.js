@@ -8,6 +8,7 @@ export const StarContainer = styled.div`
 
   &:hover {
     background-color: #E5E7E9;
+    cursor: pointer;
   }
 `;
 
