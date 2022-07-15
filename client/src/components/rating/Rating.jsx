@@ -3,8 +3,17 @@ import { useSelector } from 'react-redux';
 
 //Components
 import ReviewTiles from './components/ReviewTiles';
+import ReviewHeader from './components/ReviewHeader';
+import ReviewFooter from './components/ReviewFooter';
 import RatingBreakdown from './components/RatingBreakdown';
 import ProductBreakdown from './components/ProductBreakdown';
+
+//Styles
+import {
+  MainContainer,
+  BreakdownContainer,
+  ReviewContainer
+} from './styles/FlexContainers.styled';
 
 //Helper Functions
 import averageNumber from './helpers/averageNumber';
@@ -17,9 +26,17 @@ export default function Rating() {
   return (
     <>
       <h3>RATINGS & REVIEWS</h3>
-      <RatingBreakdown />
-      <ProductBreakdown />
-      <ReviewTiles />
+      <MainContainer>
+        <BreakdownContainer>
+          <RatingBreakdown />
+          <ProductBreakdown />
+        </BreakdownContainer>
+        <ReviewContainer>
+          <ReviewHeader />
+          <ReviewTiles />
+          <ReviewFooter />
+        </ReviewContainer>
+      </MainContainer>
     </>
   );
 }

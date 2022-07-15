@@ -30,48 +30,17 @@ export default function Select({ sizes, quantity, style }) {
   const productDetail = useSelector((state) => state.productDetail);
   const { id, name } = productDetail.productDetail;
 
-<<<<<<< HEAD
-  // const [defaultSize, setDefaultSize] = useState('');
-  // const [defaultQty, setDefaultQty] = useState(0);
-  // const [fav, setFav] = useState(false);
-
-  // useEffect(() => {
-  //   const currentProduct = localCarts.filter(
-  //     (item) => item.product_id === id && item.style_id === style.style_id
-  //   );
-  //   if (currentProduct.length >= 1) {
-  //     setDefaultSize(currentProduct[0].selected_size);
-  //     setDefaultQty(currentProduct[0].selected_qty);
-  //     setFav(currentProduct[0].favorite);
-  //   } else {
-  //     setDefaultSize('');
-  //     setDefaultQty(0);
-  //     setFav(false);
-  //   }
-  //   console.log(currentProduct);
-  //   console.log(defaultSize);
-  //   console.log(defaultQty);
-  // }, [style.style_id]);
-=======
->>>>>>> cfdacdfaf5ec75c5eb24b638e5fa7630e60073d4
   const currentProduct = localCarts
     ? localCarts.filter(
         (item) => item.product_id === id && item.style_id === style.style_id
       )
     : [];
-<<<<<<< HEAD
-  const defaultQty =
-    currentProduct.length >= 1 ? currentProduct[0].selected_qty : 0;
-  const defaultSize =
-    currentProduct.length >= 1 ? currentProduct[0].selected_size : '';
-=======
   const [defaultQty, setDefaultQty] = useState(
     currentProduct.length >= 1 ? currentProduct[0].selected_qty : 1
   );
   const [defaultSize, setDefaultSize] = useState(
     currentProduct.length >= 1 ? currentProduct[0].selected_size : ''
   );
->>>>>>> cfdacdfaf5ec75c5eb24b638e5fa7630e60073d4
   const fav = currentProduct.length >= 1 ? currentProduct[0].favorite : false;
   useEffect(() => {
     if (currentProduct.length !== 0) {
