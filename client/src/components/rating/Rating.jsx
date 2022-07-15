@@ -15,11 +15,11 @@ export default function Rating() {
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
   return (
-    <>
+    <div id="rating">
       <h3>RATINGS & REVIEWS</h3>
       <RatingBreakdown />
       <ProductBreakdown />
       <ReviewTiles />
-    </>
+    </div>
   );
 }
