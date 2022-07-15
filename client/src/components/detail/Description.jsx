@@ -18,12 +18,15 @@ export default function Description() {
         <p>{description}</p>
       </DescriptionText>
       <Features>
-        {features.map((feature, index) => (
-          <p key={index}>
-            <CheckIcon className="fa-solid fa-check"></CheckIcon>
-            {feature.value}
-          </p>
-        ))}
+        {features.map(
+          (feature, index) =>
+            feature.value !== null && (
+              <p key={index}>
+                <CheckIcon className="fa-solid fa-check"></CheckIcon>
+                {feature.value}
+              </p>
+            )
+        )}
       </Features>
     </DescriptionContainer>
   );
