@@ -8,6 +8,7 @@ import {
 
 export default function QtySelector({
   selectedQuantity,
+  selectedSize,
   defaultQty,
   onQtyChangeHandler
 }) {
@@ -20,12 +21,21 @@ export default function QtySelector({
     onQtyChangeHandler(e.target.value);
   };
   return (
-    <SelectQuantity name="quantity" onChange={changeQty} value={selectedQty}>
-      {selectedQuantity.map((q, index) => (
-        <option value={q} key={index} data-testid="qty-options">
-          {q}
-        </option>
-      ))}
+    <SelectQuantity
+      name="quantity"
+      onChange={changeQty}
+      value={selectedQty}
+      disabled={selectedQuantity.length === 0 || selectedSize === ''}
+    >
+      {selectedQuantity.length === 0 || selectedSize === '' ? (
+        <option>-</option>
+      ) : (
+        selectedQuantity.map((q, index) => (
+          <option value={q} key={index} data-testid="qty-options">
+            {q}
+          </option>
+        ))
+      )}
     </SelectQuantity>
   );
 }
