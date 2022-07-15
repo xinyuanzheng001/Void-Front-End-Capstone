@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 //Components
@@ -29,9 +29,21 @@ export default function RatingBreakdown() {
   const percent = percentRec(productMetaData.recommended);
   const reviews = totalReviews(productMetaData.ratings);
 
+  const [filters, setFilter] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  });
+
   let percentMessage;
   if (reviews !== 0 && percent >= 0) {
-    percentMessage = <p>{percent}% of {reviews} reviews recommend this product</p>;
+    percentMessage = (
+      <p>
+        {percent}% of {reviews} reviews recommend this product
+      </p>
+    );
   } else {
     percentMessage = <p>There are no reviews for this product yet</p>;
   }
@@ -48,10 +60,19 @@ export default function RatingBreakdown() {
       </RatingBreakdownContainer>
       <TableContainer>
         {starBreakdown.map((star, index) => {
+          const starRating = 5 - index;
           return (
-            <StarContainer key={5 - index}>
+            <StarContainer
+              key={starRating}
+              onClick={() => {
+                setFilter(() => {
+                  filters[`${starRating}`] = !filters[`${starRating}`];
+                  return filters;
+                });
+              }}
+            >
               <StarLeft>
-                <div>{5 - index} Stars</div>
+                <div>{starRating} Stars</div>
               </StarLeft>
               <StarMiddle>
                 <StarBar>

@@ -20,8 +20,8 @@ export default function ProductBreakdown() {
   const labels = {
     Size: ['A size too small', 'A size too wide'],
     Width: ['Too narrow', 'Too wide'],
-    Comfort: ['Uncomfortable', 'Comfortable'],
-    Quality: ['Poor', 'Perfect'],
+    Comfort: ['Uncomfortable', 'Perfect'],
+    Quality: ['Poor', 'Premium'],
     Length: ['Runs short', 'Runs long'],
     Fit: ['Runs tight', 'Runs loose']
   };

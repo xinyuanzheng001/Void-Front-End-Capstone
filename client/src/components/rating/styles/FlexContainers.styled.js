@@ -3,24 +3,24 @@ import styled from 'styled-components';
 export const ProductBreakdownContainer = styled.div`
   box: border-box;
   width: 25%;
-  font-size: 1.3vw;
+  font-size: 1.3em;
 `;
 
 export const RatingBreakdownContainer = styled.div`
   display: flex;
   justify-content: space-around;
   width: 25%;
-  font-size: 2vw;
+  font-size: 2em;
 
   .rating {
-    font-size: 4vw;
+    font-size: 4em;
   }
 `;
 
 export const TableContainer = styled.div`
   box: border-box;
   width: 25%;
-  font-size: 1vw;
+  font-size: 1em;
 
   span {
     display: flex;
