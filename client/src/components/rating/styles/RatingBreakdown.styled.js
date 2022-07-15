@@ -15,6 +15,7 @@ export const StarLeft = styled.div`
   float: left;
   width: 15%;
   margin-top: 5px;
+  padding-right: 5px;
 `;
 
 export const StarMiddle = styled.div`

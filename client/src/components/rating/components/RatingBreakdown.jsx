@@ -55,7 +55,7 @@ export default function RatingBreakdown() {
       <RatingBreakdownContainer>
         <span className="rating">{averageNumber(productMetaData.ratings)}</span>
         <span>
-          <Stars />
+          <Stars className="stars"/>
         </span>
       </RatingBreakdownContainer>
       <TableContainer>

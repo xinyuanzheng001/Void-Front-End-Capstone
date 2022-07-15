@@ -33,13 +33,14 @@ export default function ProductBreakdown() {
         if (characteristics[char].value) {
           return (
             <div key={characteristics[char].id}>
-              <CharLabelTop>{char}</CharLabelTop>
+              <CharLabelTop><b>{char}</b></CharLabelTop>
               <br></br>
               <CharBar>
                 <CharFill fill={percentFill}></CharFill>
               </CharBar>
               <CharLabelLeft>{labels[char][0]}</CharLabelLeft>
               <CharLabelRight>{labels[char][1]}</CharLabelRight>
+              <br></br>
             </div>
           );
         }
