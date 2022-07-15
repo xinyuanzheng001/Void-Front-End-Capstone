@@ -26,7 +26,7 @@ export default function Questions() {
   let questionForm;
 
   if (showQuestionForm) {
-    questionForm = <AddQuestionForm />;
+    questionForm = <AddQuestionForm product_id={id}/>;
   }
 
   if (productQuestions.productQuestions) {
