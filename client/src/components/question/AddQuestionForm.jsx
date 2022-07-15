@@ -64,7 +64,7 @@ export default function AddQuestionForm(props) {
         <input
           id="yourEmail"
           required
-          type="text"
+          type="email"
           maxLength="60"
           placeholder="Why did you like the product or not?"
           onChange={(e) => {

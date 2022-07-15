@@ -15,34 +15,46 @@ export default function AddAnswerForm(props) {
           console.log('Thanks for the Answer!');
         }}
       >
-        Hi, add an answer!
-        <input
+        <h3>Submit your Answer</h3>
+        <h4>productName:Question Body</h4>
+        <label htmlFor="yourQuestion">Your Answer</label>
+        <textarea
           required
-          type="text"
+          id="yourAnswer"
+          required
+          maxLength="1000"
+          cols="50"
+          rows="20"
           placeholder="Answer"
           onChange={(e) => {
             setAnswerText(e.target.value);
           }}
-        ></input>
+        ></textarea>
+        <label htmlFor="yourNickName">What is your nickname</label>
         <input
+          id="yourNickname"
           required
           type="text"
-          placeholder="Example: jackson11!"
+          maxLength="60"
+          placeholder="Example: jack543!"
           onChange={(e) => {
             setAnswerName(e.target.value);
           }}
         ></input>
-        For privacy reasons, do not use your full name or email address
+        <p>For privacy reasons, do not use your full name or email address</p>
+        <label htmlFor="yourEmail">Your email</label>
         <input
+          id="yourEmail"
           required
-          type="text"
-          placeholder="E-mail Address"
+          type="email"
+          maxLength="60"
+          placeholder="Example: jack@email.com"
           onChange={(e) => {
             setAnswerEmail(e.target.value);
           }}
         ></input>
-        For authentication reasons, you will not be emailed
-        <button>Upload Photos</button>
+        <p>For authentication reasons, you will not be emailed</p>
+        <input type="file" id="inputFile" name="img" accept="image/*" />
         <button>Submit An Answer</button>
       </form>
     </div>
