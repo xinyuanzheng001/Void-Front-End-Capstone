@@ -20,8 +20,7 @@ export const CharLabelRight = styled.div`
 export const CharBar = styled.div`
   margin-top: 15px;
   border-top: 10px solid;
-  border-color: #f2f3f4;
-  border-radius: 4px;
+  border-color: #F2F3F4;
 `;
 
 export const CharFill = styled.div`
@@ -31,5 +30,5 @@ export const CharFill = styled.div`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #99A3A4;
+  border-top: 10px solid #27AE60;
 `;

@@ -20,8 +20,8 @@ export default function ProductBreakdown() {
   const labels = {
     Size: ['A size too small', 'A size too wide'],
     Width: ['Too narrow', 'Too wide'],
-    Comfort: ['Uncomfortable', 'Comfortable'],
-    Quality: ['Poor', 'Perfect'],
+    Comfort: ['Uncomfortable', 'Perfect'],
+    Quality: ['Poor', 'Premium'],
     Length: ['Runs short', 'Runs long'],
     Fit: ['Runs tight', 'Runs loose']
   };
@@ -33,13 +33,14 @@ export default function ProductBreakdown() {
         if (characteristics[char].value) {
           return (
             <div key={characteristics[char].id}>
-              <CharLabelTop>{char}</CharLabelTop>
+              <CharLabelTop><b>{char}</b></CharLabelTop>
               <br></br>
               <CharBar>
                 <CharFill fill={percentFill}></CharFill>
               </CharBar>
               <CharLabelLeft>{labels[char][0]}</CharLabelLeft>
               <CharLabelRight>{labels[char][1]}</CharLabelRight>
+              <br></br>
             </div>
           );
         }
