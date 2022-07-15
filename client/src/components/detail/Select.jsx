@@ -12,7 +12,6 @@ import {
 } from '../styles/Select.styled';
 import addItemToCart from '../../actions/cartAction';
 import star from '../../images/star.png';
-import heart from '../../images/heart-solid.svg';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
 
@@ -70,7 +69,10 @@ export default function Select({ sizes, quantity, style }) {
     generateArray(quantity[0])
   );
   const onChangeHandler = (s) => {
-    setSelectedQuantity(generateArray(quantity[sizes.indexOf(s)]));
+    const newQty = generateArray(quantity[sizes.indexOf(s)]);
+    setSelectedQuantity(
+      newQty.length === 0 ? generateArray(quantity[0]) : newQty
+    );
     setSelectedSize(s);
   };
 
@@ -106,53 +108,58 @@ export default function Select({ sizes, quantity, style }) {
       <FlexSelectContainer>
         <SizeSelector
           sizes={sizes}
+          selectedQuantity={selectedQuantity}
           defaultSize={selectedSize}
           onChangeHandler={onChangeHandler}
         />
         <QtySelector
           selectedQuantity={selectedQuantity}
+          selectedSize={selectedSize}
           defaultQty={selectedQty}
           onQtyChangeHandler={onQtyChangeHandler}
         />
       </FlexSelectContainer>
-      <FlexContainer>
-        <AddItem onClick={addItemHandler}>
-          <p>
-            <span style={{ margin: 'auto 0', marginLeft: '15px' }}>
-              ADD TO BAG
-            </span>
-            <i
-              className="fa-solid fa-plus"
-              style={{ float: 'right', marginRight: '15px' }}
-            ></i>
-          </p>
-        </AddItem>
-        <FavIcon>
-          <div style={{ margin: 'auto' }}>
-            <p style={{ textAlign: 'center' }}>
-              {fav ? (
-                // <SingleStarOutline src={heart} style={{ color: 'red' }} />
-                <i
-                  className="fa-solid fa-heart"
-                  style={{
-                    color: 'red',
-                    padding: 'auto',
-                    fontSize: '25px'
-                  }}
-                ></i>
-              ) : (
-                <i
-                  className="fa-solid fa-star"
-                  style={{
-                    fontSize: '25px',
-                    color: 'lightgreen'
-                  }}
-                ></i>
-              )}
+      {quantity.length !== 0 && (
+        <FlexContainer>
+          <AddItem onClick={addItemHandler} title="Add this item to your cart">
+            <p>
+              <span style={{ margin: 'auto 0', marginLeft: '15px' }}>
+                ADD TO BAG
+              </span>
+              <i
+                className="fa-solid fa-plus"
+                style={{ float: 'right', marginRight: '15px' }}
+              ></i>
             </p>
-          </div>
-        </FavIcon>
-      </FlexContainer>
+          </AddItem>
+          <FavIcon>
+            <div style={{ margin: 'auto' }}>
+              <p style={{ textAlign: 'center' }}>
+                {fav ? (
+                  // <SingleStarOutline src={heart} style={{ color: 'red' }} />
+                  <i
+                    className="fa-solid fa-heart"
+                    style={{
+                      color: 'red',
+                      padding: 'auto',
+                      fontSize: '25px'
+                    }}
+                    title="This item already in your cart"
+                  ></i>
+                ) : (
+                  <i
+                    className="fa-solid fa-star"
+                    style={{
+                      fontSize: '25px',
+                      color: 'lightgreen'
+                    }}
+                  ></i>
+                )}
+              </p>
+            </div>
+          </FavIcon>
+        </FlexContainer>
+      )}
     </>
   );
 }

@@ -24,3 +24,9 @@ export const HeartIcon = styled.i`
   height: 25px;
   width: 18px;
 `;
+
+export const GoToReviewContainer = styled.div`
+  margin-top: 30px;
+  margin-left: 10px;
+  font-size: 15px;
+`;

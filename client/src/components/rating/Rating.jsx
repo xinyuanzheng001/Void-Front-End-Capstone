@@ -33,7 +33,7 @@ export default function Rating() {
   }
 
   return (
-    <>
+    <div id="rating">
       <h3>RATINGS & REVIEWS</h3>
       <MainContainer>
         <BreakdownContainer>
@@ -48,6 +48,6 @@ export default function Rating() {
           </StyledFooter>
         </ReviewContainer>
       </MainContainer>
-    </>
+    </div>
   );
 }
