@@ -27,11 +27,12 @@ export default function AddAnswerForm(props) {
         <input
           required
           type="text"
-          placeholder="Nickname"
+          placeholder="Example: jackson11!"
           onChange={(e) => {
             setAnswerName(e.target.value);
           }}
         ></input>
+        For privacy reasons, do not use your full name or email address
         <input
           required
           type="text"
@@ -40,6 +41,7 @@ export default function AddAnswerForm(props) {
             setAnswerEmail(e.target.value);
           }}
         ></input>
+        For authentication reasons, you will not be emailed
         <button>Upload Photos</button>
         <button>Submit An Answer</button>
       </form>

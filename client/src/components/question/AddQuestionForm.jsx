@@ -7,7 +7,7 @@ export default function AddQuestionForm(props) {
   const [questionName, setQuestionName] = useState('');
   const [questionEmail, setQuestionEmail] = useState('');
 
-  async function postQuestion () {
+  async function postQuestion() {
     const config = {
       headers: {
         Authorization: process.env.API_KEY
@@ -18,12 +18,10 @@ export default function AddQuestionForm(props) {
         email: questionEmail,
         product_id: props.product_id
       }
+    };
+    //   return axios.post(
+    //     `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
   }
-  //   return axios.post(
-  //     `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
-  };
-
-
 
   return (
     <div>
@@ -31,8 +29,8 @@ export default function AddQuestionForm(props) {
         onSubmit={(e) => {
           e.preventDefault();
           postQuestion()
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err))
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
         }}
       >
         Hi, add a question!
@@ -47,19 +45,21 @@ export default function AddQuestionForm(props) {
         <input
           required
           type="text"
-          placeholder="Nickname"
+          placeholder="Example: jackson11!"
           onChange={(e) => {
             setQuestionName(e.target.value);
           }}
         ></input>
+        For privacy reasons, do not use your full name or email address
         <input
           required
           type="text"
-          placeholder="E-mail Address"
+          placeholder="Why did you like the product or not?"
           onChange={(e) => {
             setQuestionEmail(e.target.value);
           }}
         ></input>
+        For authentication reasons, you will not be emailed
         <button>Submit A Question</button>
       </form>
     </div>
