@@ -61,9 +61,19 @@ export const ReviewContainer = styled.div`
   padding: 10px;
 `;
 
-export const StyledFooter = styled.div`
+export const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: left;
   width: 100%;
   padding: 20px;
-`
+`;
+
+export const StyledFooter = styled.div`
+  width: 100%;
+  padding: 20px;
+
+  h4 {
+    font-size: 2em;
+  }
+`;

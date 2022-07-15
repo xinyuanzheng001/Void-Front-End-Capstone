@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import totalReviews from '../helpers/totalReviews';
 
 //Styles
-import { StyledButton } from '../styles/Button.styled';
+import { ReviewButton } from '../styles/ReviewButton.styled';
 
 export default function ReviewFooter() {
   const { productReviews } = useSelector((state) => state.productReviews);
@@ -13,8 +13,8 @@ export default function ReviewFooter() {
 
   return (
     <>
-      <StyledButton>More Reviews</StyledButton>
-      <StyledButton>Add a Review</StyledButton>
+      <ReviewButton>More Reviews</ReviewButton>
+      <ReviewButton>Add a Review  +</ReviewButton>
     </>
   );
 }

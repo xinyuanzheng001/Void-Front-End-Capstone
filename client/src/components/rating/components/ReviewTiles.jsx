@@ -10,7 +10,6 @@ export default function ReviewTiles() {
 
   return (
     <>
-      <p>{totalReviews(productMetaData.ratings)} reviews, sorted by</p>
       {productReviews.results.map((review) => {
         return (
           <div key={review.review_id}>
