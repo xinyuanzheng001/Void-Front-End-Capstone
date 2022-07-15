@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+//Components
+import FilterSelect from '../components/FilterSelect';
+
 //Helper Functions
 import totalReviews from '../helpers/totalReviews';
 
@@ -13,7 +16,10 @@ export default function ReviewHeader() {
 
   return (
     <StyledHeader>
-      <h4>{totalReviews(productMetaData.ratings)} reviews, sorted by</h4>
+      <p>
+        {totalReviews(productMetaData.ratings)} reviews, sorted by{' '}
+        <FilterSelect />
+      </p>
     </StyledHeader>
   );
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ReviewButton = styled.div`
+export const ReviewButton = styled.button`
   display: inline-block;
   outline: 0;
   cursor: pointer;

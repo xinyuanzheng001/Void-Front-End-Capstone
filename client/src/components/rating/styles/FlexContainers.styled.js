@@ -59,6 +59,10 @@ export const ReviewContainer = styled.div`
   height: 100%;
   min-width: 350px;
   padding: 10px;
+
+  @media (max-width: 850px) {
+    justify-content: space-around;
+  }
 `;
 
 export const StyledHeader = styled.div`
@@ -67,13 +71,15 @@ export const StyledHeader = styled.div`
   justify-content: left;
   width: 100%;
   padding: 20px;
+
+  p {
+    font-size: 1.2em;
+  }
 `;
 
 export const StyledFooter = styled.div`
   width: 100%;
   padding: 20px;
 
-  h4 {
-    font-size: 2em;
-  }
+
 `;

@@ -11,10 +11,17 @@ export default function ReviewFooter() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
+  const total = totalReviews(productMetaData.ratings);
+  let button;
+
+  if (total > 0) {
+    button = <ReviewButton>More Reviews</ReviewButton>;
+  }
+
   return (
     <>
-      <ReviewButton>More Reviews</ReviewButton>
-      <ReviewButton>Add a Review  +</ReviewButton>
+      {button}
+      <ReviewButton>Add a Review +</ReviewButton>
     </>
   );
 }

@@ -19,10 +19,18 @@ import {
 //Helper Functions
 import averageNumber from './helpers/averageNumber';
 import percentRec from './helpers/percentRec';
+import totalReviews from './helpers/totalReviews';
 
 export default function Rating() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
+
+  const total = totalReviews(productMetaData.ratings);
+  let header;
+
+  if (total > 0) {
+    header = <ReviewHeader />;
+  }
 
   return (
     <>
@@ -33,7 +41,7 @@ export default function Rating() {
           <ProductBreakdown />
         </BreakdownContainer>
         <ReviewContainer>
-          <ReviewHeader />
+          {header}
           <ReviewTiles />
           <StyledFooter>
             <ReviewFooter />
