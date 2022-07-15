@@ -3,11 +3,14 @@ import React from 'react';
 export default function AddAnswerForm(props) {
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        console.log('Thanks for the Answer!');
+      }}>
         Hi, add an answer!
-        <input type="text" defaultValue="Answer"></input>
-        <input type="text" defaultValue="Nickname"></input>
-        <input type="text" defaultValue="E-mail Address"></input>
+        <input required type="text" placeholder="Answer"></input>
+        <input required type="text" placeholder="Nickname"></input>
+        <input required type="text" placeholder="E-mail Address"></input>
         <button>Upload Photos</button>
         <button>Submit An Answer</button>
       </form>
