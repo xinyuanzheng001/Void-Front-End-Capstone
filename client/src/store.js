@@ -7,7 +7,7 @@ const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
 const initialState = {
   cart: {
-    cartItems: cartItems
+    cartItems: cartItems ? cartItems : []
   }
 };
 
