@@ -54,7 +54,19 @@ export default function AddAnswerForm(props) {
           }}
         ></input>
         <p>For authentication reasons, you will not be emailed</p>
-        <input type="file" id="inputFile" name="img" accept="image/*" />
+        <input
+          multiple
+          id="input"
+          name="files[]"
+          onChange={(e) => {
+            if (document.getElementById('input').files.length < 5) {
+              console.log(document.getElementById('input').files);
+            }
+          }}
+          type="file"
+          name="img"
+          accept="image/*"
+        />
         <button>Submit An Answer</button>
       </form>
     </div>
