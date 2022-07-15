@@ -25,30 +25,45 @@ export default function RelatedCard({ item, index }) {
           flexDirection: 'column',
           width: '200px',
           height: '350px',
-          outline: '1px solid black',
+          // outline: '1px solid black',
           margin: '10px',
-          borderRadius: '30px',
+          borderRadius: '10px',
           position: 'relative',
           textAlign: 'left',
-          boxShadow: '3px 1px 10px 1px #555'
+          boxShadow: '3px 3px 5px 0px #949391'
         }}
       >
-        <img
-          src={transparentStar}
+        <div>
+          <img
+            src={transparentStar}
+            style={{
+              width: '25px',
+              position: 'absolute',
+              top: '15px',
+              right: '20px',
+              borderRadius: '25%'
+            }}
+          />
+        </div>
+        <div
           style={{
-            width: '25px',
+            boxShadow: '3px 1px 10px 0px white inset',
+            width: '200px',
+            height: '350px',
             position: 'absolute',
-            top: '15px',
-            right: '20px'
+            borderRadius: '10px',
+            opacity: '95%'
+            // zIndex: '9px',
           }}
-        />
+        ></div>
         <img
           src={photo}
           style={{
             width: '200px',
             height: '225px',
             objectFit: 'cover',
-            borderRadius: '30px 30px 0 0'
+            borderRadius: '10px 10px 0 0',
+            boxShadow: '0 0 8px 8px white inset'
           }}
           alt="related product"
         />
@@ -61,7 +76,15 @@ export default function RelatedCard({ item, index }) {
           {name}
         </span>
         <span style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</span>
-        <div style={{ backgroundColor: 'white', margin: 'auto' }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            margin: '7px auto',
+            height: '30px',
+            width: '130px'
+          }}
+        >
           <Stars product_id={id} style={{}} />
         </div>
       </div>
