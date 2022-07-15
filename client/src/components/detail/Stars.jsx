@@ -42,6 +42,7 @@ export default function Stars({ product_id }) {
     if (aveRates > 1) {
       stars.push(1);
     } else if (aveRates > 0) {
+      aveRates = aveRates.toFixed(1);
       let empty = Math.abs(0 - aveRates);
       let quart = Math.abs(0.25 - aveRates);
       let half = Math.abs(0.5 - aveRates);

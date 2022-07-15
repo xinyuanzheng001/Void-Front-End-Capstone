@@ -9,6 +9,9 @@ export const SelectSize = styled.select`
   color: grey;
   border: grey 1.5px solid;
   margin-top: 15px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const SelectQuantity = styled.select`
@@ -21,6 +24,9 @@ export const SelectQuantity = styled.select`
   border: grey 1.5px solid;
   margin-top: 15px;
   margin-left: auto;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const AddItem = styled.div`
