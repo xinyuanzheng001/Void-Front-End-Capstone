@@ -7,7 +7,7 @@ export default function AddQuestionForm(props) {
   const [questionName, setQuestionName] = useState('');
   const [questionEmail, setQuestionEmail] = useState('');
 
-  async function postQuestion () {
+  async function postQuestion() {
     const config = {
       headers: {
         Authorization: process.env.API_KEY
@@ -18,48 +18,60 @@ export default function AddQuestionForm(props) {
         email: questionEmail,
         product_id: props.product_id
       }
+    };
+    //   return axios.post(
+    //     `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
   }
-  //   return axios.post(
-  //     `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
-  };
-
-
 
   return (
     <div>
+      <h3>Ask Your Question</h3>
+      <h4>About the {props.productName}</h4>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
           postQuestion()
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err))
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
         }}
       >
-        Hi, add a question!
-        <input
+        <label htmlFor="yourQuestion">Your Question</label>
+        <textarea
+          id="yourQuestion"
           required
-          type="text"
+          maxLength="1000"
+          cols="50"
+          rows="20"
           placeholder="Question"
           onChange={(e) => {
             setQuestionText(e.target.value);
           }}
-        ></input>
+        ></textarea>
+        <label htmlFor="yourNickName">What is your nickname</label>
         <input
+          id="yourNickname"
           required
           type="text"
-          placeholder="Nickname"
+          maxLength="60"
+          placeholder="Example: jackson11!"
           onChange={(e) => {
             setQuestionName(e.target.value);
           }}
         ></input>
+        <p>For privacy reasons, do not use your full name or email address</p>
+        <label htmlFor="yourEmail">Your email</label>
         <input
+          id="yourEmail"
           required
-          type="text"
-          placeholder="E-mail Address"
+          type="email"
+          maxLength="60"
+          placeholder="Why did you like the product or not?"
           onChange={(e) => {
             setQuestionEmail(e.target.value);
           }}
         ></input>
+        <p>For authentication reasons, you will not be emailed</p>
         <button>Submit A Question</button>
       </form>
     </div>
