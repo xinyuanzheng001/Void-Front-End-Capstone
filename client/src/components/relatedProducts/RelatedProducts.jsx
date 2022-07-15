@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-//import Stars from
 import { useSelector, useDispatch } from 'react-redux';
 import RelatedCard from './RelatedCard';
+import Outfits from './Outfits';
 import getRelatedDetails from '../../actions/relatedDetailsAction';
 import getRelatedStyle from '../../actions/relatedStyleAction';
 import Slider from 'react-slick';
@@ -41,7 +41,7 @@ export default function RelatedProducts() {
       return <Slider {...settings}>{cards}</Slider>;
     }
     var slidingCards = RelatedSlider();
-    console.log({ cards });
+
   }
 
   return (
@@ -53,6 +53,7 @@ export default function RelatedProducts() {
        {cards}
       </Slider> */}
       </div>
+      <Outfits />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { useParams } from 'react-router';
 import getProductQuestion from '../../actions/productQuestionAction';
 import AddAnswerForm from './AddAnswerForm';
 import AddQuestionForm from './AddQuestionForm';
+import SearchQuestions from './SearchQuestions';
 
 export default function Questions() {
   let { id } = useParams();
@@ -16,6 +17,7 @@ export default function Questions() {
   const dispatch = useDispatch();
   const productQuestions = useSelector((state) => state.productQuestion);
   const [showQuestionForm, setQuestionForm] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     dispatch(getProductQuestion(id));
@@ -26,7 +28,7 @@ export default function Questions() {
   let questionForm;
 
   if (showQuestionForm) {
-    questionForm = <AddQuestionForm product_id={id}/>;
+    questionForm = <AddQuestionForm product_id={id} productName={'insertProductName'}/>;
   }
 
   if (productQuestions.productQuestions) {
@@ -47,6 +49,7 @@ export default function Questions() {
   return (
     <div>
       <h2>Questions & Answers</h2>
+      <SearchQuestions searchValue={searchValue} setSearchValue={setSearchValue}/>
       <div>{QuestionsList}</div>
       {showLoadQuestions}
       <button

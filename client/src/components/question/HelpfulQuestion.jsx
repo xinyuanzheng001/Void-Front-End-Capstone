@@ -5,7 +5,12 @@ export default function HelpfulQuestion(props) {
     <div style={{ display: 'inline' }}>
       <span style={{ margin: '10px' }}>
         Helpful?
-        <u style={{ margin: '5px' }}>Yes</u>
+        <u
+          style={{ margin: '5px' }}
+          onClick={(e) => console.log('Thanks for the feedback!')}
+        >
+          Yes
+        </u>
         <span>({props.helpfulness})</span>
       </span>
       <span style={{ margin: '10px' }}>|</span>
