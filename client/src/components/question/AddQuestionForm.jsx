@@ -25,6 +25,9 @@ export default function AddQuestionForm(props) {
 
   return (
     <div>
+      <h3>Ask Your Question</h3>
+      <h4>About the {props.productName}</h4>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -33,33 +36,42 @@ export default function AddQuestionForm(props) {
             .catch((err) => console.log(err));
         }}
       >
-        Hi, add a question!
-        <input
+        <label htmlFor="yourQuestion">Your Question</label>
+        <textarea
+          id="yourQuestion"
           required
-          type="text"
+          maxLength="1000"
+          cols="50"
+          rows="20"
           placeholder="Question"
           onChange={(e) => {
             setQuestionText(e.target.value);
           }}
-        ></input>
+        ></textarea>
+        <label htmlFor="yourNickName">What is your nickname</label>
         <input
+          id="yourNickname"
           required
           type="text"
+          maxLength="60"
           placeholder="Example: jackson11!"
           onChange={(e) => {
             setQuestionName(e.target.value);
           }}
         ></input>
-        For privacy reasons, do not use your full name or email address
+        <p>For privacy reasons, do not use your full name or email address</p>
+        <label htmlFor="yourEmail">Your email</label>
         <input
+          id="yourEmail"
           required
           type="text"
+          maxLength="60"
           placeholder="Why did you like the product or not?"
           onChange={(e) => {
             setQuestionEmail(e.target.value);
           }}
         ></input>
-        For authentication reasons, you will not be emailed
+        <p>For authentication reasons, you will not be emailed</p>
         <button>Submit A Question</button>
       </form>
     </div>
