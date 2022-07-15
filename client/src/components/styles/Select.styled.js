@@ -43,3 +43,19 @@ export const FavIcon = styled.div`
   margin-top: 15px;
   margin-left: auto;
 `;
+
+export const ErrorMsg = styled.p`
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  width: 80%;
+`;
+
+export const SuccessMsg = styled.p`
+  background-color: lightgreen;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  width: 80%;
+`;
