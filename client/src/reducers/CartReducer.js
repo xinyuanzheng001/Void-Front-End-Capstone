@@ -16,7 +16,7 @@ export default function cartReducer(state = { cartItems: [] }, action) {
         return {
           loading: false,
           cartItems: state.cartItems.map((x) =>
-            x.product_id === item.product_id ? item : x
+            x.style_id === item.style_id ? item : x
           )
         };
       } else {
