@@ -9,7 +9,7 @@ import getProductQuestion from '../../actions/productQuestionAction';
 import AddAnswerForm from './AddAnswerForm';
 import AddQuestionForm from './AddQuestionForm';
 import SearchQuestions from './SearchQuestions';
-import MainContainer from '../rating/styles/FlexContainers.styled';
+import { QuestionButton } from './styles/QuestionButton';
 
 export default function Questions() {
   let { id } = useParams();
@@ -38,7 +38,7 @@ export default function Questions() {
     showLoadQuestions =
       Object.keys(productQuestions.productQuestions.results).length >
       howManyQuestions ? (
-        <button
+        <QuestionButton
           style={{ margin: '10px' }}
           onClick={() => {
             console.log(howManyQuestions);
@@ -47,16 +47,18 @@ export default function Questions() {
           }}
         >
           See More Questions
-        </button>
+        </QuestionButton>
       ) : (
         <></>
       );
 
-    QuestionsList = productQuestions.productQuestions.results
+    QuestionsList = (searchValue.length >= 3) ? (productQuestions.productQuestions.results.filter(question => question.question_body.includes(searchValue))).map((question) => {
+      return <Question key={question.question_id} question={question} />;
+    }) : (productQuestions.productQuestions.results
       .slice(0, howManyQuestions)
       .map((question) => {
         return <Question key={question.question_id} question={question} />;
-      });
+      }))
   }
 
   return (
@@ -64,8 +66,8 @@ export default function Questions() {
       <h2>Questions & Answers</h2>
       <div
         style={{
-          overflowY: 'auto',
-          height: '50vh',
+          overflow: 'auto',
+          maxHeight: '50vh',
           width: '100%',
           position: 'relative'
         }}
@@ -76,13 +78,18 @@ export default function Questions() {
         />
         <div>{QuestionsList}</div>
       </div>
-      {showLoadQuestions}
-      <button
-        style={{ margin: '10px' }}
+      <div id='buttonContainer' style={{
+  margin: 'auto',
+  width: '100%',
+  padding: '3%'
+}}>
+      <QuestionButton
         onClick={() => setQuestionForm(!showQuestionForm)}
       >
         Add A Question
-      </button>
+      </QuestionButton>
+      {showLoadQuestions}
+      </div>
       {questionForm}
     </>
   );
