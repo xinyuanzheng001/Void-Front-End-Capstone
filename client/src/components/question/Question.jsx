@@ -3,6 +3,7 @@ import Answer from './Answer';
 import HelpfulQuestion from './HelpfulQuestion';
 import AddAnswerForm from './AddAnswerForm';
 import { useState } from 'react';
+import { ReviewButton } from '../rating/styles/ReviewButton.styled'
 
 export default function Question(props) {
   const [showAnswerForm, setAnswerForm] = useState(false);
@@ -20,7 +21,13 @@ export default function Question(props) {
     });
 
   let showLoadAnswers =
-    Object.keys(props.question.answers).length > howManyAnswers ?      <button onClick={() => setHowManyAnswers(howManyAnswers + 2)}>Load More Answers</button> : <></>;
+    Object.keys(props.question.answers).length > howManyAnswers ? (
+      <ReviewButton onClick={() => setHowManyAnswers(howManyAnswers + 2)}>
+        Load More Answers
+      </ReviewButton>
+    ) : (
+      <></>
+    );
 
   let answerForm;
   if (showAnswerForm) {
