@@ -58,7 +58,7 @@ export const ReviewContainer = styled.div`
   width: 75%;
   height: 100%;
   min-width: 350px;
-  padding: 10px;
+  padding: 0 1em 1em;
   max-height: 90vh;
 
   @media (max-width: 850px) {
@@ -82,10 +82,6 @@ export const ReviewTileContainer = styled.div`
     color: #F1DC19;
   }
 
-  .unchecked {
-    color: #F2F3F4;
-  }
-
   .fa-check {
     color: #27AE60;
   }
@@ -96,7 +92,8 @@ export const StyledHeader = styled.div`
   flex-direction: row;
   justify-content: left;
   width: 100%;
-  padding: 20px;
+  height: 25px;
+  padding: 10px;
 
   p {
     font-size: 1.2em;
@@ -107,3 +104,14 @@ export const StyledFooter = styled.div`
   width: 100%;
   padding: 20px;
 `;
+
+export const ReviewImages = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  img {
+    max-height: 10%;
+    max-width: 10%;
+  }
+`
