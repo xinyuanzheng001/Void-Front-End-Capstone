@@ -22,7 +22,7 @@ export default function AddQuestionForm(props) {
       method: 'post',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions',
       headers: {
-        'Authorization': ' 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',
+        'Authorization': `${process.env.API_KEY}`,
         'Content-Type': 'application/json'
       },
       data : data
