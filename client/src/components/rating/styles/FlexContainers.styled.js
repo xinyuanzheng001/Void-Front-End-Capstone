@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   margin-top: 16px;
 
   @media (max-width: 850px) {
