@@ -16,7 +16,7 @@ const getProductQuestion = (id) => async (dispatch) => {
       }
     };
     const { data } = await axios.get (
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions?product_id=${id}`,
+      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions?product_id=${id}&count=1000`,
       config
     );
     dispatch({

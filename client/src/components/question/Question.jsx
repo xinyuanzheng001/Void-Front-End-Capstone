@@ -29,8 +29,7 @@ export default function Question(props) {
 
   return (
     <div style={{ padding: '10px' }}>
-      <h2 style={{ display: 'inline' }}>Q: </h2>
-      <span>{props.question.question_body}</span>
+      <h2 style={{ display: 'inline' }}>Q: {props.question.question_body} </h2>
       <HelpfulQuestion
         helpfulness={props.question.question_helpfulness}
         setAnswerForm={setAnswerForm}
