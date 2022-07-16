@@ -6,6 +6,7 @@ import getRelatedStyle from '../../actions/relatedStyleAction';
 import Stars from '../detail/Stars.jsx';
 import transparentStar from '../../images/transparentstar.png';
 import star from '../../images/star.png';
+import { CardsIconStyled } from './styles/Outfits.styled'
 
 export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   const { id, name, category, default_price } = item;
@@ -38,17 +39,9 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
         }}
       >
         <div onClick={handleClick}>
-          <img
-            src={transparentStar}
-            style={{
-              width: '25px',
-              position: 'absolute',
-              top: '15px',
-              right: '20px',
-              borderRadius: '25%',
-              zIndex: '1'
-            }}
-          />
+        <CardsIconStyled>
+          <i className="fa-solid fa-x fa-2x" style={{opacity:'80%'}} />
+        </CardsIconStyled>
         </div>
         <div>
           <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'grey' }}>

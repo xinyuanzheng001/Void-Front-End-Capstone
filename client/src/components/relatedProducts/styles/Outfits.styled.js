@@ -22,12 +22,19 @@ width: 40px;
     cursor: pointer;
   }
 `;
-export const CardsIconStyled = styled.i`
-margin-top: 25px;
+export const CardsIconStyled = styled.div`
 display: flex;
-align-items: center;
+border-radius: 50%;
 justify-content: center;
+align-items: center;
 width: 40px;
+height: 40px;
+position: absolute;
+top: 20px;
+right: 15px;
+background-color: white;
+z-index: 1;
+opacity: 70%;
   &:hover {
     cursor: pointer;
   }
