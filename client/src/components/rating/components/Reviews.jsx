@@ -35,11 +35,12 @@ export default function Reviews() {
     return stars;
   };
 
+  function isImage(url) {
+    return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+  }
+
   const galleryBuilder = (photos) => {
     let gallery = [];
-    function isImage(url) {
-      return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
-    }
 
     for (let photo of photos) {
       if (isImage(photo.url)) {
