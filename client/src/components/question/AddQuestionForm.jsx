@@ -9,18 +9,19 @@ export default function AddQuestionForm(props) {
 
   async function postQuestion() {
     const config = {
+      params: { product_id: props.product_id},
       headers: {
         Authorization: process.env.API_KEY
       },
-      data: {
-        body: questionText,
-        name: questionName,
-        email: questionEmail,
-        product_id: props.product_id
-      }
+      // data: {
+      //   body: questionText,
+      //   name: questionName,
+      //   email: questionEmail,
+      //   product_id: props.product_id
+      // }
     };
-    //   return axios.post(
-    //     `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
+      return axios.post(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
   }
 
   return (

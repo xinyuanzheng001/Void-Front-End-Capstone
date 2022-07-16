@@ -9,6 +9,7 @@ import getProductQuestion from '../../actions/productQuestionAction';
 import AddAnswerForm from './AddAnswerForm';
 import AddQuestionForm from './AddQuestionForm';
 import SearchQuestions from './SearchQuestions';
+import MainContainer from '../rating/styles/FlexContainers.styled';
 
 export default function Questions() {
   let { id } = useParams();
@@ -54,8 +55,9 @@ export default function Questions() {
 
   return (
     <div  style={
-      {overflow: 'scroll'},
-      {height: '100vh'}}>
+      {overflow: 'scroll'}
+      // ,{height: '100vh'}
+      }>
       <h2>Questions & Answers</h2>
       <SearchQuestions searchValue={searchValue} setSearchValue={setSearchValue}/>
       <div>{QuestionsList}</div>
