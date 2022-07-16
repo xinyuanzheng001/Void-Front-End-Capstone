@@ -28,7 +28,9 @@ export default function Questions() {
   let questionForm;
 
   if (showQuestionForm) {
-    questionForm = <AddQuestionForm product_id={id} productName={'insertProductName'}/>;
+    questionForm = (
+      <AddQuestionForm product_id={id} productName={'insertProductName'} />
+    );
   }
 
   if (productQuestions.productQuestions) {
@@ -49,7 +51,10 @@ export default function Questions() {
   return (
     <div>
       <h2>Questions & Answers</h2>
-      <SearchQuestions searchValue={searchValue} setSearchValue={setSearchValue}/>
+      <SearchQuestions
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       <div>{QuestionsList}</div>
       {showLoadQuestions}
       <button

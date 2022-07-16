@@ -40,6 +40,9 @@ export const FillImage = styled.img`
   width: 80%;
   height: 100%;
   object-fit: contain;
+  &:hover {
+    cursor: zoom-in;
+  }
 `;
 
 export const FillImageContainer = styled.div`
@@ -53,6 +56,7 @@ export const ImageGalleryContainer = styled.div`
   height: 60vh;
   width: 800px;
   background-color: rgb(245, 244, 242);
+  transition: all 1s ease;
 `;
 
 export const FSiconUpDownArrow = styled.i`
