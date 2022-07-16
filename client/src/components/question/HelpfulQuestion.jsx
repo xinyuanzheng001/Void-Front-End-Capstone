@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HelpfulQuestion(props) {
   return (
-    <div style={{ display: 'inline' }}>
+    <div style={{ display: 'inline', position: 'relative', float:'right' }}>
       <span style={{ margin: '10px' }}>
         Helpful?
         <u
