@@ -74,8 +74,9 @@ export default function ImageGallery({ style, expandViewController }) {
     expandViewController(!expandView);
     setExpandView(!expandView);
   };
+  const img = document.getElementById('img_id');
   return (
-    <ImageGalleryContainer style={{ width: expandView ? '100%' : '' }}>
+    <ImageGalleryContainer style={{ width: expandView ? '100%' : '800px' }}>
       {/* <SquareImageContainer style={{ margin: 'auto 0' }}> */}
       <SquareImageContainer>
         {displayList.length !== 0 && displayList[0].url !== style[0].url && (
@@ -114,7 +115,12 @@ export default function ImageGallery({ style, expandViewController }) {
             style={{ paddingLeft: '30px' }}
           />
         )}
-        <FillImage src={currentImage} />
+        <FillImage
+          id="img_id"
+          src={currentImage}
+          onClick={expandViewHandler}
+          style={expandView ? { cursor: 'zoom-out' } : {}}
+        />
         <FSRightArrowAndExpandContainer>
           <FSiconExpand
             className="fa-solid fa-expand"

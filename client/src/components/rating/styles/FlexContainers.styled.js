@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   margin-top: 16px;
 
   @media (max-width: 850px) {
@@ -59,9 +59,35 @@ export const ReviewContainer = styled.div`
   height: 100%;
   min-width: 350px;
   padding: 10px;
+  max-height: 90vh;
 
   @media (max-width: 850px) {
     justify-content: space-around;
+  }
+`;
+
+export const ReviewTileContainer = styled.div`
+  display flex;
+  flex-direction: column;
+  overflow: auto;
+
+  .tile {
+    border-bottom: solid;
+    border-bottom-width: thin;
+    padding-top: 20px;
+    margin: 10px;
+  }
+
+  .checked {
+    color: #F1DC19;
+  }
+
+  .unchecked {
+    color: #F2F3F4;
+  }
+
+  .fa-check {
+    color: #27AE60;
   }
 `;
 
@@ -80,6 +106,4 @@ export const StyledHeader = styled.div`
 export const StyledFooter = styled.div`
   width: 100%;
   padding: 20px;
-
-
 `;
