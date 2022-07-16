@@ -93,6 +93,10 @@ export const ReviewTileContainer = styled.div`
   .alignright {
     float:right;
   }
+
+  .helpful {
+    padding: 20px 0;
+  }
 `;
 
 export const StyledHeader = styled.div`

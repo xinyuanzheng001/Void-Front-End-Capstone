@@ -26,7 +26,7 @@ export default function ReviewTile({ review }) {
       </ReviewCheck>
       <br></br>
       <ReviewGallery photos={review.photos} />
-      <ReviewHelpful helpfulness={review.helpfulness} />
+      <ReviewHelpful id={review.review_id} helpfulness={review.helpfulness} />
       <br></br>
     </div>
   );
