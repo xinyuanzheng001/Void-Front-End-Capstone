@@ -9,7 +9,7 @@ import getProductQuestion from '../../actions/productQuestionAction';
 import AddAnswerForm from './AddAnswerForm';
 import AddQuestionForm from './AddQuestionForm';
 import SearchQuestions from './SearchQuestions';
-import { ReviewButton } from '../rating/styles/ReviewButton.styled'
+import { QuestionButton } from './styles/QuestionButton';
 
 export default function Questions() {
   let { id } = useParams();
@@ -38,7 +38,7 @@ export default function Questions() {
     showLoadQuestions =
       Object.keys(productQuestions.productQuestions.results).length >
       howManyQuestions ? (
-        <ReviewButton
+        <QuestionButton
           style={{ margin: '10px' }}
           onClick={() => {
             console.log(howManyQuestions);
@@ -47,7 +47,7 @@ export default function Questions() {
           }}
         >
           See More Questions
-        </ReviewButton>
+        </QuestionButton>
       ) : (
         <></>
       );
@@ -76,12 +76,18 @@ export default function Questions() {
         />
         <div>{QuestionsList}</div>
       </div>
-      {showLoadQuestions}
-      <ReviewButton
+      <div id='buttonContainer' style={{
+  margin: 'auto',
+  width: '100%',
+  padding: '3%'
+}}>
+      <QuestionButton
         onClick={() => setQuestionForm(!showQuestionForm)}
       >
         Add A Question
-      </ReviewButton>
+      </QuestionButton>
+      {showLoadQuestions}
+      </div>
       {questionForm}
     </>
   );
