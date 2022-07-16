@@ -2,6 +2,8 @@ import React from 'react';
 
 //Components
 import ReviewTop from './ReviewTop';
+import ReviewSummary from './ReviewSummary';
+import ReviewBody from './ReviewBody';
 import ReviewGallery from './ReviewGallery';
 import ReviewRec from './ReviewRec';
 import ReviewHelpful from './ReviewHelpful';
@@ -18,8 +20,8 @@ export default function ReviewTile({ review }) {
         name={review.reviewer_name}
         date={review.date}
       />
-      <h4>{review.summary}</h4>
-      {review.body}
+      <ReviewSummary summary={review.summary}/>
+      <ReviewBody body={review.body} />
       <br></br>
       <ReviewCheck>
         <ReviewRec rec={review.recommend} />
