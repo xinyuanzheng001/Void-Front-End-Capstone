@@ -81,6 +81,7 @@ export const ReviewTileContainer = styled.div`
   .checked {
     color: #F1DC19;
   }
+
   .unchecked {
     color: #F2F3F4;
   }
