@@ -92,7 +92,7 @@ export const StyledHeader = styled.div`
   flex-direction: row;
   justify-content: left;
   width: 100%;
-  height: 25px;
+  height: 50px;
   padding: 10px;
 
   p {
