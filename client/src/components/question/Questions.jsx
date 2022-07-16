@@ -65,7 +65,7 @@ export default function Questions() {
       <div
         style={{
           overflow: 'auto',
-          height: '50vh',
+          maxHeight: '50vh',
           width: '100%',
           position: 'relative'
         }}
