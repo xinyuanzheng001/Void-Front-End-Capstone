@@ -59,7 +59,7 @@ export const ReviewContainer = styled.div`
   height: 100%;
   min-width: 350px;
   padding: 0 1em 1em;
-  max-height: 90vh;
+  max-height: 88vh;
 
   @media (max-width: 850px) {
     justify-content: space-around;
@@ -84,6 +84,14 @@ export const ReviewTileContainer = styled.div`
 
   .fa-check {
     color: #27AE60;
+  }
+
+  .alignleft {
+    float:left;
+  }
+
+  .alignright {
+    float:right;
   }
 `;
 
