@@ -4,7 +4,7 @@ import React from 'react';
 import isImage from '../helpers/isImage';
 
 //Styles
-import { ReviewImages } from '../styles/FlexContainers.styled';
+import { ReviewImages } from '../styles/ReviewTiles.styled';
 
 export default function ReviewStars({ photos }) {
   const galleryBuilder = (photoArray) => {

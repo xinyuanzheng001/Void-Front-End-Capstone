@@ -21,5 +21,5 @@ export default function ReviewStars({ rating, id }) {
     return stars;
   };
 
-  return <>{starBuilder(rating, id)}</>;
+  return <span>{starBuilder(rating, id)}</span>;
 }

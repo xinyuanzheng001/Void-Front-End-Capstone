@@ -5,20 +5,25 @@ import moment from 'moment';
 import ReviewStars from './ReviewStars';
 import ReviewGallery from './ReviewGallery';
 import ReviewRec from './ReviewRec';
+import ReviewHelpful from './ReviewHelpful';
+
+//Styles
+import { ReviewsData } from '../styles/ReviewTiles.styled';
 
 export default function ReviewTile({ review }) {
   return (
     <div className="tile">
       <ReviewStars rating={review.rating} id={review.review_id} />
-      {review.reviewer_name}, {moment(`${review.date}`).format('LL')} <br></br>
-      <b>{review.summary}</b>
-      <br></br>
+      <span>
+        {review.reviewer_name}, {moment(`${review.date}`).format('LL')}{' '}
+      </span>
+      <h4>{review.summary}</h4>
       {review.body}
       <br></br>
       <ReviewRec rec={review.recommend} />
       <br></br>
       <ReviewGallery photos={review.photos} />
-      Was this review helpful? Yes ({review.helpfulness}) | Report
+      <ReviewHelpful helpfulness={review.helpfulness} />
       <br></br>
     </div>
   );
