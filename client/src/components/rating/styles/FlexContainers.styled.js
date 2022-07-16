@@ -104,14 +104,3 @@ export const StyledFooter = styled.div`
   width: 100%;
   padding: 20px;
 `;
-
-export const ReviewImages = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-  img {
-    max-height: 10%;
-    max-width: 10%;
-  }
-`
