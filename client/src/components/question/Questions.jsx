@@ -52,11 +52,13 @@ export default function Questions() {
         <></>
       );
 
-    QuestionsList = productQuestions.productQuestions.results
+    QuestionsList = (searchValue.length >= 3) ? (productQuestions.productQuestions.results.filter(question => question.question_body.includes(searchValue))).map((question) => {
+      return <Question key={question.question_id} question={question} />;
+    }) : (productQuestions.productQuestions.results
       .slice(0, howManyQuestions)
       .map((question) => {
         return <Question key={question.question_id} question={question} />;
-      });
+      }))
   }
 
   return (
