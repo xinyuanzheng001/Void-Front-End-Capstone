@@ -8,20 +8,33 @@ export default function AddQuestionForm(props) {
   const [questionEmail, setQuestionEmail] = useState('');
 
   async function postQuestion() {
-    const config = {
-      params: { product_id: props.product_id},
+
+    var data = JSON.stringify({
+      "body": `${questionText}`,
+      "name": `${questionName}`,
+      "email": `${questionEmail}`,
+      "product_id": Number(props.product_id)
+    });
+
+    console.log(data)
+
+    var config = {
+      method: 'post',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions',
       headers: {
-        Authorization: process.env.API_KEY
+        'Authorization': ' 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',
+        'Content-Type': 'application/json'
       },
-      // data: {
-      //   body: questionText,
-      //   name: questionName,
-      //   email: questionEmail,
-      //   product_id: props.product_id
-      // }
+      data : data
     };
-      return axios.post(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions`, config)
+
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (
@@ -33,8 +46,6 @@ export default function AddQuestionForm(props) {
         onSubmit={(e) => {
           e.preventDefault();
           postQuestion()
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
         }}
       >
         <label htmlFor="yourQuestion">Your Question</label>
