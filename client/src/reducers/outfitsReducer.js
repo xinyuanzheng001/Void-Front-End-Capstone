@@ -8,12 +8,12 @@ export default function outfitsReducer (state = [], action) {
       return [nextOutfit, ...state]
     case OUTFITS_REMOVED:
       const id = action.payload.style.product_Id
-
-      const index = state.findIndex(item => {
+      const stateCopy = state.slice();
+      const index = stateCopy.findIndex(item => {
         item.style.product_Id === id
       })
-      state.splice(index, 1);
-      return state;
+      stateCopy.splice(index, 1);
+      return stateCopy;
     default:
       return state;
   }

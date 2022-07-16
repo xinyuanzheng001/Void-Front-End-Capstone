@@ -23,27 +23,19 @@ export default function Outfits() {
 
   const { relatedProducts } = useSelector((state) => state.relatedProducts);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getRelatedDetails(relatedProducts));
-    dispatch(getRelatedStyle(relatedProducts));
-  }, [relatedProducts, dispatch]);
-  const { relatedDetails, loading } = useSelector(
-    (state) => state.relatedDetails
-  );
-  const { relatedStyle, loading: relatedStyleLoading } = useSelector(
-    (state) => state.relatedStyle
-  );
   const { productDetail } = useSelector((state) => state.productDetail);
   const { productStyle } = useSelector((state) => state.productStyle);
   const outfits = useSelector((state) => state.outfits);
+  const [outfit, setOutfit] = useState(outfits) //first value is state, second value is function
   const addedOutfit = { style: productStyle, details: productDetail };
   const handleClick = (event) => {
     console.log('Clicked');
     dispatch(addOutfits(addedOutfit));
   }
-  var cards = '';
-  var slidingCards = '';
-  if (!loading && relatedDetails) {
+  const handleRemoveClick = (outfit) => {
+    dispatch(removeOutfits(outfit))
+
+  }
     var cards = outfits.map((item, index) => {
       return (
         <OutfitCard
@@ -51,6 +43,7 @@ export default function Outfits() {
           outfitStyle={item.style}
           key={index}
           index={index}
+          removeOutfit = {handleRemoveClick}
         />
       );
     });
@@ -62,7 +55,7 @@ export default function Outfits() {
       );
     }
     var slidingCards = RelatedSlider();
-  }
+  // }
 
   return (
     <div style={{ width: '1000px', backgroundColor: 'white' }}>
