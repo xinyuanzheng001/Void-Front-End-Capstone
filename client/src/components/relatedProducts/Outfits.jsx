@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import Stars from
 import { useSelector, useDispatch } from 'react-redux';
 import RelatedCard from './RelatedCard';
 import OutfitCard from './OutfitCard';

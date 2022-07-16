@@ -30,7 +30,6 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
           flexDirection: 'column',
           width: '200px',
           height: '350px',
-          // outline: '1px solid black',
           margin: '10px',
           borderRadius: '10px',
           position: 'relative',
@@ -47,7 +46,7 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
               top: '15px',
               right: '20px',
               borderRadius: '25%',
-              zIndex: '1',
+              zIndex: '1'
             }}
           />
         </div>

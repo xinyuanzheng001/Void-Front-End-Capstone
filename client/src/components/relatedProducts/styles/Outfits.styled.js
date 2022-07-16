@@ -22,3 +22,13 @@ width: 40px;
     cursor: pointer;
   }
 `;
+export const CardsIconStyled = styled.i`
+margin-top: 25px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
