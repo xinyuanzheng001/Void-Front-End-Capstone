@@ -19,13 +19,9 @@ export const ReviewImages = styled.div`
 `;
 
 export const ReviewCheck = styled.div`
-  padding: 10px 0;
+  padding: 5px 0;
 
   i {
-    padding: 15px;
+    padding: 10px;
   }
-`;
-
-export const ReviewData = styled.div`
-  display: inline;
 `;

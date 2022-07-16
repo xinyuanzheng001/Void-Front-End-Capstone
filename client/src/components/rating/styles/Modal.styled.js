@@ -1,31 +1,7 @@
 import styled from 'styled-components';
 
-export const ReviewImages = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  padding: 10px 0;
+export const ImageModal = styled.div`
 
-  img {
-    max-height: 10%;
-    max-width: 10%;
-    padding: 10px;
-  }
 
-  img:hover {
-    opacity: 0.6;
-    cursor: pointer;
-  }
 `;
 
-export const ReviewCheck = styled.div`
-  padding: 10px 0;
-
-  i {
-    padding: 15px;
-  }
-`;
-
-export const ReviewData = styled.div`
-  display: inline;
-`;

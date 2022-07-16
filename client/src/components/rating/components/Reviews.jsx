@@ -9,7 +9,6 @@ import { ReviewTileContainer } from '../styles/FlexContainers.styled';
 
 export default function Reviews() {
   const { productReviews } = useSelector((state) => state.productReviews);
-  const { productMetaData } = useSelector((state) => state.productMetaData);
 
   return (
     <ReviewTileContainer>

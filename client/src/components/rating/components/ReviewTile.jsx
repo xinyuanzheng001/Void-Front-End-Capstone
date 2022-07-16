@@ -22,12 +22,11 @@ export default function ReviewTile({ review }) {
       />
       <ReviewSummary summary={review.summary}/>
       <ReviewBody body={review.body} />
-      <br></br>
+      <ReviewGallery photos={review.photos} />
       <ReviewCheck>
         <ReviewRec rec={review.recommend} />
       </ReviewCheck>
       <br></br>
-      <ReviewGallery photos={review.photos} />
       <ReviewHelpful id={review.review_id} helpfulness={review.helpfulness} />
       <br></br>
     </div>
