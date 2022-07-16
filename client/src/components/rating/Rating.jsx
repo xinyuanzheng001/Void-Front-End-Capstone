@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 //Components
-import ReviewTiles from './components/ReviewTiles';
+import Reviews from './components/Reviews';
 import ReviewHeader from './components/ReviewHeader';
 import ReviewFooter from './components/ReviewFooter';
 import RatingBreakdown from './components/RatingBreakdown';
@@ -42,7 +42,7 @@ export default function Rating() {
         </BreakdownContainer>
         <ReviewContainer>
           {header}
-          <ReviewTiles />
+          <Reviews />
           <StyledFooter>
             <ReviewFooter />
           </StyledFooter>
