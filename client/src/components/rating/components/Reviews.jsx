@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import moment from 'moment';
 
 //Helper Functions
 import totalReviews from '../helpers/totalReviews';
@@ -44,7 +45,10 @@ export default function Reviews() {
         return (
           <div className="tile" key={review.review_id}>
             {starBuilder(review.rating, review.review_id)}
-            {review.reviewer_name} <br></br>
+            {review.reviewer_name}, {moment(`${review.date}`).format('LL')}{' '}
+            <br></br>
+            <b>{review.summary}</b>
+            <br></br>
             {review.body}
             <br></br>
             {recommended}

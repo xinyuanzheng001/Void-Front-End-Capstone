@@ -59,7 +59,7 @@ export const ReviewContainer = styled.div`
   height: 100%;
   min-width: 350px;
   padding: 10px;
-  max-height: 100vh;
+  max-height: 90vh;
 
   @media (max-width: 850px) {
     justify-content: space-around;
