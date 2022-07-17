@@ -30,7 +30,7 @@ export default function Questions() {
 
   if (showQuestionForm) {
     questionForm = (
-      <AddQuestionForm product_id={id} productName={'insertProductName'} />
+      <AddQuestionForm product_id={id} productName={'insertProductName'} setQuestionForm={setQuestionForm} showQuestionForm={showQuestionForm}/>
     );
   }
 

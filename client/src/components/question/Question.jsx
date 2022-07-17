@@ -31,7 +31,7 @@ export default function Question(props) {
 
   let answerForm;
   if (showAnswerForm) {
-    answerForm = <AddAnswerForm />;
+    answerForm = <AddAnswerForm showAnswerForm={showAnswerForm} setAnswerForm={setAnswerForm}/>;
   }
 
   return (
