@@ -15,9 +15,6 @@ export default function AddQuestionForm(props) {
       email: `${questionEmail}`,
       product_id: Number(props.product_id)
     });
-
-    console.log(data);
-
     var config = {
       method: 'post',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions',
@@ -27,7 +24,6 @@ export default function AddQuestionForm(props) {
       },
       data: data
     };
-
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));

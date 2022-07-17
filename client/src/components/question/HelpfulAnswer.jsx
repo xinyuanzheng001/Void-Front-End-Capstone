@@ -14,7 +14,7 @@ export default function HelpfulAnswer(props) {
       <span style={{ margin: '10px' }}>|</span>
       <u
         style={{ margin: '5px' }}
-        onClick={() => console.log('Thanks for the feedback!')}
+        onClick={() => props.reportAnswer()}
       >
         Report
       </u>

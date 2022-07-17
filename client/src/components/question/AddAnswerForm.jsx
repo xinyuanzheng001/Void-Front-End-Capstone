@@ -19,7 +19,9 @@ export default function AddAnswerForm(props) {
         >
           <h3>Submit your Answer</h3>
           <h4>productName:Question Body</h4>
-          <button onClick={() => props.setAnswerForm(!props.showAnswerForm)}>Close Form</button>
+          <button onClick={() => props.setAnswerForm(!props.showAnswerForm)}>
+            Close Form
+          </button>
           <label htmlFor="yourQuestion">Your Answer</label>
           <textarea
             required
