@@ -2,32 +2,39 @@ import React from 'react';
 import HelpfulAnswer from './HelpfulAnswer';
 import moment from 'moment';
 import axios from 'axios';
+import { useState } from 'react';
 
 export default function Answer(props) {
 
+  const [answerReported, setAnswerReported] = useState(false)
+
   async function reportAnswer() {
+
+    setAnswerReported(true)
+
     var data = JSON.stringify({
-      "answer_id": Number(props.answer.id)
+      answer_id: Number(props.answer.id)
     });
 
     var config = {
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/answers/${Number(props.answer.id)}/report`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/answers/${Number(
+        props.answer.id
+      )}/report`,
       headers: {
-        'Authorization': `${process.env.API_KEY}`,
+        Authorization: `${process.env.API_KEY}`,
         'Content-Type': 'application/json'
       },
-      data : data
+      data: data
     };
 
     axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   return (
     <div style={{ marginTop: '10px' }}>
@@ -43,6 +50,7 @@ export default function Answer(props) {
         <HelpfulAnswer
           helpfulness={props.answer.helpfulness}
           reportAnswer={reportAnswer}
+          answerReported={answerReported}
         />
       </span>
     </div>
