@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { QuestionModal, ModalForm } from './styles/QuestionModal';
+import ReactDOM from 'react-dom';
 
 export default function AddQuestionForm(props) {
   const [questionText, setQuestionText] = useState('');
@@ -33,8 +34,8 @@ export default function AddQuestionForm(props) {
       });
   }
 
-  return (
-    <QuestionModal>
+  return ReactDOM.createPortal(
+    (<QuestionModal>
       <ModalForm>
         <form
           onSubmit={(e) => {
@@ -89,6 +90,6 @@ export default function AddQuestionForm(props) {
           <button>Submit A Question</button>
         </form>
       </ModalForm>
-    </QuestionModal>
-  );
+    </QuestionModal>)
+  , document.getElementById('root'));
 }
