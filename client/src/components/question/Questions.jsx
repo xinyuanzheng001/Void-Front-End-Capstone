@@ -30,7 +30,7 @@ export default function Questions() {
 
   if (showQuestionForm) {
     questionForm = (
-      <AddQuestionForm product_id={id} productName={'insertProductName'} />
+      <AddQuestionForm product_id={id} productName={'insertProductName'} setQuestionForm={setQuestionForm} showQuestionForm={showQuestionForm}/>
     );
   }
 
@@ -64,6 +64,10 @@ export default function Questions() {
   return (
     <>
       <h2>Questions & Answers</h2>
+      <SearchQuestions
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
       <div
         style={{
           overflow: 'auto',
@@ -72,10 +76,6 @@ export default function Questions() {
           position: 'relative'
         }}
       >
-        <SearchQuestions
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
         <div>{QuestionsList}</div>
       </div>
       <div id='buttonContainer' style={{
