@@ -18,8 +18,10 @@ display: flex;
 align-items: center;
 justify-content: center;
 width: 40px;
+transition: transform .2s ease-in-out;
   &:hover {
     cursor: pointer;
+    transform: scale(1.25);
   }
 `;
 export const CardsIconStyled = styled.div`
@@ -34,11 +36,11 @@ top: 15px;
 right: 15px;
 background-color: white;
 z-index: 1;
-opacity: 50%;
+opacity: 90%;
 transition: transform .3s ease-in-out;
   &:hover {
     cursor: pointer;
-    transform: scale(1.4);
+    transform: scale(1.25);
 
   }
 `;

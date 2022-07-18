@@ -6,20 +6,32 @@ import Stars from '../detail/Stars.jsx';
 import transparentStar from '../../images/transparentstar.png';
 import star from '../../images/star.png';
 import { OutfitCardContainer, AddOutfitsStyled, CardsIconStyled, OutfitContainer } from './styles/Outfits.styled';
-
+import ComparisonModal from './ComparisonModal'
 export default function RelatedCard({ item, index }) {
   const { id, name, category, default_price } = item;
   const dispatch = useDispatch();
-
   const productDetail = useSelector((state) => state.productDetail);
   const { relatedStyle, loading } = useSelector((state) => state.relatedStyle);
+  const [show, setShow] = useState(false)
   var photo = '';
+
   if (!loading && relatedStyle) {
     photo = relatedStyle[index].results[0].photos[0].url;
     var { results } = relatedStyle;
   }
+
+  var handleClick = () => {
+    setShow(true)
+
+    alert('Clicked')
+
+  }
+  var handleClose = () => {
+    setShow(false)
+  }
   return (
     <>
+          <ComparisonModal show={show} onClose={handleClose} />
       <OutfitContainer >
         <CardsIconStyled>
           <img
@@ -31,6 +43,8 @@ export default function RelatedCard({ item, index }) {
               // right: '20px',
               // borderRadius: '25%'
             }}
+            onClick={handleClick}
+
           />
         </CardsIconStyled>
         <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'grey' }}>

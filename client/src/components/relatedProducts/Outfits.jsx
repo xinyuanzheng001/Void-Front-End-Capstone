@@ -55,7 +55,7 @@ export default function Outfits() {
   // }
 
   return (
-    <div style={{ width: '1000px', backgroundColor: 'white' }}>
+    <div style={{ width: '100%', backgroundColor: 'white' }}>
       <h3>Your Outfit</h3>
       <div style={{ display: 'flex' }}>
         <div
@@ -79,7 +79,7 @@ export default function Outfits() {
             ></AddOutfitsStyled>
           </OutfitCardContainer>
         </div>
-        <div style={{ width: '680px' }}>{slidingCards}</div>
+        <div style={{ minWidth: '600px', maxWidth: '610px'}}>{slidingCards}</div>
       </div>
     </div>
   );
