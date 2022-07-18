@@ -9,7 +9,7 @@ import RelatedProducts from '../relatedProducts/RelatedProducts';
 import getProductDetail from '../../actions/productDetailAction';
 import getProductStyle from '../../actions/productStyleAction';
 import getProductMetaData from '../../actions/productMetaDataAction';
-import getProductReviews from '../../actions/productReviewsAction';
+import { getProductReviews } from '../../actions/productReviewsAction';
 import getRelatedProducts from '../../actions/relatedProductsAction';
 import axios from 'axios';
 
