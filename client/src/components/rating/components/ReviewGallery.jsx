@@ -18,14 +18,11 @@ export default function ReviewStars({ photos }) {
     for (let photo of photoArray) {
       if (isImage(photo.url)) {
         gallery.push(
-          <span key={photo.id}>
             <img
-
+              key={photo.id}
               src={photo.url}
               onClick={() => setShow(true)}
             ></img>
-            <ImageModal show={show} url={photo.url} />
-          </span>
         );
       }
     }

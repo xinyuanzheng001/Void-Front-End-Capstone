@@ -44,10 +44,14 @@ export const TableContainer = styled.div`
   min-width: 350px;
   font-size: 1.1em;
 
-  span {
+  p {
     display: flex;
     justify-content: space-around;
     text-align: center;
+  }
+
+  u:hover {
+    cursor: pointer;
   }
 `;
 

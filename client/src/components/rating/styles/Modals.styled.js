@@ -12,8 +12,3 @@ export const ImageModalStyle = styled.div`
   justify-content: center;
 `;
 
-export const ImageBodyStyle = styled.div`
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-`;

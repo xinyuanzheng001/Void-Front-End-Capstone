@@ -11,9 +11,7 @@ export default function ImageModal({ show, url }) {
 
   return (
     <ImageModal>
-      <ImageBodyStyle>
-        <img src={url}></img>
-      </ImageBodyStyle>
+      <img src={url}></img>
     </ImageModal>
   );
 }
