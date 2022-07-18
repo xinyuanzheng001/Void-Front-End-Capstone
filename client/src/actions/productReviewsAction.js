@@ -16,7 +16,7 @@ const getProductReviews = (id) => async (dispatch) => {
       }
     };
     const { data } = await axios.get(
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`,
+      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=1000`,
       config
     );
     dispatch({
