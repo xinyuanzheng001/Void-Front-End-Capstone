@@ -20,7 +20,6 @@ export default function Outfits() {
     slidesToShow: 2.5,
     slidesToScroll: 2
   };
-
   const { relatedProducts } = useSelector((state) => state.relatedProducts);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function Outfits() {
   const handleClick = (event) => {
     console.log('Clicked');
     dispatch(addOutfits(addedOutfit));
-  }
+  };
   var cards = '';
   var slidingCards = '';
   if (!loading && relatedDetails) {
@@ -68,18 +67,28 @@ export default function Outfits() {
     <div style={{ width: '1000px', backgroundColor: 'white' }}>
       <h3>Your Outfit</h3>
       <div style={{ display: 'flex' }}>
-          <div style={{display: 'flex', flexDirection: "columns",
-          boxShadow: '3px 1px 10px 0px white inset', margin: '10px',
-          position: 'relative', backgroundColor: 'gray', width: '200px', height: '350px', borderRadius: '10px'}}>
-        <OutfitCardContainer>
-          <span>Add to Oufit</span>
-          <AddOutfitsStyled
-            className="fa-solid fa-plus fa-5x"
-            onClick={handleClick}
-          ></AddOutfitsStyled>
-        </OutfitCardContainer>
-          </div>
-        <div style={{ width: '680px', }}>{slidingCards}</div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'columns',
+            boxShadow: '3px 1px 10px 0px white inset',
+            margin: '10px',
+            position: 'relative',
+            backgroundColor: 'gray',
+            width: '200px',
+            height: '350px',
+            borderRadius: '10px'
+          }}
+        >
+          <OutfitCardContainer>
+            <span>Add to Oufit</span>
+            <AddOutfitsStyled
+              className="fa-solid fa-plus fa-5x"
+              onClick={handleClick}
+            ></AddOutfitsStyled>
+          </OutfitCardContainer>
+        </div>
+        <div style={{ width: '680px' }}>{slidingCards}</div>
       </div>
     </div>
   );
