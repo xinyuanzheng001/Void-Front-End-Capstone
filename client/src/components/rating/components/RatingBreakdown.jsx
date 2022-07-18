@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+//Actions
+import {
+  toggleFilter,
+  removeFilter
+} from '../../../actions/ratingFilterAction';
 
 //Components
 import Stars from '../../detail/Stars';
@@ -26,19 +32,10 @@ import totalReviews from '../helpers/totalReviews';
 
 export default function RatingBreakdown() {
   const { productMetaData } = useSelector((state) => state.productMetaData);
+  const ratingFilters = useSelector((state) => state.ratingFilters);
   const percent = percentRec(productMetaData.recommended);
   const reviews = totalReviews(productMetaData.ratings);
-
-  const intitalFilter = {
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
-  };
-
-  const [filters, setFilter] = useState(intitalFilter);
-  const [showMessage, setMessage] = useState(false);
+  const dispatch = useDispatch();
 
   let percentMessage;
   if (reviews !== 0 && percent >= 0) {
@@ -51,28 +48,11 @@ export default function RatingBreakdown() {
     percentMessage = <p>There are no reviews for this product yet</p>;
   }
 
-  const filterChecker = function (filterObj) {
-    for (let filter in filterObj) {
-      if (filterObj[filter]) {
-        return true;
-      }
-    }
-    return false;
-  };
-
   let clearFilters;
-
-  if (showMessage) {
+  if (ratingFilters.length > 0) {
     clearFilters = (
-      <p
-        onClick={() => {
-          setMessage(false);
-          setFilter(intitalFilter);
-        }}
-      >
-        <u className="toggle">
-        Clear All Filters
-          </u>
+      <p onClick={() => {dispatch(removeFilter())}}>
+        <u className="toggle">Clear All Filters</u>
       </p>
     );
   }
@@ -94,13 +74,7 @@ export default function RatingBreakdown() {
             <StarContainer
               key={starRating}
               onClick={() => {
-                setFilter(() => {
-                  filters[`${starRating}`] = !filters[`${starRating}`];
-                  setMessage(() => {
-                    return filterChecker(filters);
-                  });
-                  return filters;
-                });
+                dispatch(toggleFilter(starRating));
               }}
             >
               <StarLeft>
