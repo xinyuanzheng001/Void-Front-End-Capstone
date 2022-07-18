@@ -14,7 +14,6 @@ import pinterestLogo from '../../images/pinterestLogo.png';
 
 export default function SocialMedia({ currentImage }) {
   // const url = window.location.href;
-  console.log(currentImage);
   return (
     <SocialMediaContainer>
       <FacebookShareButton url="www.google.com">

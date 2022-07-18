@@ -10,7 +10,6 @@ export default function GoToReview() {
   for (let key in ratings) {
     totalReviews += Number(ratings[key]);
   }
-  console.log(ratings);
 
   return (
     <GoToReviewContainer>

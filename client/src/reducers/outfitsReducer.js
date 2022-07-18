@@ -8,8 +8,8 @@ export default function outfitsReducer(state = [], action) {
       console.log(nextOutfit);
       const product = nextOutfit.style.product_id;
       const found = state.find((item) => {
-        return  item.style.product_id === product
-      })
+        return item.style.product_id === product;
+      });
       console.log(state.includes(product));
       if (!found) {
         return [nextOutfit, ...state];

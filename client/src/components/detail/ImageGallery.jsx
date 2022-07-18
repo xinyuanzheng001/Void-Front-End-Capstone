@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
+  SideBySideMagnifier,
+  GlassMagnifier,
+  Magnifier,
+  MagnifierContainer,
+  PictureInPictureMagnifier,
+  MagnifierPreview,
+  MagnifierZoom
+} from 'react-image-magnifiers';
+import {
   FillImage,
   SquareImage,
   SquareImageContainer,
@@ -17,6 +26,8 @@ export default function ImageGallery({ style, expandViewController }) {
   const [firstImageIndex, setFirstImageIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [expandView, setExpandView] = useState(false);
+  const [zoom, setZoom] = useState(false);
+  const [start, setStart] = useState(false);
   useEffect(() => {
     setCurrentImage(style[0].url);
     if (style.length > 7) {
@@ -26,7 +37,9 @@ export default function ImageGallery({ style, expandViewController }) {
     }
     setFirstImageIndex(0);
     setCurrentImageIndex(0);
+    console.log(currentImage);
   }, [style]);
+
   const onClickHandler = (src) => {
     setCurrentImage(src);
     let a;
@@ -73,8 +86,10 @@ export default function ImageGallery({ style, expandViewController }) {
   const expandViewHandler = () => {
     expandViewController(!expandView);
     setExpandView(!expandView);
+    setZoom(false);
   };
   const img = document.getElementById('img_id');
+  img && console.log(img.width / img.height, img.width, img.height);
   return (
     <ImageGalleryContainer style={{ width: expandView ? '100%' : '800px' }}>
       {/* <SquareImageContainer style={{ margin: 'auto 0' }}> */}
@@ -115,12 +130,60 @@ export default function ImageGallery({ style, expandViewController }) {
             style={{ paddingLeft: '30px' }}
           />
         )}
-        <FillImage
-          id="img_id"
-          src={currentImage}
-          onClick={expandViewHandler}
-          style={expandView ? { cursor: 'zoom-out' } : {}}
-        />
+        {expandView ? (
+          // zoom ? (
+          <MagnifierContainer
+            style={{
+              width: '100%',
+              display: 'flex',
+              maxHeight: '100%'
+            }}
+          >
+            <MagnifierPreview
+              imageSrc={currentImage}
+              style={{ width: '30%', margin: 'auto 5%' }}
+              overlayOpacity={0.5}
+              onZoomStart={() => setStart(true)}
+              onZoomEnd={() => setStart(false)}
+            />
+            {start ? (
+              <MagnifierZoom
+                imageSrc={currentImage}
+                style={{ width: '60%', height: '100%' }}
+              />
+            ) : (
+              <img
+                src={currentImage}
+                style={{ width: '55%', objectFit: 'contain' }}
+              />
+            )}
+            {/* <Magnifier
+                // magnifierBorderSize={10}
+                // magnifierSize="50%"
+                // square={true}
+                imageSrc={currentImage}
+                style={{
+                  margin: 'auto',
+                  overflow: 'hidden',
+                  objectfit: 'contain',
+                  height: '100%',
+                  width: '80%'
+                }}
+                dragToMove={false}
+                onZoomEnd={() => setZoom(false)}
+              /> */}
+          </MagnifierContainer>
+        ) : (
+          // ) : (
+          //   <FillImage src={currentImage} onClick={() => setZoom(true)} />
+          // )
+          <FillImage
+            id="img_id"
+            src={currentImage}
+            onClick={expandViewHandler}
+            style={expandView ? { cursor: 'zoom-out' } : {}}
+          />
+        )}
         <FSRightArrowAndExpandContainer>
           <FSiconExpand
             className="fa-solid fa-expand"
