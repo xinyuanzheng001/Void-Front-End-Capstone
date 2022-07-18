@@ -9,7 +9,7 @@ export default function SearchQuestions(props) {
   return (
     <>
       <form
-        style={{display:'flex'}}
+        style={{display:'flex', borderStyle:'solid', borderWidth:'1px'}}
         onSubmit={(e) => {
           e.preventDefault();
           console.log(`Searching for ${searchValue}`);

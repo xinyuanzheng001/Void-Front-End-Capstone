@@ -3,7 +3,7 @@ import Answer from './Answer';
 import HelpfulQuestion from './HelpfulQuestion';
 import AddAnswerForm from './AddAnswerForm';
 import { useState } from 'react';
-import { ReviewButton } from '../rating/styles/ReviewButton.styled'
+import { ReviewButton } from '../rating/styles/ReviewButton.styled';
 import axios from 'axios';
 
 export default function Question(props) {
@@ -59,7 +59,13 @@ export default function Question(props) {
 
   let answerForm;
   if (showAnswerForm) {
-    answerForm = <AddAnswerForm showAnswerForm={showAnswerForm} setAnswerForm={setAnswerForm}/>;
+    answerForm = (
+      <AddAnswerForm
+        showAnswerForm={showAnswerForm}
+        setAnswerForm={setAnswerForm}
+        question_id={props.question.question_id}
+      />
+    );
   }
 
   return (
