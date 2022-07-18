@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 //Components
 import ReviewTile from './ReviewTile';
 
+//Context
+import { FilterContext } from './RatingBreakdown';
+
 //Styles
 import { ReviewTileContainer } from '../styles/FlexContainers.styled';
 

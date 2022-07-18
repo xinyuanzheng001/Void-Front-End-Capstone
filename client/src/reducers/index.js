@@ -9,6 +9,7 @@ import productReviewsReducer from './productReviewsReducer';
 import relatedDetailsReducer from './relatedDetailsReducer';
 import relatedStyleReducer from './relatedStyleReducer';
 import outfitsReducer from './outfitsReducer';
+import ratingFilterReducer from './ratingFilterReducer';
 
 export default combineReducers({
   cart: cartReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
   relatedDetails: relatedDetailsReducer,
   relatedStyle: relatedStyleReducer,
   outfits: outfitsReducer,
+  ratingFilters: ratingFilterReducer
 });
