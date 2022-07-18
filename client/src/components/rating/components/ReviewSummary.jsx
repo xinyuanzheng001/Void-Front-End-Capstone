@@ -6,9 +6,9 @@ export default function ReviewSummary({ summary }) {
 
   if (isLong) {
     let truncated = summary.substring(0, 60) + '...';
-    viewableSummary = [<h4> {truncated}</h4>, <p>{summary.substring(60)}</p>];
+    viewableSummary = [<h4 key="summary"> {truncated}</h4>, <p key="summary-ext">{summary.substring(60)}</p>];
   } else {
-    viewableSummary = <h4>{summary}</h4>;
+    viewableSummary = <h4 key="summary">{summary}</h4>;
   }
 
   return viewableSummary;
