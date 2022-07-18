@@ -25,6 +25,7 @@ export default function Rating() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
+  const [filters, setFilters] = useState([]);
   const [viewable, setViewable] = useState(2);
 
   const total = totalReviews(productMetaData.ratings);
@@ -39,12 +40,12 @@ export default function Rating() {
       <h3>RATINGS & REVIEWS</h3>
       <MainContainer>
         <BreakdownContainer>
-          <RatingBreakdown />
+          <RatingBreakdown filters={filters} setFilters={setFilters} />
           <ProductBreakdown />
         </BreakdownContainer>
         <ReviewContainer>
           {header}
-          <Reviews viewable={viewable} />
+          <Reviews filters={filters} viewable={viewable} />
           <StyledFooter>
             <ReviewFooter viewable={viewable} setViewable={setViewable} />
           </StyledFooter>

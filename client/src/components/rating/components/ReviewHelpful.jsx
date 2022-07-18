@@ -26,6 +26,7 @@ export default function ReviewHelpful({ helpfulness, id }) {
           className="submit report"
           onClick={() => {
             setHelpful(() => {
+              postFeedback(id, 'report');
               return [id, true];
             });
           }}
