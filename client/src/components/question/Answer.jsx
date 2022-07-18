@@ -62,7 +62,7 @@ export default function Answer(props) {
   }
 
   return (
-    <div style={{ marginTop: '10px' }}>
+    <div style={{ marginTop: '10px', padding:'15px' }}>
       <div>
         <h3 style={{ display: 'inline' }}>A: </h3>
         <span>{props.answer.body}</span>

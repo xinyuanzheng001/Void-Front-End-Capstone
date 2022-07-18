@@ -69,7 +69,7 @@ export default function Question(props) {
   }
 
   return (
-    <div style={{ padding: '10px' }}>
+    <div style={{ padding: '20px' }}>
       <h3 style={{ display: 'inline' }}>Q: {props.question.question_body} </h3>
       <HelpfulQuestion
         helpfulness={props.question.question_helpfulness}

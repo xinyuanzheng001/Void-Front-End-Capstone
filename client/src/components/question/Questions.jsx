@@ -57,7 +57,7 @@ export default function Questions() {
     }) : (productQuestions.productQuestions.results
       .slice(0, howManyQuestions)
       .map((question) => {
-        return <Question key={question.question_id} question={question} />;
+        return <Question key={question.question_id} question={question}/>;
       }))
   }
 
