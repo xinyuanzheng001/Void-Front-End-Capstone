@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import {
   HeaderContainer,
   LogoContainer,
   Logo,
   SearchInput,
-  SearchIcon
-} from '../styles/Header.styled';
+  SearchIcon,
+  CartIcon
+} from './styles/Header.styled';
 
 export default function Header() {
   const [keyWord, setKeyWord] = useState('');
@@ -21,6 +23,13 @@ export default function Header() {
         onChange={(e) => setKeyWord(e.target.value)}
       ></SearchInput>
       <SearchIcon className="fa-solid fa-magnifying-glass"></SearchIcon>
+      <CartIcon
+        as={Link}
+        to="/mycart"
+        className="fa-solid fa-cart-shopping"
+        style={{ color: 'black' }}
+        title="My shopping cart"
+      ></CartIcon>
     </HeaderContainer>
   );
 }

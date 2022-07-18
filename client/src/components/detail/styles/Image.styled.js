@@ -33,6 +33,34 @@ export const SquareImageContainer = styled.div`
   padding-left: 30px;
   margin-top: 20px;
   height: 100%;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SquareImageRow = styled.img`
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+  @media (max-width: 450px) {
+    width: 30px;
+    height: 30px;
+    margin: auto 5px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const SquareImageContainerRow = styled.div`
+  margin: 10px auto;
+  width: 100%;
+  height: 60px;
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const FillImage = styled.img`
@@ -42,6 +70,11 @@ export const FillImage = styled.img`
   object-fit: contain;
   &:hover {
     cursor: zoom-in;
+  }
+  @media (max-width: 768px) {
+    &:hover {
+      cursor: default;
+    }
   }
 `;
 
@@ -55,8 +88,13 @@ export const ImageGalleryContainer = styled.div`
   display: flex;
   height: 60vh;
   width: 800px;
+  flex-direction: row;
   background-color: rgb(245, 244, 242);
   transition: all 1s ease;
+  @media (max-width: 768px) {
+    width: 100%;
+    max-height: 50%;
+  }
 `;
 
 export const FSiconUpDownArrow = styled.i`
@@ -79,6 +117,9 @@ export const FSiconExpand = styled.i`
   margin-top: 25px;
   &:hover {
     cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 

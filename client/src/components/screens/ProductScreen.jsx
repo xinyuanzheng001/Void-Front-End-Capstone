@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Detail from '../detail/Detail';
 import Questions from '../question/Questions';
 import Rating from '../rating/Rating';
-import { Container } from '../styles/Container.styled';
+import { Container } from '../detail/styles/Container.styled';
 import RelatedProducts from '../relatedProducts/RelatedProducts';
 import getProductDetail from '../../actions/productDetailAction';
 import getProductStyle from '../../actions/productStyleAction';

@@ -10,8 +10,8 @@ import {
   ErrorMsg,
   SuccessMsg
 } from '../styles/Select.styled';
-import addItemToCart from '../../actions/cartAction';
-import star from '../../images/star.png';
+import addItemToCart from '../../../actions/cartAction';
+import star from '../../../images/star.png';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
 
@@ -74,6 +74,7 @@ export default function Select({ sizes, quantity, style }) {
       newQty.length === 0 ? generateArray(quantity[0]) : newQty
     );
     setSelectedSize(s);
+    setError(false);
   };
 
   const onQtyChangeHandler = (q) => {

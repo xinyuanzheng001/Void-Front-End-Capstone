@@ -39,3 +39,13 @@ export const SearchIcon = styled.i`
   fontsize: 20px;
   color: white;
 `;
+
+export const CartIcon = styled.i`
+  margin: 25px 0 0 10px;
+  fontsize: 20px;
+  color: black;
+  &:hover {
+    cursor: pointer;
+  }
+  text-decoration: none;
+`;
