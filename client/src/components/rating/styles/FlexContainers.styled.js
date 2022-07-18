@@ -101,6 +101,10 @@ export const ReviewTileContainer = styled.div`
   .helpful {
     padding: 20px 0;
   }
+
+  u:hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledHeader = styled.div`
