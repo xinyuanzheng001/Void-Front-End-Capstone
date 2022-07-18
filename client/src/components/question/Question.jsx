@@ -1,15 +1,44 @@
 import React from 'react';
 import Answer from './Answer';
 import HelpfulQuestion from './HelpfulQuestion';
-import LoadAnswers from './LoadAnswers';
 import AddAnswerForm from './AddAnswerForm';
 import { useState } from 'react';
+import { ReviewButton } from '../rating/styles/ReviewButton.styled'
+import axios from 'axios';
 
 export default function Question(props) {
   const [showAnswerForm, setAnswerForm] = useState(false);
+  const [howManyAnswers, setHowManyAnswers] = useState(2);
+  const [markedHelpful, setHelpfulQuestion] = useState(false);
+
+  async function markHelpfulQuestion() {
+    setHelpfulQuestion(true);
+    var data = JSON.stringify({
+      question_id: Number(props.question.question_id)
+    });
+    var config = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${Number(
+        props.question.question_id
+      )}/helpful`,
+      headers: {
+        Authorization: `${process.env.API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   let AnswerList = Object.keys(props.question.answers)
-    .slice(0, 2)
+    .slice(0, howManyAnswers)
     .map((objKey) => {
       return (
         <Answer
@@ -20,21 +49,28 @@ export default function Question(props) {
     });
 
   let showLoadAnswers =
-    Object.keys(props.question.answers).length > 2 ? <LoadAnswers /> : <></>;
+    Object.keys(props.question.answers).length > howManyAnswers ? (
+      <ReviewButton onClick={() => setHowManyAnswers(howManyAnswers + 2)}>
+        Load More Answers
+      </ReviewButton>
+    ) : (
+      <></>
+    );
 
   let answerForm;
   if (showAnswerForm) {
-    answerForm = <AddAnswerForm />;
+    answerForm = <AddAnswerForm showAnswerForm={showAnswerForm} setAnswerForm={setAnswerForm}/>;
   }
 
   return (
     <div style={{ padding: '10px' }}>
-      <h2 style={{ display: 'inline' }}>Q: </h2>
-      <span>{props.question.question_body}</span>
+      <h3 style={{ display: 'inline' }}>Q: {props.question.question_body} </h3>
       <HelpfulQuestion
         helpfulness={props.question.question_helpfulness}
         setAnswerForm={setAnswerForm}
         showAnswerForm={showAnswerForm}
+        markHelpfulQuestion={markHelpfulQuestion}
+        markedHelpful={markedHelpful}
       />
       {AnswerList}
       {showLoadAnswers}
