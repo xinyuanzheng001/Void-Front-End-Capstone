@@ -131,52 +131,37 @@ export default function ImageGallery({ style, expandViewController }) {
           />
         )}
         {expandView ? (
-          // zoom ? (
-          <MagnifierContainer
-            style={{
-              width: '100%',
-              display: 'flex',
-              maxHeight: '100%'
-            }}
-          >
-            <MagnifierPreview
-              imageSrc={currentImage}
-              style={{ width: '30%', margin: 'auto 5%' }}
-              overlayOpacity={0.5}
-              onZoomStart={() => setStart(true)}
-              onZoomEnd={() => setStart(false)}
+          zoom ? (
+            <MagnifierContainer
+              style={{ width: '100%', display: 'flex', maxHeight: '100%' }}
+            >
+              <MagnifierPreview
+                imageSrc={currentImage}
+                style={{ width: '25%', margin: 'auto 5%' }}
+                onZoomStart={() => setStart(true)}
+                onZoomEnd={() => setStart(false)}
+              />
+              {start ? (
+                <MagnifierZoom
+                  imageSrc={currentImage}
+                  style={{ width: '62.5%', maxHeight: '100%' }}
+                />
+              ) : (
+                <img
+                  src={currentImage}
+                  style={{ width: '62.5%', objectFit: 'contain' }}
+                />
+              )}
+            </MagnifierContainer>
+          ) : (
+            <FillImage
+              id="img_id"
+              src={currentImage}
+              onClick={() => setZoom(true)}
+              style={expandView ? { cursor: 'crosshair' } : {}}
             />
-            {start ? (
-              <MagnifierZoom
-                imageSrc={currentImage}
-                style={{ width: '60%', height: '100%' }}
-              />
-            ) : (
-              <img
-                src={currentImage}
-                style={{ width: '55%', objectFit: 'contain' }}
-              />
-            )}
-            {/* <Magnifier
-                // magnifierBorderSize={10}
-                // magnifierSize="50%"
-                // square={true}
-                imageSrc={currentImage}
-                style={{
-                  margin: 'auto',
-                  overflow: 'hidden',
-                  objectfit: 'contain',
-                  height: '100%',
-                  width: '80%'
-                }}
-                dragToMove={false}
-                onZoomEnd={() => setZoom(false)}
-              /> */}
-          </MagnifierContainer>
+          )
         ) : (
-          // ) : (
-          //   <FillImage src={currentImage} onClick={() => setZoom(true)} />
-          // )
           <FillImage
             id="img_id"
             src={currentImage}
