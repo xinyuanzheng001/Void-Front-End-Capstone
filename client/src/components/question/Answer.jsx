@@ -6,12 +6,11 @@ import { useState } from 'react';
 
 export default function Answer(props) {
 
-  const [answerReported, setAnswerReported] = useState(false)
+  const [answerReported, setAnswerReported] = useState(false);
+  const [markedHelpful, setHelpful] = useState(false);
 
   async function reportAnswer() {
-
     setAnswerReported(true)
-
     var data = JSON.stringify({
       answer_id: Number(props.answer.id)
     });
@@ -36,6 +35,33 @@ export default function Answer(props) {
         console.log(error);
       });
   }
+
+  async function markHelpfulAnswer() {
+    setHelpful(true)
+    var data = JSON.stringify({
+      answer_id: Number(props.answer.id)
+    });
+    var config = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/answers/${Number(
+        props.answer.id
+      )}/helpful`,
+      headers: {
+        Authorization: `${process.env.API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
     <div style={{ marginTop: '10px' }}>
       <div>
@@ -51,6 +77,8 @@ export default function Answer(props) {
           helpfulness={props.answer.helpfulness}
           reportAnswer={reportAnswer}
           answerReported={answerReported}
+          markedHelpful={markedHelpful}
+          markHelpfulAnswer={markHelpfulAnswer}
         />
       </span>
     </div>
