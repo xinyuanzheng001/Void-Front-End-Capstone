@@ -10,7 +10,7 @@ import isImage from '../helpers/isImage';
 import { ReviewImages } from '../styles/ReviewTiles.styled';
 
 export default function ReviewStars({ photos }) {
-  const [show, setShow] = useState(false);
+  const [showImage, setShowImage] = useState(['', false]);
 
   const galleryBuilder = (photoArray) => {
     let gallery = [];
@@ -18,11 +18,20 @@ export default function ReviewStars({ photos }) {
     for (let photo of photoArray) {
       if (isImage(photo.url)) {
         gallery.push(
-            <img
-              key={photo.id}
-              src={photo.url}
-              onClick={() => setShow(true)}
-            ></img>
+          <>
+            <div key={photo.id}>
+              <img
+                className="thumbnail"
+                src={photo.url}
+                onClick={() => setShowImage([photo.url, true])}
+              ></img>
+            </div>
+            <ImageModal
+              url={photo.url}
+              showImage={showImage}
+              setShowImage={setShowImage}
+            />
+          </>
         );
       }
     }

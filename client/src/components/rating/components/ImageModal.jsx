@@ -1,17 +1,28 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { ImageModalStyle, ImageBodyStyle } from '../styles/Modals.styled';
+import { Modal, ModalImage } from '../styles/Modals.styled';
 
-export default function ImageModal({ show, url }) {
-  if (!show) {
-    return null;
+export default function ImageModal({ showImage, setShowImage, url }) {
+  if (!showImage[1] || url !== showImage[0]) {
+    return;
   }
 
-  console.log(show);
-
-  return (
-    <ImageModal>
-      <img src={url}></img>
-    </ImageModal>
+  return ReactDOM.createPortal(
+    <Modal
+      onClick={() => {
+        setShowImage([url, false]);
+      }}
+    >
+      <ModalImage>
+        <img
+          src={url}
+          onClick={() => {
+            setShowImage([url, false]);
+          }}
+        ></img>
+      </ModalImage>
+    </Modal>,
+    document.getElementById('root')
   );
 }

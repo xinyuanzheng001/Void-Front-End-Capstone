@@ -6,9 +6,9 @@ export const ReviewImages = styled.div`
   justify-content: left;
   padding: 10px 0;
 
-  img {
-    max-height: 10%;
-    max-width: 10%;
+  .thumbnail {
+    max-height: 150px;
+    max-width: 150px;
     padding: 10px;
   }
 
