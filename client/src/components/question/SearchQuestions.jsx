@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { QuestionSearchBar } from './styles/QuestionSearchBar';
+import {
+  QuestionSearchBar,
+  QuestionSearchButton
+} from './styles/QuestionSearchBar';
 
 export default function SearchQuestions(props) {
   let searchValue = props.searchValue;
@@ -9,7 +12,12 @@ export default function SearchQuestions(props) {
   return (
     <>
       <form
-        style={{display:'flex', borderStyle:'solid', borderWidth:'1px'}}
+        style={{
+          display: 'flex',
+          borderStyle: 'solid',
+          borderWidth: '2px',
+          borderRadius: '5px'
+        }}
         onSubmit={(e) => {
           e.preventDefault();
           console.log(`Searching for ${searchValue}`);
@@ -17,10 +25,12 @@ export default function SearchQuestions(props) {
       >
         <QuestionSearchBar
           type="text"
-          placeholder="Have a question? Search for answers…"
+          placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
           onChange={(e) => setSearchValue(e.target.value)}
         ></QuestionSearchBar>
-        <button>?</button>
+        <QuestionSearchButton>
+        <i className="fa-solid fa-magnifying-glass fa-2xl"></i>
+        </QuestionSearchButton>
       </form>
     </>
   );

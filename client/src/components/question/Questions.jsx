@@ -52,7 +52,7 @@ export default function Questions() {
         <></>
       );
 
-    QuestionsList = (searchValue.length >= 3) ? (productQuestions.productQuestions.results.filter(question => question.question_body.includes(searchValue))).map((question) => {
+    QuestionsList = (searchValue.length >= 3) ? (productQuestions.productQuestions.results.filter(question => question.question_body.toLowerCase().includes(searchValue.toLowerCase()))).map((question) => {
       return <Question key={question.question_id} question={question} />;
     }) : (productQuestions.productQuestions.results
       .slice(0, howManyQuestions)
@@ -73,7 +73,8 @@ export default function Questions() {
           overflow: 'auto',
           maxHeight: '50vh',
           width: '100%',
-          position: 'relative'
+          position: 'relative',
+          margin: '10px'
         }}
       >
         <div>{QuestionsList}</div>
