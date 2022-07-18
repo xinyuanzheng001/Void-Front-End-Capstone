@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 //Actions
 import {
@@ -51,7 +51,11 @@ export default function RatingBreakdown() {
   let clearFilters;
   if (ratingFilters.length > 0) {
     clearFilters = (
-      <p onClick={() => {dispatch(removeFilter())}}>
+      <p
+        onClick={() => {
+          dispatch(removeFilter());
+        }}
+      >
         <u className="toggle">Clear All Filters</u>
       </p>
     );
