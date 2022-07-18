@@ -10,10 +10,6 @@ export const StarContainer = styled.div`
     background-color: #e5e7e9;
     cursor: pointer;
   }
-
-  u:hover {
-    cursor: pointer;
-  }
 `;
 
 export const StarLeft = styled.div`
