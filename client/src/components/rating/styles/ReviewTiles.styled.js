@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ReviewImages = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: left;
   padding: 10px 0;
 
