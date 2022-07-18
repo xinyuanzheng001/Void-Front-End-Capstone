@@ -29,13 +29,16 @@ export default function RatingBreakdown() {
   const percent = percentRec(productMetaData.recommended);
   const reviews = totalReviews(productMetaData.ratings);
 
-  const [filters, setFilter] = useState({
+  const intitalFilter = {
     1: false,
     2: false,
     3: false,
     4: false,
     5: false
-  });
+  };
+
+  const [filters, setFilter] = useState(intitalFilter);
+  const [showMessage, setMessage] = useState(false);
 
   let percentMessage;
   if (reviews !== 0 && percent >= 0) {
@@ -48,6 +51,32 @@ export default function RatingBreakdown() {
     percentMessage = <p>There are no reviews for this product yet</p>;
   }
 
+  const filterChecker = function (filterObj) {
+    for (let filter in filterObj) {
+      if (filterObj[filter]) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  let clearFilters;
+
+  if (showMessage) {
+    clearFilters = (
+      <p
+        onClick={() => {
+          setMessage(false);
+          setFilter(intitalFilter);
+        }}
+      >
+        <u className="toggle">
+        Clear All Filters
+          </u>
+      </p>
+    );
+  }
+
   let starBreakdown = starCounter(productMetaData.ratings);
 
   return (
@@ -55,7 +84,7 @@ export default function RatingBreakdown() {
       <RatingBreakdownContainer>
         <span className="rating">{averageNumber(productMetaData.ratings)}</span>
         <span>
-          <Stars className="stars"/>
+          <Stars className="stars" />
         </span>
       </RatingBreakdownContainer>
       <TableContainer>
@@ -67,6 +96,9 @@ export default function RatingBreakdown() {
               onClick={() => {
                 setFilter(() => {
                   filters[`${starRating}`] = !filters[`${starRating}`];
+                  setMessage(() => {
+                    return filterChecker(filters);
+                  });
                   return filters;
                 });
               }}
@@ -83,7 +115,8 @@ export default function RatingBreakdown() {
             </StarContainer>
           );
         })}
-        <span>{percentMessage}</span>
+        <div>{percentMessage}</div>
+        <div>{clearFilters}</div>
       </TableContainer>
     </>
   );
