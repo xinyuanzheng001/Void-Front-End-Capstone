@@ -6,7 +6,7 @@ import getRelatedStyle from '../../actions/relatedStyleAction';
 import Stars from '../detail/Stars.jsx';
 import transparentStar from '../../images/transparentstar.png';
 import star from '../../images/star.png';
-import { CardsIconStyled } from './styles/Outfits.styled'
+import { CardsIconStyled, OutfitContainer } from './styles/Outfits.styled'
 
 export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   const { id, name, category, default_price } = item;
@@ -25,22 +25,10 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   }
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '200px',
-          height: '350px',
-          margin: '10px',
-          borderRadius: '10px',
-          position: 'relative',
-          textAlign: 'left',
-          boxShadow: '3px 3px 5px 0px #949391'
-        }}
-      >
+      <OutfitContainer >
         <div onClick={handleClick}>
         <CardsIconStyled>
-          <i className="fa-solid fa-x fa-2x" style={{opacity:'80%'}} />
+          <i className="fa-solid fa-x" style={{opacity:'80%', fontSize: '15px'}} />
         </CardsIconStyled>
         </div>
         <div>
@@ -89,7 +77,7 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
             </div>
           </Link>
         </div>
-      </div>
+      </OutfitContainer>
     </>
   );
 }
