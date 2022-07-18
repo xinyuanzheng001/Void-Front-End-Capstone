@@ -9,25 +9,23 @@ export default function HelpfulAnswer(props) {
     </u>
   );
 
-  let helpful = props.markedHelpful ?
-    (<span
-    style={{ margin: '10px' }}
-  >
-    Helpful?
-    <u style={{ margin: '5px' }}>Yes</u>
-    <span>({props.helpfulness + 1})</span>
-  </span>) :
-  (<span style={{ margin: '10px' }}
-  onClick={() => props.markHelpfulAnswer()}>
-        Helpful?
-        <u style={{ margin: '5px' }}>Yes</u>
-        <span>({props.helpfulness})</span>
-      </span>)
-
+  let helpful = props.markedHelpful ? (
+    <span style={{ margin: '10px' }}>
+      Helpful?
+      <u style={{ margin: '5px' }}>Yes</u>
+      <span>({props.helpfulness + 1})</span>
+    </span>
+  ) : (
+    <span style={{ margin: '10px' }} onClick={() => props.markHelpfulAnswer()}>
+      Helpful?
+      <u style={{ margin: '5px' }}>Yes</u>
+      <span>({props.helpfulness})</span>
+    </span>
+  );
 
   return (
     <div style={({ display: 'inline' }, { padding: '10px' })}>
-     {helpful}
+      {helpful}
       <span style={{ margin: '10px' }}>|</span>
       {reported}
     </div>

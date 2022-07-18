@@ -5,12 +5,11 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export default function Answer(props) {
-
   const [answerReported, setAnswerReported] = useState(false);
   const [markedHelpful, setHelpful] = useState(false);
 
   async function reportAnswer() {
-    setAnswerReported(true)
+    setAnswerReported(true);
     var data = JSON.stringify({
       answer_id: Number(props.answer.id)
     });
@@ -37,7 +36,7 @@ export default function Answer(props) {
   }
 
   async function markHelpfulAnswer() {
-    setHelpful(true)
+    setHelpful(true);
     var data = JSON.stringify({
       answer_id: Number(props.answer.id)
     });

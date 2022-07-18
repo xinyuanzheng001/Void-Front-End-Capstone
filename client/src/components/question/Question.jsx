@@ -4,10 +4,38 @@ import HelpfulQuestion from './HelpfulQuestion';
 import AddAnswerForm from './AddAnswerForm';
 import { useState } from 'react';
 import { ReviewButton } from '../rating/styles/ReviewButton.styled'
+import axios from 'axios';
 
 export default function Question(props) {
   const [showAnswerForm, setAnswerForm] = useState(false);
   const [howManyAnswers, setHowManyAnswers] = useState(2);
+  const [markedHelpful, setHelpfulQuestion] = useState(false);
+
+  async function markHelpfulQuestion() {
+    setHelpfulQuestion(true);
+    var data = JSON.stringify({
+      question_id: Number(props.question.question_id)
+    });
+    var config = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${Number(
+        props.question.question_id
+      )}/helpful`,
+      headers: {
+        Authorization: `${process.env.API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   let AnswerList = Object.keys(props.question.answers)
     .slice(0, howManyAnswers)
@@ -41,6 +69,8 @@ export default function Question(props) {
         helpfulness={props.question.question_helpfulness}
         setAnswerForm={setAnswerForm}
         showAnswerForm={showAnswerForm}
+        markHelpfulQuestion={markHelpfulQuestion}
+        markedHelpful={markedHelpful}
       />
       {AnswerList}
       {showLoadAnswers}

@@ -6,11 +6,11 @@ export const QuestionModal = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 export const ModalForm = styled.div`
   width: 500px;
   background-color: #fff;
@@ -18,5 +18,5 @@ export const ModalForm = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding:2%;
-`
+  padding: 2%;
+`;

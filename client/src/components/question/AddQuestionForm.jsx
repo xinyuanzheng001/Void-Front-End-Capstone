@@ -40,6 +40,7 @@ export default function AddQuestionForm(props) {
           onSubmit={(e) => {
             e.preventDefault();
             postQuestion();
+            props.setQuestionForm(!props.showQuestionForm);
           }}
         >
           <h3>Ask Your Question</h3>

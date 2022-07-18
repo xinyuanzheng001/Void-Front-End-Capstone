@@ -15,6 +15,7 @@ export default function AddAnswerForm(props) {
           onSubmit={(e) => {
             e.preventDefault();
             console.log('Thanks for the Answer!');
+            props.setAnswerForm(!props.showAnswerForm);
           }}
         >
           <h3>Submit your Answer</h3>
