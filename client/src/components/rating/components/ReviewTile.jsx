@@ -12,6 +12,11 @@ import ReviewHelpful from './ReviewHelpful';
 import { ReviewsData, ReviewCheck } from '../styles/ReviewTiles.styled';
 
 export default function ReviewTile({ review }) {
+  let response;
+  if (review.response !== null) {
+    response = <div className="response">{`Response from seller: ${review.response}`}</div>
+  }
+
   return (
     <div className="tile">
       <ReviewTop
@@ -22,6 +27,7 @@ export default function ReviewTile({ review }) {
       />
       <ReviewSummary summary={review.summary}/>
       <ReviewBody body={review.body} />
+      {response}
       <ReviewGallery photos={review.photos} />
       <ReviewCheck>
         <ReviewRec rec={review.recommend} />
