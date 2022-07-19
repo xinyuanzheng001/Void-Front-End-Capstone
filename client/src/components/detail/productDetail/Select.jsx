@@ -11,13 +11,14 @@ import {
   SuccessMsg
 } from '../styles/Select.styled';
 import { addItemToCart } from '../../../actions/cartAction';
+import getProductDetail from '../../../actions/productDetailAction';
 import star from '../../../images/star.png';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
 
 export default function Select({ sizes, quantity, style }) {
   const localCarts = JSON.parse(localStorage.getItem('cartItems'));
-
+  const dispatch = useDispatch();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [selectedSize, setSelectedSize] = useState('');
@@ -56,7 +57,6 @@ export default function Select({ sizes, quantity, style }) {
     setError(false);
     setSuccess(false);
   }, [style.style_id]);
-  const dispatch = useDispatch();
 
   const generateArray = (num) => {
     const range = [];
