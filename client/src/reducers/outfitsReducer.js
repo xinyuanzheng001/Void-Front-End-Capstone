@@ -3,14 +3,11 @@ import { OUTFITS_ADDED, OUTFITS_REMOVED } from '../actions/types';
 export default function outfitsReducer(state = [], action) {
   switch (action.type) {
     case OUTFITS_ADDED:
-      console.log(OUTFITS_ADDED);
       const nextOutfit = action.payload;
-      console.log(nextOutfit);
       const product = nextOutfit.style.product_id;
       const found = state.find((item) => {
         return item.style.product_id === product;
       });
-      console.log(state.includes(product));
       if (!found) {
         return [nextOutfit, ...state];
       }
