@@ -65,7 +65,8 @@ export default function Answer(props) {
     props.answer.photos.length > 0 ? (
       props.answer.photos.map((photo) => {
         return (
-          <img key={String(photo)}
+          <img
+            key={String(photo)}
             style={{
               maxHeight: '200px',
               display: 'inline-block',

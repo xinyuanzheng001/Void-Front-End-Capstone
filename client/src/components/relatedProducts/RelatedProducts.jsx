@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import RelatedCard from './RelatedCard';
 import Outfits from './Outfits';
+
 import getRelatedDetails from '../../actions/relatedDetailsAction';
 import getRelatedStyle from '../../actions/relatedStyleAction';
 import Slider from 'react-slick';
@@ -13,7 +14,7 @@ export default function RelatedProducts() {
   const settings = {
     dots: true,
     infinite: false,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 3.5,
     slidesToScroll: 2
   };
@@ -41,7 +42,6 @@ export default function RelatedProducts() {
       return <Slider {...settings}>{cards}</Slider>;
     }
     var slidingCards = RelatedSlider();
-
   }
 
   return (

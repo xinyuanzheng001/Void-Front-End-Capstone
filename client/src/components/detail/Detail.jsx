@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Header from './Header';
 import Stars from './Stars';
-import GoToReview from './GoToReview';
-import ImageGallery from './ImageGallery';
-import Category from './Category';
-import Title from './Title';
-import Style from './Style';
-import SocialMedia from './SocialMedia';
-import Description from './Description';
+import GoToReview from './productDetail/GoToReview';
+import ImageGallery from './imageGallery/ImageGallery';
+import Category from './productDetail/Category';
+import Title from './productDetail/Title';
+import Style from './productDetail/Style';
+import SocialMedia from './productDescription/SocialMedia';
+import Description from './productDescription/Description';
+import {
+  OverviewContainer,
+  ProductDetailContainer
+} from './styles/Container.styled';
 
 export default function Detail() {
   const productStyle = useSelector((state) => state.productStyle);
@@ -25,17 +29,15 @@ export default function Detail() {
   };
   return (
     <>
-      <Header />
-      <div style={{ display: 'flex' }}>
+      {/* <Header /> */}
+      <OverviewContainer>
         <ImageGallery
           style={style}
           expandViewController={expandViewController}
         />
-        <div
+        <ProductDetailContainer
           style={{
-            marginLeft: '20px',
-            width: '500px',
-            display: expandView ? 'none' : ''
+            display: expandView && window.innerWidth > 768 ? 'none' : ''
           }}
         >
           <div className="test" style={{ display: 'flex' }}>
@@ -45,8 +47,8 @@ export default function Detail() {
           <Category />
           <Title />
           <Style changeStyleHandler={changeStyleHandler} />
-        </div>
-      </div>
+        </ProductDetailContainer>
+      </OverviewContainer>
       <SocialMedia currentImage={currentImage} />
       <Description />
     </>

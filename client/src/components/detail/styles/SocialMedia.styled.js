@@ -6,6 +6,9 @@ export const SocialMediaContainer = styled.div`
   justify-content: flex-end;
   margin: 15px 0;
   gap: 5px;
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const SocialMediaIcon = styled.img`
