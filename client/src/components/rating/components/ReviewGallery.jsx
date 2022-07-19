@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //Components
-import ModalImage from './ModalImage';
+import ImageModal from './ImageModal';
 
 //Helper Functions
 import isImage from '../helpers/isImage';
@@ -26,7 +26,7 @@ export default function ReviewGallery({ photos }) {
                 onClick={() => setShowImage([photo.url, true])}
               ></img>
             </div>
-            <ModalImage
+            <ImageModal
               url={photo.url}
               showImage={showImage}
               setShowImage={setShowImage}

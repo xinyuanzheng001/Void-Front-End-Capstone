@@ -11,7 +11,8 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const ModalImage = styled.div`
+
+export const ModalImageStyle = styled.div`
   max-width: 80vh;
   max-height: 80vh;
   display: flex;
@@ -21,8 +22,18 @@ export const ModalImage = styled.div`
   padding: 2%;
 
   img {
-    height: 1000px;
-    width: 1000px;
+    max-height: 70vh;
+    width: 70vh;
   }
+`;
+
+export const ModalReviewStyle = styled.div`
+  max-width: 80vh;
+  max-height: auto;
+  display: flex;
+  background: white;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
 `;
 

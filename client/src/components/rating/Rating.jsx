@@ -7,6 +7,7 @@ import ReviewHeader from './components/ReviewHeader';
 import ReviewFooter from './components/ReviewFooter';
 import RatingBreakdown from './components/RatingBreakdown';
 import ProductBreakdown from './components/ProductBreakdown';
+import ReviewModal from './components/ReviewModal';
 
 //Styles
 import {
@@ -24,9 +25,11 @@ import totalReviews from './helpers/totalReviews';
 export default function Rating() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
+  const { productDetail } = useSelector((state) => state.productDetail);
 
   const [filters, setFilters] = useState([]);
   const [viewable, setViewable] = useState(2);
+  const [showForm, setShowForm] = useState(false);
 
   const total = totalReviews(productMetaData.ratings);
   let header;
@@ -47,9 +50,21 @@ export default function Rating() {
           {header}
           <Reviews filters={filters} viewable={viewable} />
           <StyledFooter>
-            <ReviewFooter viewable={viewable} setViewable={setViewable} />
+            <ReviewFooter
+              viewable={viewable}
+              setViewable={setViewable}
+              showForm={showForm}
+              setShowForm={setShowForm}
+            />
           </StyledFooter>
         </ReviewContainer>
+        <ReviewModal
+          showForm={showForm}
+          setShowForm={setShowForm}
+          productName={productDetail.name}
+          id={productDetail.id}
+          characteristics={productMetaData.characteristics}
+        />
       </MainContainer>
     </div>
   );

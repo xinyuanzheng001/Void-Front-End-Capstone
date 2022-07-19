@@ -7,7 +7,12 @@ import totalReviews from '../helpers/totalReviews';
 //Styles
 import { ReviewButton } from '../styles/ReviewButton.styled';
 
-export default function ReviewFooter({ viewable, setViewable }) {
+export default function ReviewFooter({
+  showForm,
+  setShowForm,
+  viewable,
+  setViewable
+}) {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
@@ -31,7 +36,14 @@ export default function ReviewFooter({ viewable, setViewable }) {
   return (
     <>
       {button}
-      <ReviewButton>Add a Review +</ReviewButton>
+      <ReviewButton
+        onClick={() => {
+          console.log(showForm)
+          setShowForm(true);
+        }}
+      >
+        Add a Review +
+      </ReviewButton>
     </>
   );
 }
