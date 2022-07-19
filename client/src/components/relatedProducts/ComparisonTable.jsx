@@ -17,11 +17,11 @@ export default function ComparisonTable({
       <table style={{ width: '100%' }}>
         <tbody>
           <tr>
-            <th style={{ width: '25%', backgroundColor: '#458161' }}>
+            <th style={{ width: '25%', backgroundColor: '#458161', color: 'white' }}>
               {productName}
             </th>
-            <th style={{ width: '50%', backgroundColor: '#458161' }}></th>
-            <th style={{ width: '25%', backgroundColor: '#458161' }}>
+            <th style={{ width: '50%', backgroundColor: '#458161', color: 'white' }}></th>
+            <th style={{ width: '25%', backgroundColor: '#458161', color: 'white' }}>
               {relatedName}
             </th>
           </tr>

@@ -32,12 +32,16 @@ export default function ComparisonModal({
             display: 'flex',
             backgroundColor: 'white',
             flexDirection: 'column',
-            opacity: '90%',
-            width: '50%',
-            height: '50%',
+            opacity: '95%',
+            width: '40%',
+            height: '65%',
             alignItems: 'center',
+            border: '5px solid #458161',
+            boxShadow: '0px 0px 3px 3px white'
           }}
         >
+
+          <div style={{color: '#458161', position: 'relative', left: '5px'}}>Comparing</div>
           <ComparisonTable
             relatedFeatures={relatedComparisonFeatures}
             relatedName={relatedName}
