@@ -32,12 +32,13 @@ export default function ComparisonModal({
             display: 'flex',
             backgroundColor: 'white',
             flexDirection: 'column',
-            opacity: '95%',
+            opacity: '97%',
             width: '40%',
-            height: '65%',
+            height: '70%',
             alignItems: 'center',
             border: '5px solid #458161',
-            boxShadow: '0px 0px 3px 3px white'
+            boxShadow: '0px 0px 4px 0px white',
+            borderRadius: '1%',
           }}
         >
 
