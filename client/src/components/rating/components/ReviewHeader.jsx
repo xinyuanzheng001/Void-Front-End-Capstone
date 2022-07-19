@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 //Components
 import FilterSelect from '../components/FilterSelect';
