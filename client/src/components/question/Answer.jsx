@@ -61,12 +61,6 @@ export default function Answer(props) {
       });
   }
 
-<<<<<<< HEAD
-  let answerPhotos = props.answer.photos.length > 0 ? (
-    props.answer.photos.map((photo, index) => {return <img key={index} style={{maxHeight:'200px', display:'inline-block', margin:'10px'}} src={photo}></img>})
-  )
-  : (<></>)
-=======
   let answerPhotos =
     props.answer.photos.length > 0 ? (
       props.answer.photos.map((photo) => {
@@ -85,7 +79,6 @@ export default function Answer(props) {
     ) : (
       <></>
     );
->>>>>>> 00b8d9d485039d10a878ad2113c756551041450b
 
   return (
     <div style={{ marginTop: '10px', padding: '15px' }}>
