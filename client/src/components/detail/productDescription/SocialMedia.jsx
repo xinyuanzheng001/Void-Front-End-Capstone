@@ -8,9 +8,9 @@ import {
   SocialMediaContainer,
   SocialMediaIcon
 } from '../styles/SocialMedia.styled';
-import facebookLogo from '../../images/facebookLogo.png';
-import twitterLogo from '../../images/twitterLogo.png';
-import pinterestLogo from '../../images/pinterestLogo.png';
+import facebookLogo from '../../../images/facebookLogo.png';
+import twitterLogo from '../../../images/twitterLogo.png';
+import pinterestLogo from '../../../images/pinterestLogo.png';
 
 export default function SocialMedia({ currentImage }) {
   // const url = window.location.href;
