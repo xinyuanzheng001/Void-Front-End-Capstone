@@ -8,14 +8,11 @@ export default function ReviewTop({ rating, id, name, date }) {
     for (let i = 1; i < 6; i++) {
       if (i <= rating) {
         stars.push(
-          <i key={`star${i}.${id}`} className="fa fa-star checked"></i>
+          <i key={`star${i}${id}`} className="fa fa-star checked"></i>
         );
       } else {
         stars.push(
-          <i
-            key={`star${i}.${id}`}
-            className="fa-regular fa-star unchecked"
-          ></i>
+          <i key={`star${i}${id}`} className="fa-regular fa-star unchecked"></i>
         );
       }
     }

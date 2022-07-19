@@ -15,13 +15,13 @@ export const ReviewButton = styled.button`
   font-weight: 400;
   font-size: 0.8em;
   text-transform: uppercase;
-  background: #fff;
-  color: #696969;
+  background: #458161;
+  color: white;
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   :hover {
-    background: #458161;
-    color: white;
+    background: #fff;
+    color: #696969;
     box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //Components
-import ImageModal from './ImageModal';
+import ModalImage from './ModalImage';
 
 //Helper Functions
 import isImage from '../helpers/isImage';
@@ -9,7 +9,7 @@ import isImage from '../helpers/isImage';
 //Styles
 import { ReviewImages } from '../styles/ReviewTiles.styled';
 
-export default function ReviewStars({ photos }) {
+export default function ReviewGallery({ photos }) {
   const [showImage, setShowImage] = useState(['', false]);
 
   const galleryBuilder = (photoArray) => {
@@ -18,20 +18,20 @@ export default function ReviewStars({ photos }) {
     for (let photo of photoArray) {
       if (isImage(photo.url)) {
         gallery.push(
-          <>
-            <div key={photo.id}>
+          <div key={photo.id}>
+            <div>
               <img
                 className="thumbnail"
                 src={photo.url}
                 onClick={() => setShowImage([photo.url, true])}
               ></img>
             </div>
-            <ImageModal
+            <ModalImage
               url={photo.url}
               showImage={showImage}
               setShowImage={setShowImage}
             />
-          </>
+          </div>
         );
       }
     }
