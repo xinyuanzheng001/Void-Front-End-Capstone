@@ -51,7 +51,7 @@ export default function RelatedCard({ item, index }) {
             onClick={handleClick}
           />
         </CardsIconStyled>
-        <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'grey' }}>
+        <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#458161' }}>
           <div
             style={{
               boxShadow: '3px 1px 10px 0px white inset',
@@ -72,7 +72,7 @@ export default function RelatedCard({ item, index }) {
               borderRadius: '10px 10px 0 0',
               boxShadow: '0 0 8px 8px white inset'
             }}
-            alt="related product"
+            alt={name}
           />
           <span style={{ margin: '0 0 0 10px' }}>{category}</span>
           <br />

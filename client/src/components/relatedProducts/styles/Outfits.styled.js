@@ -81,3 +81,10 @@ color: #458161;
 display: flex;
 justify-content: center;
 `;
+
+export const TableRowStyled = styled.div`
+color: #458161;
+display: flex;
+justify-content: center;
+`;
+

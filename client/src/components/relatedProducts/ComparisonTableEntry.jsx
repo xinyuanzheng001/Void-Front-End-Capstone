@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckStyled } from './styles/Outfits.styled';
+import { CheckStyled, TableRowStyled } from './styles/Outfits.styled';
 
 export default function ComparisonTableEntry({ item }) {
   const { hasRelatedFeature, hasProductFeature, feature } = item;
@@ -14,10 +14,10 @@ export default function ComparisonTableEntry({ item }) {
 
   return (
     <tr>
+      <td style={{padding: "5%"}}>{productCheck}</td>
       <td>
-        <p>{productCheck}</p>
+        <TableRowStyled>{feature}</TableRowStyled>
       </td>
-      <td>{feature}</td>
       <td>{relatedCheck}</td>
     </tr>
   );

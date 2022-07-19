@@ -27,7 +27,7 @@ export default function ComparisonTable({
   })
   return (
     <>
-      <table>
+      <table style={{width: '100%'}}>
         <tbody>
           <tr>
             <th style={{width: '25%', backgroundColor:'#458161'}}>{productName}</th>

@@ -65,7 +65,7 @@ export default function Outfits() {
             boxShadow: '3px 1px 10px 0px white inset',
             margin: '10px',
             position: 'relative',
-            backgroundColor: 'gray',
+            backgroundColor: '#458161',
             width: '200px',
             height: '350px',
             borderRadius: '10px'
