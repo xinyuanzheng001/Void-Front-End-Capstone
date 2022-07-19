@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 //Components
@@ -7,24 +7,12 @@ import ReviewTile from './ReviewTile';
 //Styles
 import { ReviewTileContainer } from '../styles/FlexContainers.styled';
 
-export default function Reviews({ filters, viewable }) {
-  const { productReviews } = useSelector((state) => state.productReviews);
-
-  let reviewArray = [];
-  if (filters.length === 0) {
-    reviewArray = productReviews.results.slice(0, viewable);
-  } else {
-    for (let i = 0; reviewArray.length < viewable; i++) {
-      let review = productReviews.results[i];
-      if (filters.indexOf(review.rating) !== -1) {
-        reviewArray.push(review);
-      }
-    }
-  }
+export default function Reviews({ reviewArray, viewable }) {
+  let filterdReviews = reviewArray.slice().splice(0, viewable);
 
   return (
     <ReviewTileContainer>
-      {reviewArray.map((review) => {
+      {filterdReviews.map((review) => {
         return <ReviewTile key={review.review_id} review={review} />;
       })}
     </ReviewTileContainer>

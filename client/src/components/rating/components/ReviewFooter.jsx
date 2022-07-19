@@ -1,13 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-//Helper Functions
-import totalReviews from '../helpers/totalReviews';
-
 //Styles
 import { ReviewButton } from '../styles/ReviewButton.styled';
 
 export default function ReviewFooter({
+  reviewArray,
   showForm,
   setShowForm,
   viewable,
@@ -16,10 +14,8 @@ export default function ReviewFooter({
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
-  const total = totalReviews(productMetaData.ratings);
   let button;
-
-  if (total > 0) {
+  if (reviewArray.length > viewable) {
     button = (
       <ReviewButton
         onClick={() => {
@@ -38,7 +34,7 @@ export default function ReviewFooter({
       {button}
       <ReviewButton
         onClick={() => {
-          console.log(showForm)
+          console.log(showForm);
           setShowForm(true);
         }}
       >

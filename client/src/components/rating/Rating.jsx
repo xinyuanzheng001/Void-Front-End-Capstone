@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 //Components
@@ -17,24 +17,34 @@ import {
   StyledFooter
 } from './styles/FlexContainers.styled';
 
-//Helper Functions
-import averageNumber from './helpers/averageNumber';
-import percentRec from './helpers/percentRec';
-import totalReviews from './helpers/totalReviews';
 
 export default function Rating() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
   const { productDetail } = useSelector((state) => state.productDetail);
 
+  const [reviewArray, setReviewArray] = useState([]);
   const [filters, setFilters] = useState([]);
   const [viewable, setViewable] = useState(2);
   const [showForm, setShowForm] = useState(false);
 
-  const total = totalReviews(productMetaData.ratings);
-  let header;
+  useEffect(() => {
+    if (filters.length === 0) {
+      setReviewArray(productReviews.results);
+    } else {
+      let tempViewable = [];
+      for (let i = 0; i < productReviews.results.length; i++) {
+        let review = productReviews.results[i];
+        if (filters.indexOf(review.rating) !== -1) {
+          tempViewable.push(review);
+        }
+      }
+      setReviewArray(tempViewable);
+    }
+  }, [filters, viewable]);
 
-  if (total > 0) {
+  let header;
+  if (reviewArray.length > 0) {
     header = <ReviewHeader />;
   }
 
@@ -48,9 +58,13 @@ export default function Rating() {
         </BreakdownContainer>
         <ReviewContainer>
           {header}
-          <Reviews filters={filters} viewable={viewable} />
+          <Reviews
+            reviewArray={reviewArray}
+            viewable={viewable}
+          />
           <StyledFooter>
             <ReviewFooter
+              reviewArray={reviewArray}
               viewable={viewable}
               setViewable={setViewable}
               showForm={showForm}
