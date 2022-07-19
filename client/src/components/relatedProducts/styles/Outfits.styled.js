@@ -50,13 +50,14 @@ export const OutfitContainer = styled.div`
   width: 200px;
   height: 350px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 25px;
   position: relative;
   text-align: left;
   box-shadow: 3px 3px 5px 0px #949391;
-  transition: transform .2s ease-in-out;
+  transition: all .35s ease-in-out;
   &:hover {
     transform scale(1.02);
+    box-shadow: 5px 5px 10px 2px rgba(69, 129, 97, 0.9);
   }
 `;
 export const ModalContainer = styled.div`

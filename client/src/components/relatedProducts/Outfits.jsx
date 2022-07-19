@@ -62,7 +62,7 @@ export default function Outfits() {
             display: 'flex',
             flexDirection: 'columns',
             boxShadow: '3px 1px 10px 0px white inset',
-            margin: '10px',
+            margin: '25px',
             position: 'relative',
             backgroundColor: '#458161',
             width: '200px',
