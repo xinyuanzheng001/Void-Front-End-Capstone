@@ -18,14 +18,12 @@ export default function ComparisonModal({
       return <p key={item.value + index}>{item.value}</p>;
     });
   }
-  console.log(relatedComparisonFeatures);
   var relatedFeatures = relatedComparisonFeatures.map((item, index) => {
     return <p key={item.value + index}>{item.value}</p>;
   });
   if (!show) {
     return null;
   }
-  console.log({ features });
   return ReactDOM.createPortal(
     <>
       <ModalContainer>

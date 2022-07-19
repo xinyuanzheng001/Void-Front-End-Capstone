@@ -18,7 +18,6 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   var photo = '';
 
   const handleClick = (event) => {
-    console.log('Clicked');
     dispatch(removeOutfits(outfitToRemove));
   };
   if (!loading && relatedStyle) {
