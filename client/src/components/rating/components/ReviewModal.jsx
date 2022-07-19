@@ -12,14 +12,46 @@ export default function ModalReview({
   id,
   characteristics
 }) {
+  const [recommend, setRecommend] = useState(true);
   const [reviewSummary, setReviewSummary] = useState('');
   const [reviewBody, setReviewBody] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
+  const [rating, setRating] = useState(0);
 
-  let charartisticList = Object.keys(characteristics);
+  const starMeanings = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
-  const labels = {
+  const starBuilder = (starRating) => {
+    let stars = [];
+    for (let i = 1; i < 6; i++) {
+      if (i <= rating) {
+        stars.push(
+          <i
+            key={`star${i}`}
+            onClick={() => {
+              setRating(i);
+            }}
+            className="fa fa-star checked"
+          ></i>
+        );
+      } else {
+        stars.push(
+          <i
+            key={`star${i}`}
+            onClick={() => {
+              setRating(i);
+            }}
+            className="fa-regular fa-star unchecked"
+          ></i>
+        );
+      }
+    }
+    return stars;
+  };
+
+  let characteristicList = Object.keys(characteristics);
+
+  const characlabels = {
     Size: ['A size too small', 'A size too wide'],
     Width: ['Too narrow', 'Too wide'],
     Comfort: ['Uncomfortable', 'Perfect'],
@@ -27,7 +59,15 @@ export default function ModalReview({
     Length: ['Runs short', 'Runs long'],
     Fit: ['Runs tight', 'Runs loose']
   };
-  console.log(showForm);
+
+  let remainingBody;
+  if (reviewBody.length < 50) {
+    remainingBody = (
+      <p>Minimum required characters left: {50 - reviewBody.length}</p>
+    );
+  } else {
+    remainingBody = <p>Minimum reached</p>;
+  }
 
   if (!showForm) {
     return;
@@ -48,7 +88,7 @@ export default function ModalReview({
               rating: 0, //Add stars
               summary: reviewSummary,
               body: reviewBody,
-              recommend: false, //Add radio
+              recommend: recommend,
               name: nickname,
               email: email,
               characteristics: {
@@ -60,6 +100,63 @@ export default function ModalReview({
         >
           <h3>Write Your Review</h3>
           <h4>About the {productName}</h4>
+
+          <p>
+            Overall Rating * {starBuilder(rating)} {starMeanings[rating]}
+          </p>
+          <p>Would you recommend this product?</p>
+          <fieldset>
+            <input
+              id="recommend-yes"
+              type="radio"
+              checked
+              value="yes"
+              onChange={(e) => {
+                setRecommend(() => {
+                  if (e.target.value === 'yes') {
+                    return true;
+                  }
+                });
+              }}
+            ></input>
+            <label htmlFor="recommend-yes">Yes</label>
+            <input
+              id="recommend-no"
+              type="radio"
+              value="no"
+              onChange={(e) => {
+                setRecommend(() => {
+                  if (e.target.value === 'no') {
+                    return false;
+                  }
+                });
+              }}
+            ></input>
+            <label htmlFor="recommend-no">No</label>
+          </fieldset>
+          {characteristicList.map((characteristic) => {
+            if (characteristics[characteristic]) {
+              return (
+                <fieldset
+                  key={characteristics[characteristic].characterisitic_id}
+                >
+                  <legend>{characteristic}</legend>
+                  <input
+                    id={characteristics[characteristic].characterisitic_id}
+                    type="radio"
+                    value="no"
+                    onChange={(e) => {
+                      setRecommend(() => {
+                        if (e.target.value === 'no') {
+                          return false;
+                        }
+                      });
+                    }}
+                  ></input>
+                </fieldset>
+              );
+            }
+          })}
           <label htmlFor="review-summary">Review Summary</label>
           <input
             id="review-summary"
@@ -74,6 +171,7 @@ export default function ModalReview({
             id="review-body"
             required
             maxLength="1000"
+            minLength="50"
             cols="50"
             rows="20"
             placeholder="Why did you like the product or not?"
@@ -81,6 +179,7 @@ export default function ModalReview({
               setReviewBody(e.target.value);
             }}
           ></textarea>
+          {remainingBody}
           <label htmlFor="nickname">Your Nickname *</label>
           <input
             id="yourNickname"

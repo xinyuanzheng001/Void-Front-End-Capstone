@@ -35,5 +35,9 @@ export const ModalReviewStyle = styled.div`
   align-items: center;
   justify-content: center;
   padding: 2%;
+
+  .checked {
+    color: #F1DC19;
+  }
 `;
 
