@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 //Components
@@ -25,6 +25,9 @@ export default function Rating() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
+  const [filters, setFilters] = useState([]);
+  const [viewable, setViewable] = useState(2);
+
   const total = totalReviews(productMetaData.ratings);
   let header;
 
@@ -37,14 +40,14 @@ export default function Rating() {
       <h3>RATINGS & REVIEWS</h3>
       <MainContainer>
         <BreakdownContainer>
-          <RatingBreakdown />
+          <RatingBreakdown filters={filters} setFilters={setFilters} />
           <ProductBreakdown />
         </BreakdownContainer>
         <ReviewContainer>
           {header}
-          <Reviews />
+          <Reviews filters={filters} viewable={viewable} />
           <StyledFooter>
-            <ReviewFooter />
+            <ReviewFooter viewable={viewable} setViewable={setViewable} />
           </StyledFooter>
         </ReviewContainer>
       </MainContainer>

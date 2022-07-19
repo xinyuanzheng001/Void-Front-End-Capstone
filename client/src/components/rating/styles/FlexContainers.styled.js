@@ -82,6 +82,10 @@ export const ReviewTileContainer = styled.div`
     margin: 10px;
   }
 
+  .response {
+    background-color: #f2f3f4;
+  }
+
   .checked {
     color: #F1DC19;
   }

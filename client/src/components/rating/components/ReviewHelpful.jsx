@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
+//Helper Functions
+import postFeedback from '../helpers/postFeedback';
+
 export default function ReviewHelpful({ helpfulness, id }) {
   const [helpful, setHelpful] = useState([id, false, '']);
+
   if (!helpful[1]) {
     return (
       <div className="helpfulness">
@@ -9,6 +13,7 @@ export default function ReviewHelpful({ helpfulness, id }) {
         <u
           className="submit help"
           onClick={() => {
+            postFeedback(id, 'helpful');
             setHelpful(() => {
               return [id, true];
             });
@@ -21,6 +26,7 @@ export default function ReviewHelpful({ helpfulness, id }) {
           className="submit report"
           onClick={() => {
             setHelpful(() => {
+              postFeedback(id, 'report');
               return [id, true];
             });
           }}

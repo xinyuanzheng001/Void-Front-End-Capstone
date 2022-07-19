@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-//Actions
-import {
-  toggleFilter,
-  removeFilter
-} from '../../../actions/ratingFilterAction';
+import { useSelector } from 'react-redux';
 
 //Components
 import Stars from '../../detail/Stars';
@@ -30,12 +24,10 @@ import percentRec from '../helpers/percentRec';
 import starCounter from '../helpers/starCounter';
 import totalReviews from '../helpers/totalReviews';
 
-export default function RatingBreakdown() {
+export default function RatingBreakdown({ filters, setFilters }) {
   const { productMetaData } = useSelector((state) => state.productMetaData);
-  const ratingFilters = useSelector((state) => state.ratingFilters);
   const percent = percentRec(productMetaData.recommended);
   const reviews = totalReviews(productMetaData.ratings);
-  const dispatch = useDispatch();
 
   let percentMessage;
   if (reviews !== 0 && percent >= 0) {
@@ -49,9 +41,13 @@ export default function RatingBreakdown() {
   }
 
   let clearFilters;
-  if (ratingFilters.length > 0) {
+  if (filters.length > 0) {
     clearFilters = (
-      <p onClick={() => {dispatch(removeFilter())}}>
+      <p
+        onClick={() => {
+          setFilters([]);
+        }}
+      >
         <u className="toggle">Clear All Filters</u>
       </p>
     );
@@ -74,7 +70,17 @@ export default function RatingBreakdown() {
             <StarContainer
               key={starRating}
               onClick={() => {
-                dispatch(toggleFilter(starRating));
+                setFilters(() => {
+                  let currentFilters = filters.slice();
+
+                  let index = currentFilters.indexOf(starRating);
+                  if (index !== -1) {
+                    currentFilters.splice(index, 1);
+                  } else {
+                    currentFilters.push(starRating);
+                  }
+                  return currentFilters;
+                });
               }}
             >
               <StarLeft>
