@@ -8,6 +8,7 @@ export default function AddAnswerForm(props) {
   const [answerText, setAnswerText] = useState('');
   const [answerName, setAnswerName] = useState('');
   const [answerEmail, setAnswerEmail] = useState('');
+  const [previewImages, setPreviewImages] = useState([]);
 
   async function postAnswer() {
     var data = JSON.stringify({
@@ -36,9 +37,20 @@ export default function AddAnswerForm(props) {
       });
   }
 
-  return (
-  ReactDOM.createPortal(
-    (<QuestionModal>
+  let previewImgList = previewImages.slice(0, 5).map((img) => {
+    if (img) {
+      return (
+        <img
+          key={String(img)}
+          style={{ width: '80px', height: '50px', margin: '10px' }}
+          src={img}
+        />
+      );
+    }
+  });
+
+  return ReactDOM.createPortal(
+    <QuestionModal>
       <ModalForm>
         <form
           onSubmit={(e) => {
@@ -49,7 +61,9 @@ export default function AddAnswerForm(props) {
           }}
         >
           <h3>Submit your Answer</h3>
-          <h4>productName:Question Body</h4>
+          <h4>
+            {`${props.product_name}`} : {props.question_body}
+          </h4>
           <button onClick={() => props.setAnswerForm(!props.showAnswerForm)}>
             Close Form
           </button>
@@ -95,17 +109,27 @@ export default function AddAnswerForm(props) {
             id="input"
             name="files[]"
             onChange={(e) => {
-              if (document.getElementById('input').files.length < 5) {
-                console.log(document.getElementById('input').files);
+              let files = document.getElementById('input').files;
+              if (files.length > 5) {
+                alert('Only first 5 images will be uploaded');
               }
+              let copyOfPreviewImagesState = [];
+              Object.keys(files).forEach((file, i) => {
+                copyOfPreviewImagesState.push([
+                  window.URL.createObjectURL(files[i])
+                ]);
+              });
+              setPreviewImages(copyOfPreviewImagesState);
             }}
             type="file"
             name="img"
             accept="image/*"
           />
+          <div>{previewImgList}</div>
           <button>Submit An Answer</button>
         </form>
       </ModalForm>
-    </QuestionModal>)
-  , document.getElementById('root')))
+    </QuestionModal>,
+    document.getElementById('root')
+  );
 }
