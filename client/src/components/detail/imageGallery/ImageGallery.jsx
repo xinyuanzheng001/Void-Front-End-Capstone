@@ -20,7 +20,6 @@ import {
   FSRightArrowAndExpandContainer
 } from '../styles/Image.styled';
 import SquareThumbnailImage from './SquareThumbnailImage';
-import minus from '../../../images/minus.png';
 
 export default function ImageGallery({ style, expandViewController }) {
   const [currentImage, setCurrentImage] = useState('');
@@ -66,7 +65,6 @@ export default function ImageGallery({ style, expandViewController }) {
 
   useEffect(() => {
     window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
-    console.log(window.innerWidth, windowWidth);
   }, []);
 
   console.log();
