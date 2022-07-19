@@ -91,7 +91,7 @@ export const ReviewTileContainer = styled.div`
   }
 
   .fa-check {
-    color: #27AE60;
+    color: #458161;
   }
 
   .alignleft {

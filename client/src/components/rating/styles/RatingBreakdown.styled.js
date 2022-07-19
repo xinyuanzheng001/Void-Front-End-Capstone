@@ -39,5 +39,5 @@ export const StarBar = styled.div`
 export const StarFill = styled.div`
   width: ${({ fill }) => Number(fill)}%;
   height: 20px;
-  background-color: #27ae60;
+  background-color: #458161;
 `;
