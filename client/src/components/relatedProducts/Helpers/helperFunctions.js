@@ -18,15 +18,21 @@ export default function combineThem(related, product) {
   var relatedCopy = [];
   var productCopy = [];
   var combinedArray = [];
-
+  console.log({related})
+  console.log({product})
   for (let feature of related) {
-    relatedCopy.push(feature.value);
-    combined.push(feature.value);
+
+    if(feature.value){
+      relatedCopy.push(feature.value);
+      combined.push(feature.value);
+    }
   }
   for (let item of product) {
-    productCopy.push(item.value);
-    if (!combined.includes(item.value)) {
-      combined.push(item.value);
+    if(item.value) {
+      productCopy.push(item.value);
+      if (!combined.includes(item.value)) {
+        combined.push(item.value);
+      }
     }
   }
   combined = shuffle(combined);
