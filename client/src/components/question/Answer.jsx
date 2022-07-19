@@ -61,21 +61,33 @@ export default function Answer(props) {
       });
   }
 
-  let answerPhotos = props.answer.photos.length > 0 ? (
-    props.answer.photos.map((photo) => {return <img style={{maxHeight:'200px', display:'inline-block', margin:'10px'}} src={photo}></img>})
-  )
-  : (<></>)
+  let answerPhotos =
+    props.answer.photos.length > 0 ? (
+      props.answer.photos.map((photo) => {
+        return (
+          <img
+            key={String(photo)}
+            style={{
+              maxHeight: '200px',
+              display: 'inline-block',
+              margin: '10px'
+            }}
+            src={photo}
+          ></img>
+        );
+      })
+    ) : (
+      <></>
+    );
 
   return (
-    <div style={{ marginTop: '10px', padding:'15px' }}>
+    <div style={{ marginTop: '10px', padding: '15px' }}>
       <div>
         <h3 style={{ display: 'inline' }}>A: </h3>
         <span>{props.answer.body}</span>
       </div>
-      <div>
-      {answerPhotos}
-      </div>
-      <span style={{display:'inline-block', margin:'10px'}}>
+      <div>{answerPhotos}</div>
+      <span style={{ display: 'inline-block', margin: '10px' }}>
         by {props.answer.answerer_name},
         <span style={{ margin: '5px' }}>
           {moment(`${props.answer.date}`).format('LL')}
