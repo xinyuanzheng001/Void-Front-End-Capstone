@@ -34,7 +34,6 @@ export default function ReviewFooter({
       {button}
       <ReviewButton
         onClick={() => {
-          console.log(showForm);
           setShowForm(true);
         }}
       >
