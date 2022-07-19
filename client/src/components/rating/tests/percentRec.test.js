@@ -1,4 +1,4 @@
-const percentRec = require ('../helpers/percentRec');
+const percentRec = require('../helpers/percentRec');
 
 const noReviews = {
   false: '0',
@@ -17,4 +17,3 @@ test('Returns 0 when there are no reviews', () => {
 test('Should round percentage to nearest whole number', () => {
   expect(percentRec(percentToInt)).toBe(92);
 });
-nm
