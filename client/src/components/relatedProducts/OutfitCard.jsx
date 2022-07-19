@@ -16,6 +16,7 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   const productDetail = useSelector((state) => state.productDetail);
   const { relatedStyle, loading } = useSelector((state) => state.relatedStyle);
   var photo = '';
+
   const handleClick = (event) => {
     console.log('Clicked');
     dispatch(removeOutfits(outfitToRemove));

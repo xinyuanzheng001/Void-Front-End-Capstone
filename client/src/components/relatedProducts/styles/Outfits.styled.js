@@ -13,35 +13,34 @@ export const OutfitCardContainer = styled.div`
   box-shadow: 3px 3px 5px 0px #949391;
 `;
 export const AddOutfitsStyled = styled.i`
-margin-top: 25px;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 40px;
-transition: transform .2s ease-in-out;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  transition: transform 0.2s ease-in-out;
   &:hover {
     cursor: pointer;
     transform: scale(1.25);
   }
 `;
 export const CardsIconStyled = styled.div`
-display: flex;
-border-radius: 50%;
-justify-content: center;
-align-items: center;
-width: 22px;
-height: 22px;
-position: absolute;
-top: 15px;
-right: 15px;
-background-color: white;
-z-index: 1;
-opacity: 90%;
-transition: transform .3s ease-in-out;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: white;
+  z-index: 1;
+  opacity: 90%;
+  transition: transform 0.3s ease-in-out;
   &:hover {
     cursor: pointer;
     transform: scale(1.25);
-
   }
 `;
 
@@ -59,4 +58,26 @@ export const OutfitContainer = styled.div`
   &:hover {
     transform scale(1.02);
   }
+`;
+export const ModalContainer = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const FeaturesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const CheckStyled = styled.i`
+color: #458161;
+display: flex;
+justify-content: center;
 `;

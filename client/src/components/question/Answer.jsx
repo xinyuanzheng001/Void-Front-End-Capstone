@@ -62,7 +62,7 @@ export default function Answer(props) {
   }
 
   let answerPhotos = props.answer.photos.length > 0 ? (
-    props.answer.photos.map((photo) => {return <img style={{maxHeight:'200px', display:'inline-block', margin:'10px'}} src={photo}></img>})
+    props.answer.photos.map((photo, index) => {return <img key={index} style={{maxHeight:'200px', display:'inline-block', margin:'10px'}} src={photo}></img>})
   )
   : (<></>)
 

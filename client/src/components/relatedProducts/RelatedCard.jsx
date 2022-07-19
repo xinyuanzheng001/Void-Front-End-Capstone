@@ -5,14 +5,21 @@ import getRelatedStyle from '../../actions/relatedStyleAction';
 import Stars from '../detail/Stars.jsx';
 import transparentStar from '../../images/transparentstar.png';
 import star from '../../images/star.png';
-import { OutfitCardContainer, AddOutfitsStyled, CardsIconStyled, OutfitContainer } from './styles/Outfits.styled';
-import ComparisonModal from './ComparisonModal'
+import {
+  OutfitCardContainer,
+  AddOutfitsStyled,
+  CardsIconStyled,
+  OutfitContainer
+} from './styles/Outfits.styled';
+import ComparisonModal from './ComparisonModal';
 export default function RelatedCard({ item, index }) {
-  const { id, name, category, default_price } = item;
+  const { id, name, category, default_price, features } = item;
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
-  const { relatedStyle, loading } = useSelector((state) => state.relatedStyle);
-  const [show, setShow] = useState(false)
+  const { relatedStyle, loading, ModalContainer } = useSelector(
+    (state) => state.relatedStyle
+  );
+  const [show, setShow] = useState(false);
   var photo = '';
 
   if (!loading && relatedStyle) {
@@ -21,30 +28,27 @@ export default function RelatedCard({ item, index }) {
   }
 
   var handleClick = () => {
-    setShow(true)
-
-    alert('Clicked')
-
-  }
+    setShow(true);
+  };
   var handleClose = () => {
-    setShow(false)
-  }
+    setShow(false);
+  };
   return (
     <>
-          <ComparisonModal show={show} onClose={handleClose} />
-      <OutfitContainer >
+      <ComparisonModal relatedComparisonFeatures={features} relatedName={name} show={show} onClose={handleClose} />
+
+      <OutfitContainer>
         <CardsIconStyled>
           <img
             src={transparentStar}
             style={{
               width: '18px',
-              position: 'absolute',
+              position: 'absolute'
               // top: '15px',
               // right: '20px',
               // borderRadius: '25%'
             }}
             onClick={handleClick}
-
           />
         </CardsIconStyled>
         <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'grey' }}>
@@ -91,7 +95,7 @@ export default function RelatedCard({ item, index }) {
             <Stars product_id={id} style={{}} />
           </div>
         </Link>
-        </OutfitContainer>
+      </OutfitContainer>
     </>
   );
 }
