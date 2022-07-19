@@ -10,7 +10,7 @@ import {
   ErrorMsg,
   SuccessMsg
 } from '../styles/Select.styled';
-import addItemToCart from '../../../actions/cartAction';
+import { addItemToCart } from '../../../actions/cartAction';
 import star from '../../../images/star.png';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
@@ -27,7 +27,7 @@ export default function Select({ sizes, quantity, style }) {
   const { cartItems } = cart;
 
   const productDetail = useSelector((state) => state.productDetail);
-  const { id, name } = productDetail.productDetail;
+  const { id, name, category } = productDetail.productDetail;
 
   const currentProduct = localCarts
     ? localCarts.filter(
@@ -82,19 +82,24 @@ export default function Select({ sizes, quantity, style }) {
   };
 
   const addItemHandler = () => {
+    console.log(style);
     if (selectedSize === '') {
       setError(true);
       setSuccess(false);
     } else {
+      const price =
+        style.sale_price === null ? style.original_price : style.sale_price;
       const item = {
         product_id: id,
         product_name: name,
+        product_category: category,
+        product_image: style.photos[0].thumbnail_url,
         selected_size: selectedSize,
         selected_qty: selectedQty,
         style_id: style.style_id,
         style_name: style.name,
-        price:
-          style.sale_price === null ? style.original_price : style.sale_price,
+        product_price: price,
+        total_price: Number(price) * Number(selectedQty),
         favorite: true
       };
       dispatch(addItemToCart(item));

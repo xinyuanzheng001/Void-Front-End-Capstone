@@ -1,7 +1,6 @@
 import {
-  ADD_ITEM_TO_CART_REQUEST,
   ADD_ITEM_TO_CART_SUCCESS,
-  ADD_ITEM_TO_CART_FAIL
+  REMOVE_ITEM_FROM_CART
 } from '../actions/types';
 
 export default function cartReducer(state = { cartItems: [] }, action) {
@@ -25,6 +24,12 @@ export default function cartReducer(state = { cartItems: [] }, action) {
           cartItems: [...state.cartItems, action.payload]
         };
       }
+    case REMOVE_ITEM_FROM_CART:
+      const style_id = action.payload;
+      return {
+        loading: false,
+        cartItems: state.cartItems.filter((item) => item.style_id !== style_id)
+      };
     default:
       return state;
   }

@@ -29,7 +29,7 @@ export default function Detail() {
   };
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <OverviewContainer>
         <ImageGallery
           style={style}

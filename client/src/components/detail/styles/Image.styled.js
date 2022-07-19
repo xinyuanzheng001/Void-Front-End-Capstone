@@ -82,6 +82,8 @@ export const FillImageContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
+  height: 600px;
 `;
 
 export const ImageGalleryContainer = styled.div`
@@ -89,6 +91,7 @@ export const ImageGalleryContainer = styled.div`
   height: 60vh;
   width: 800px;
   flex-direction: row;
+  overflow: hidden;
   background-color: rgb(245, 244, 242);
   transition: all 1s ease;
   @media (max-width: 768px) {

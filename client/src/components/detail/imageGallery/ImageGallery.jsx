@@ -20,6 +20,7 @@ import {
   FSRightArrowAndExpandContainer
 } from '../styles/Image.styled';
 import SquareThumbnailImage from './SquareThumbnailImage';
+import minus from '../../../images/minus.png';
 
 export default function ImageGallery({ style, expandViewController }) {
   const [currentImage, setCurrentImage] = useState('');
@@ -30,6 +31,28 @@ export default function ImageGallery({ style, expandViewController }) {
   const [zoom, setZoom] = useState(false);
   const [start, setStart] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [test, setTest] = useState(false);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [globalCoords, setGlobalCoords] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleWindowMouseMove = (event) => {
+      setGlobalCoords({
+        x: event.screenX,
+        y: event.screenY
+      });
+    };
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+    };
+  }, []);
+  const handleMouseMove = (event) => {
+    setCoords({
+      x: event.clientX - event.target.offsetLeft,
+      y: event.clientY - event.target.offsetTop
+    });
+  };
   useEffect(() => {
     setCurrentImage(style[0].url);
     if (style.length > 7) {
@@ -46,6 +69,7 @@ export default function ImageGallery({ style, expandViewController }) {
     console.log(window.innerWidth, windowWidth);
   }, []);
 
+  console.log();
   const onClickHandler = (src) => {
     setCurrentImage(src);
     let a;
@@ -108,7 +132,9 @@ export default function ImageGallery({ style, expandViewController }) {
           style={style}
         />
       )}
-      <ImageGalleryContainer style={{ width: expandView ? '100%' : '' }}>
+      <ImageGalleryContainer
+        style={{ width: expandView ? '100%' : '', overflow: 'hidden' }}
+      >
         {/* <SquareImageContainer style={{ margin: 'auto 0' }}> */}
         <SquareImageContainer>
           {displayList.length !== 0 && displayList[0].url !== style[0].url && (
@@ -140,17 +166,18 @@ export default function ImageGallery({ style, expandViewController }) {
             )}
         </SquareImageContainer>
         <FillImageContainer>
-          {displayList.length !== 0 && currentImageIndex !== 0 && (
+          {displayList.length !== 0 && currentImageIndex !== 0 && !test && (
             <FSiconLeftRightArrow
               className="fa-solid fa-angle-left"
               onClick={prevDisplayImage}
               style={{ paddingLeft: '30px' }}
             />
           )}
-          {expandView && windowWidth > 768 ? (
+          {/* {expandView && windowWidth > 768 ? ( */}
+          {expandView ? (
             zoom ? (
               <MagnifierContainer
-                style={{ width: '100%', display: 'flex', maxHeight: '100%' }}
+                style={{ maxWidth: '100%', display: 'flex', maxHeight: '100%' }}
               >
                 <MagnifierPreview
                   imageSrc={currentImage}
@@ -166,16 +193,44 @@ export default function ImageGallery({ style, expandViewController }) {
                 ) : (
                   <img
                     src={currentImage}
-                    style={{ width: '62.5%', objectFit: 'contain' }}
+                    style={{
+                      width: '62.5%',
+                      objectFit: 'contain',
+                      maxHeight: '100%',
+                      transform: test ? 'scale(2.5)' : '',
+                      transformOrigin: `${coords.x}px ${coords.y}px`
+                    }}
+                    onClick={() => setTest(!test)}
+                    onMouseMove={handleMouseMove}
                   />
                 )}
               </MagnifierContainer>
             ) : (
-              <FillImage
-                id="img_id"
-                src={currentImage}
-                onClick={() => setZoom(true)}
-              />
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  // overflow: 'hidden',
+                  position: 'relative'
+                }}
+              >
+                <img
+                  id="img_id"
+                  src={currentImage}
+                  onClick={() => setZoom(true)}
+                  style={{
+                    transform: test ? 'scale(2.5)' : '',
+                    transformOrigin: `${coords.x}px ${coords.y}px`,
+                    objectFit: 'contain',
+                    position: 'absolute',
+                    height: '100%',
+                    width: '100%',
+                    cursor: test ? 'zoom-out' : 'crosshair'
+                  }}
+                  onClick={() => setTest(!test)}
+                  onMouseMove={handleMouseMove}
+                />
+              </div>
             )
           ) : (
             <FillImage
@@ -184,20 +239,22 @@ export default function ImageGallery({ style, expandViewController }) {
               onClick={expandViewHandler}
             />
           )}
-          <FSRightArrowAndExpandContainer>
-            <FSiconExpand
-              className="fa-solid fa-expand"
-              onClick={expandViewHandler}
-            ></FSiconExpand>
-            {displayList.length !== 0 &&
-              currentImageIndex !== style.length - 1 && (
-                <FSiconLeftRightArrow
-                  className="fa-solid fa-angle-right"
-                  onClick={nextDisplayImage}
-                  style={{ paddingBottom: '25px' }}
-                />
-              )}
-          </FSRightArrowAndExpandContainer>
+          {!test && (
+            <FSRightArrowAndExpandContainer>
+              <FSiconExpand
+                className="fa-solid fa-expand"
+                onClick={expandViewHandler}
+              ></FSiconExpand>
+              {displayList.length !== 0 &&
+                currentImageIndex !== style.length - 1 && (
+                  <FSiconLeftRightArrow
+                    className="fa-solid fa-angle-right"
+                    onClick={nextDisplayImage}
+                    style={{ paddingBottom: '25px' }}
+                  />
+                )}
+            </FSRightArrowAndExpandContainer>
+          )}
         </FillImageContainer>
       </ImageGalleryContainer>
     </>
