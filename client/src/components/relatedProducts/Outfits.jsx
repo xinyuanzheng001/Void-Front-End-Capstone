@@ -27,7 +27,6 @@ export default function Outfits() {
   const [outfit, setOutfit] = useState(outfits); //first value is state, second value is function
   const addedOutfit = { style: productStyle, details: productDetail };
   const handleClick = (event) => {
-    console.log('Clicked');
     dispatch(addOutfits(addedOutfit));
   };
   const handleRemoveClick = (outfit) => {
@@ -55,7 +54,7 @@ export default function Outfits() {
   // }
 
   return (
-    <div style={{ width: '1000px', backgroundColor: 'white' }}>
+    <div style={{ width: '100%', backgroundColor: 'white' }}>
       <h3>Your Outfit</h3>
       <div style={{ display: 'flex' }}>
         <div
@@ -65,7 +64,7 @@ export default function Outfits() {
             boxShadow: '3px 1px 10px 0px white inset',
             margin: '10px',
             position: 'relative',
-            backgroundColor: 'gray',
+            backgroundColor: '#458161',
             width: '200px',
             height: '350px',
             borderRadius: '10px'
@@ -79,7 +78,9 @@ export default function Outfits() {
             ></AddOutfitsStyled>
           </OutfitCardContainer>
         </div>
-        <div style={{ width: '680px' }}>{slidingCards}</div>
+        <div style={{ minWidth: '600px', maxWidth: '610px' }}>
+          {slidingCards}
+        </div>
       </div>
     </div>
   );
