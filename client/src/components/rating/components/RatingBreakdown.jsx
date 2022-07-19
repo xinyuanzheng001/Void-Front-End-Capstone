@@ -24,18 +24,10 @@ import percentRec from '../helpers/percentRec';
 import starCounter from '../helpers/starCounter';
 import totalReviews from '../helpers/totalReviews';
 
-export default function RatingBreakdown() {
+export default function RatingBreakdown({ filters, setFilters }) {
   const { productMetaData } = useSelector((state) => state.productMetaData);
   const percent = percentRec(productMetaData.recommended);
   const reviews = totalReviews(productMetaData.ratings);
-
-  const [filters, setFilter] = useState({
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
-  });
 
   let percentMessage;
   if (reviews !== 0 && percent >= 0) {
@@ -48,6 +40,19 @@ export default function RatingBreakdown() {
     percentMessage = <p>There are no reviews for this product yet</p>;
   }
 
+  let clearFilters;
+  if (filters.length > 0) {
+    clearFilters = (
+      <p
+        onClick={() => {
+          setFilters([]);
+        }}
+      >
+        <u className="toggle">Clear All Filters</u>
+      </p>
+    );
+  }
+
   let starBreakdown = starCounter(productMetaData.ratings);
 
   return (
@@ -55,7 +60,7 @@ export default function RatingBreakdown() {
       <RatingBreakdownContainer>
         <span className="rating">{averageNumber(productMetaData.ratings)}</span>
         <span>
-          <Stars className="stars"/>
+          <Stars className="stars" />
         </span>
       </RatingBreakdownContainer>
       <TableContainer>
@@ -65,9 +70,16 @@ export default function RatingBreakdown() {
             <StarContainer
               key={starRating}
               onClick={() => {
-                setFilter(() => {
-                  filters[`${starRating}`] = !filters[`${starRating}`];
-                  return filters;
+                setFilters(() => {
+                  let currentFilters = filters.slice();
+
+                  let index = currentFilters.indexOf(starRating);
+                  if (index !== -1) {
+                    currentFilters.splice(index, 1);
+                  } else {
+                    currentFilters.push(starRating);
+                  }
+                  return currentFilters;
                 });
               }}
             >
@@ -83,7 +95,8 @@ export default function RatingBreakdown() {
             </StarContainer>
           );
         })}
-        <span>{percentMessage}</span>
+        <div>{percentMessage}</div>
+        <div>{clearFilters}</div>
       </TableContainer>
     </>
   );

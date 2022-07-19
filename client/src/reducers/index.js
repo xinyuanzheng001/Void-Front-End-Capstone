@@ -20,5 +20,5 @@ export default combineReducers({
   relatedProducts: relatedProductsReducer,
   relatedDetails: relatedDetailsReducer,
   relatedStyle: relatedStyleReducer,
-  outfits: outfitsReducer,
+  outfits: outfitsReducer
 });

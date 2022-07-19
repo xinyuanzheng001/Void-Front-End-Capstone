@@ -7,7 +7,7 @@ export const StarContainer = styled.div`
   border-radius: 5px;
 
   &:hover {
-    background-color: #E5E7E9;
+    background-color: #e5e7e9;
     cursor: pointer;
   }
 `;
@@ -32,12 +32,12 @@ export const StarRight = styled.div`
 
 export const StarBar = styled.div`
   width: 100%;
-  background-color: #F2F3F4;
+  background-color: #f2f3f4;
   text-align: center;
 `;
 
 export const StarFill = styled.div`
   width: ${({ fill }) => Number(fill)}%;
   height: 20px;
-  background-color: #27AE60;
+  background-color: #27ae60;
 `;

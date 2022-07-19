@@ -7,7 +7,7 @@ import totalReviews from '../helpers/totalReviews';
 //Styles
 import { ReviewButton } from '../styles/ReviewButton.styled';
 
-export default function ReviewFooter() {
+export default function ReviewFooter({ viewable, setViewable }) {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
@@ -15,7 +15,17 @@ export default function ReviewFooter() {
   let button;
 
   if (total > 0) {
-    button = <ReviewButton>More Reviews</ReviewButton>;
+    button = (
+      <ReviewButton
+        onClick={() => {
+          setViewable(() => {
+            return viewable + 2;
+          });
+        }}
+      >
+        More Reviews
+      </ReviewButton>
+    );
   }
 
   return (

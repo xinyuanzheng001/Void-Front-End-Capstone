@@ -2,18 +2,48 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { QuestionModal, ModalForm } from './styles/QuestionModal';
+import ReactDOM from 'react-dom';
 
 export default function AddAnswerForm(props) {
   const [answerText, setAnswerText] = useState('');
   const [answerName, setAnswerName] = useState('');
   const [answerEmail, setAnswerEmail] = useState('');
 
+  async function postAnswer() {
+    var data = JSON.stringify({
+      body: `${answerText}`,
+      name: `${answerName}`,
+      email: `${answerEmail}`,
+      photos: []
+    });
+    var config = {
+      method: 'post',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${Number(
+        props.question_id
+      )}/answers`,
+      headers: {
+        Authorization: `${process.env.API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
-    <QuestionModal>
+  ReactDOM.createPortal(
+    (<QuestionModal>
       <ModalForm>
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            postAnswer();
             console.log('Thanks for the Answer!');
             props.setAnswerForm(!props.showAnswerForm);
           }}
@@ -76,6 +106,6 @@ export default function AddAnswerForm(props) {
           <button>Submit An Answer</button>
         </form>
       </ModalForm>
-    </QuestionModal>
-  );
+    </QuestionModal>)
+  , document.getElementById('root')))
 }

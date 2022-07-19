@@ -1,62 +1,31 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import moment from 'moment';
 
-//Helper Functions
-import totalReviews from '../helpers/totalReviews';
+//Components
+import ReviewTile from './ReviewTile';
 
 //Styles
 import { ReviewTileContainer } from '../styles/FlexContainers.styled';
 
-export default function Reviews() {
+export default function Reviews({ filters, viewable }) {
   const { productReviews } = useSelector((state) => state.productReviews);
-  const { productMetaData } = useSelector((state) => state.productMetaData);
 
-  //Build stars
-  const starBuilder = (rating, id) => {
-    let stars = [];
-    for (let i = 1; i < 6; i++) {
-      if (i <= rating) {
-        stars.push(
-          <i key={`star${i}.${id}`} className="fa fa-star checked"></i>
-        );
-      } else {
-        stars.push(
-          <i key={`star${i}.${id}`} className="fa fa-star unchecked"></i>
-        );
+  let reviewArray = [];
+  if (filters.length === 0) {
+    reviewArray = productReviews.results.slice(0, viewable);
+  } else {
+    for (let i = 0; reviewArray.length < viewable; i++) {
+      let review = productReviews.results[i];
+      if (filters.indexOf(review.rating) !== -1) {
+        reviewArray.push(review);
       }
     }
-    return stars;
-  };
+  }
 
   return (
     <ReviewTileContainer>
-      {productReviews.results.map((review) => {
-        let recommended;
-
-        if (review.recommend) {
-          recommended = (
-            <div>
-              <i className="fa-solid fa-check"></i> I recommend this product.
-            </div>
-          );
-        }
-
-        return (
-          <div className="tile" key={review.review_id}>
-            {starBuilder(review.rating, review.review_id)}
-            {review.reviewer_name}, {moment(`${review.date}`).format('LL')}{' '}
-            <br></br>
-            <b>{review.summary}</b>
-            <br></br>
-            {review.body}
-            <br></br>
-            {recommended}
-            <br></br>
-            Was this review helpful? Yes ({review.helpfulness}) | Report
-            <br></br>
-          </div>
-        );
+      {reviewArray.map((review) => {
+        return <ReviewTile key={review.review_id} review={review} />;
       })}
     </ReviewTileContainer>
   );

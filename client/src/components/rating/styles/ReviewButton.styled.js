@@ -7,13 +7,13 @@ export const ReviewButton = styled.button`
   border: none;
   padding: 0 20px;
   width: 20%;
-  min-width: 200px;
+  min-width: 150px;
   margin: 5px;
   height: 45px;
   line-height: 45px;
   border-radius: 7px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 0.8em;
   text-transform: uppercase;
   background: #fff;
   color: #696969;
