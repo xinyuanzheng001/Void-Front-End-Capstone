@@ -4,6 +4,7 @@ export const HeaderContainer = styled.div`
   height: 70px;
   margin-bottom: 25px;
   width: 100%;
+  min-width: 400px;
   display: flex;
   background-color: #cae8ca;
   position: -webkit-sticky;
@@ -38,4 +39,14 @@ export const SearchIcon = styled.i`
   margin: 25px 0 0 10px;
   fontsize: 20px;
   color: white;
+`;
+
+export const CartIcon = styled.i`
+  margin: 25px 5px 0 10px;
+  fontsize: 20px;
+  color: black;
+  &:hover {
+    cursor: pointer;
+  }
+  text-decoration: none;
 `;

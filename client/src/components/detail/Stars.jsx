@@ -6,7 +6,7 @@ import {
   SingleStarContainer,
   SingleStarFill,
   SingleStarOutline
-} from '../styles/Stars.styled';
+} from './styles/Stars.styled';
 import star from '../../images/star.png';
 
 export default function Stars({ product_id }) {
