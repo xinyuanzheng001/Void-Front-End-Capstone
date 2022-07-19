@@ -44,8 +44,8 @@ export default function Rating() {
   }, [filters, viewable]);
 
   let header;
-  if (reviewArray.length > 0) {
-    header = <ReviewHeader />;
+  if (productReviews.results.length > 0) {
+    header = <ReviewHeader reviewArray={reviewArray} />;
   }
 
   return (
