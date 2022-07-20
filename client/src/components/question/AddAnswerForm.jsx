@@ -51,34 +51,31 @@ export default function AddAnswerForm(props) {
   });
 
   let translateImagesToURLs = async function () {
-    Object.keys(document.getElementById('input').files).forEach(
-      (index) => {
-        const formData = new FormData();
-        formData.append(
-          'file',
-          document.getElementById('input').files[index]
-        );
-        formData.append('upload_preset', 'omvh5u77');
-        axios
-          .post(
-            'https://api.cloudinary.com/v1_1/juannncodes/image/upload',
-            formData
-          )
-          .then((res) => {
-            let copyOfCurrentArray = cloudinaryArray;
-            copyOfCurrentArray.push(res.data.secure_url)
-            setCloudinaryArray(
-              copyOfCurrentArray
-            );
-            console.log(cloudinaryArray);
-          });
-      }
-    );
-  }
+    Object.keys(document.getElementById('input').files).forEach((index) => {
+      const formData = new FormData();
+      formData.append('file', document.getElementById('input').files[index]);
+      formData.append('upload_preset', 'omvh5u77');
+      axios
+        .post(
+          'https://api.cloudinary.com/v1_1/juannncodes/image/upload',
+          formData
+        )
+        .then((res) => {
+          let copyOfCurrentArray = cloudinaryArray;
+          copyOfCurrentArray.push(res.data.secure_url);
+          setCloudinaryArray(copyOfCurrentArray);
+          console.log(cloudinaryArray);
+        });
+    });
+  };
 
   return ReactDOM.createPortal(
-    <QuestionModal>
-      <ModalForm>
+    <QuestionModal
+    onClick={(e) => {
+      props.setAnswerForm(!props.showAnswerForm);
+    }}
+    >
+      <ModalForm onClick={(e) => e.stopPropagation()}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
