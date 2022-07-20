@@ -108,3 +108,5 @@ client/dist/
 
 # Finder Directory
 .DS_Store
+
+.my_fec.pem
