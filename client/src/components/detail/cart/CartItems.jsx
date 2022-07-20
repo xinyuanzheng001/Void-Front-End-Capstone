@@ -11,7 +11,6 @@ import {
 } from '../styles/Cart.styled';
 
 export default function CartItems({ cartItems }) {
-  console.log(cartItems);
   const totalPrice = cartItems.reduce((acc, item) => acc + item.total_price, 0);
   const tax = Number((totalPrice * 0.062).toFixed(2));
   return (
