@@ -61,6 +61,8 @@ export default function Question(props) {
   if (showAnswerForm) {
     answerForm = (
       <AddAnswerForm
+        product_name={props.product_name}
+        question_body={props.question.question_body}
         showAnswerForm={showAnswerForm}
         setAnswerForm={setAnswerForm}
         question_id={props.question.question_id}
