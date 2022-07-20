@@ -1,4 +1,15 @@
 import styled from 'styled-components';
+export const CardSliderContainer = styled.div`
+  display:flex;
+  flex-direction: row;
+  position: relative;
+  width: 90%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  &::-webkit-scrollbar{
+    display:none;
+  }
+`;
 
 export const OutfitCardContainer = styled.div`
   display: flex;
@@ -50,13 +61,14 @@ export const OutfitContainer = styled.div`
   width: 200px;
   height: 350px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 25px;
   position: relative;
   text-align: left;
   box-shadow: 3px 3px 5px 0px #949391;
-  transition: transform .2s ease-in-out;
+  transition: all .35s ease-in-out;
   &:hover {
     transform scale(1.02);
+    box-shadow: 5px 5px 10px 2px rgba(69, 129, 97, 0.9);
   }
 `;
 export const ModalContainer = styled.div`
@@ -69,6 +81,7 @@ export const ModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 `;
 
 export const FeaturesContainer = styled.div`
@@ -88,3 +101,20 @@ display: flex;
 justify-content: center;
 `;
 
+export const BackArrow = styled.i`
+position: absolute;
+left: 0px;
+top: 200px;
+color: #458161;
+z-index:1;
+opacity: 0.1;
+font-size: 30px;
+`
+export const ForwardArrow = styled.i`
+position: absolute;
+right: 20px;
+top:200px;
+color: #458161;
+font-size: 30px;
+z-index: 1
+`

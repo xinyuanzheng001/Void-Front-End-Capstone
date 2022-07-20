@@ -34,11 +34,12 @@ export default function ComparisonModal({
             flexDirection: 'column',
             opacity: '97%',
             width: '40%',
-            height: '70%',
+            height: '55%',
             alignItems: 'center',
             border: '5px solid #458161',
             boxShadow: '0px 0px 4px 0px white',
             borderRadius: '1%',
+            overflow: 'auto',
           }}
         >
 

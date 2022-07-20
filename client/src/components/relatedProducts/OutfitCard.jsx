@@ -55,15 +55,15 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
               }}
               alt={name}
             />
-            <span style={{ margin: '0 0 0 10px' }}>{category}</span>
+            <div style={{ margin: '0 0 0 10px' }}>{category}</div>
             <br />
-            <span
+            <div
               className="placeholder"
               style={{ fontWeight: 'bold', margin: '0 0 0 10px' }}
             >
               {name}
-            </span>
-            <span style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</span>
+            </div>
+            <div style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</div>
             <div
               style={{
                 display: 'flex',
