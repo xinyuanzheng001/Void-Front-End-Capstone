@@ -2,10 +2,10 @@ console.log('STOPS??????????????????????????????')
 
 import React from 'react';
 import { render } from '@testing-library/react';
-import RelatedProducts from '../RelatedProducts';
+import RelatedCard from '../RelatedCard';
 
-describe('RelatedProducts', () => {
-  test('renders RelatedProducts component', () => {
-    render(<RelatedProducts />);
+describe('RelatedCard', () => {
+  test('renders RelatedCard component', () => {
+    render(<RelatedCard />);
   });
 });

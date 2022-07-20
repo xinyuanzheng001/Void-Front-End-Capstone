@@ -54,6 +54,8 @@ export default function RelatedCard({ item, index }) {
         <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#458161' }}>
           <div
             style={{
+              display: 'flex',
+              justifyContent: 'center',
               boxShadow: '3px 1px 10px 0px white inset',
               width: '200px',
               height: '350px',
@@ -74,15 +76,15 @@ export default function RelatedCard({ item, index }) {
             }}
             alt={name}
           />
-          <span style={{ margin: '0 0 0 10px' }}>{category}</span>
+          <div style={{ margin: '0 0 0 10px' }}>{category}</div>
           <br />
-          <span
+          <div
             className="placeholder"
             style={{ fontWeight: 'bold', margin: '0 0 0 10px' }}
           >
             {name}
-          </span>
-          <span style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</span>
+          </div>
+          <div style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</div>
           <div
             style={{
               display: 'flex',
