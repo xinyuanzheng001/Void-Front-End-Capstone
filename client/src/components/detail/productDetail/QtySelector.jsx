@@ -26,6 +26,7 @@ export default function QtySelector({
       onChange={changeQty}
       value={selectedQty}
       disabled={selectedQuantity.length === 0 || selectedSize === ''}
+      role="qty-selector"
     >
       {selectedQuantity.length === 0 || selectedSize === '' ? (
         <option>-</option>

@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import cartReducer from '../../../reducers/cartReducer';
 import productDetailReducer from '../../../reducers/productDetailReducer';
+import store from '../../../store';
 
 const initialState = {
   productDetail: {
