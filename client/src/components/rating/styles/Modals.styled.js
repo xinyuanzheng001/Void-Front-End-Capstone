@@ -28,16 +28,57 @@ export const ModalImageStyle = styled.div`
 `;
 
 export const ModalReviewStyle = styled.div`
-  max-width: 80vh;
-  max-height: auto;
-  display: flex;
+  max-width: auto;
+  max-height: 80vh;
+  overflow: auto;
+  position: relative;
+  box-sizing: border-box;
   background: white;
   align-items: center;
   justify-content: center;
   padding: 2%;
 
   .checked {
-    color: #F1DC19;
+    color: #f1dc19;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+  }
+
+  .left {
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .charButtons {
+    display: flex;
+    min-width: 100%;
+    justify-content: space-between;
+  }
+
+  .right {
+    padding: 5px;
+    text-align: right;
+  }
+
+  .label {
+    padding: 5px;
+  }
+
+  [type=radio] {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    opacity: 100;
   }
 `;
-
