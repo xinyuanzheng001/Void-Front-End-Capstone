@@ -144,6 +144,10 @@ export default function ModalReview({
                 <div key={characteristics[characteristic].characteristic_id}>
                   <fieldset>
                     <legend>{characteristic}</legend>
+                    <div style={{ clear: 'both' }}></div>
+                    <span className="left">
+                      {characlabels[characteristic][0]}
+                    </span>
                     <input
                       id={characteristics[characteristic].id}
                       name={characteristic}
@@ -211,9 +215,6 @@ export default function ModalReview({
                     ></input>
                     <br></br>
                     <div style={{ clear: 'both' }}></div>
-                    <span className="left">
-                      {characlabels[characteristic][0]}
-                    </span>
                     <span className="right">
                       {characlabels[characteristic][1]}
                     </span>
