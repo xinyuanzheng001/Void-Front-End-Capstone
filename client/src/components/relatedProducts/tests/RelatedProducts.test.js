@@ -1,0 +1,11 @@
+console.log('STOPS??????????????????????????????')
+
+import React from 'react';
+import { render } from '@testing-library/react';
+import RelatedCard from '../RelatedCard';
+
+describe('RelatedCard', () => {
+  test('renders RelatedCard component', () => {
+    render(<RelatedCard />);
+  });
+});
