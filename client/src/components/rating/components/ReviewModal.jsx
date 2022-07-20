@@ -95,7 +95,9 @@ export default function ModalReview({
               characteristics: chars
             };
             if (rating === 0) {
-              alert('Please choose a rating by clicking on a star before submitting your review.');
+              alert(
+                'Please choose a rating by clicking on a star before submitting your review.'
+              );
             } else {
               console.log(review);
               // setShowForm(!showForm);
@@ -144,16 +146,9 @@ export default function ModalReview({
           {characteristicList.map((characteristic) => {
             if (characteristics[characteristic]) {
               return (
-                <div key={characteristics[characteristic].characteristic_id}>
-                  <fieldset
-                    key={`${characteristics[characteristic].characteristic_id}.fieldset`}
-                  >
+                <div key={characteristics[characteristic].id}>
+                  <fieldset>
                     <legend>{characteristic}</legend>
-                    <div style={{ clear: 'both' }}></div>
-                    <div className="left label">
-                      {characlabels[characteristic][0]}
-                    </div>
-
                     <br></br>
                     <div className="charButtons">
                       <input
@@ -218,8 +213,13 @@ export default function ModalReview({
                       ></input>
                     </div>
                     <br></br>
-                    <div className="right label">
-                      {characlabels[characteristic][1]}
+                    <div className="labels">
+                      <div className="left label">
+                        {characlabels[characteristic][0]}
+                      </div>
+                      <div className="right label">
+                        {characlabels[characteristic][1]}
+                      </div>
                     </div>
                   </fieldset>
                 </div>

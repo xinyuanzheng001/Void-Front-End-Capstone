@@ -43,10 +43,15 @@ export const ModalReviewStyle = styled.div`
   }
 
   fieldset {
-    text-align: left;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .labels {
+    display: flex;
     justify-content: space-between;
+    min-width: 100%;
   }
 
   .left {
@@ -56,7 +61,9 @@ export const ModalReviewStyle = styled.div`
   }
 
   .charButtons {
-    min-width: 100px;
+    display: flex;
+    min-width: 100%;
+    justify-content: space-between;
   }
 
   .right {
