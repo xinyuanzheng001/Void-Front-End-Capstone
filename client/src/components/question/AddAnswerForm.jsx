@@ -77,8 +77,8 @@ export default function AddAnswerForm(props) {
   }
 
   return ReactDOM.createPortal(
-    <QuestionModal>
-      <ModalForm>
+    <QuestionModal onClick={() => props.setAnswerForm(!props.showAnswerForm)}>
+      <ModalForm onClick={e => e.stopPropagation()} >
         <form
           onSubmit={(e) => {
             e.preventDefault();
