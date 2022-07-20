@@ -35,7 +35,12 @@ export default function AddQuestionForm(props) {
   }
 
   return ReactDOM.createPortal(
-    (<QuestionModal>
+    <QuestionModal
+      onClick={(e) => {
+        props.setQuestionForm(!props.showQuestionForm);
+        e.stopPropagation();
+      }}
+    >
       <ModalForm>
         <form
           onSubmit={(e) => {
@@ -90,6 +95,7 @@ export default function AddQuestionForm(props) {
           <button>Submit A Question</button>
         </form>
       </ModalForm>
-    </QuestionModal>)
-  , document.getElementById('root'));
+    </QuestionModal>,
+    document.getElementById('root')
+  );
 }
