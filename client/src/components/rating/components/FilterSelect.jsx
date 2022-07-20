@@ -19,7 +19,7 @@ export default function FilterSelect({ sort, setSort }) {
 
   return (
     <StyledSelect onChange={handleSelect} name="filter" id="review-filter">
-      <option value="relevance"> relevance</option>
+      <option value="relevant"> relevance</option>
       <option value="newest"> date</option>
       <option value="helpful"> helpfulness</option>
     </StyledSelect>
