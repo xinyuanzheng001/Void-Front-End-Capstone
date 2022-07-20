@@ -9,8 +9,7 @@
     }
   },
   "scripts": {
-    "test": "jest --env=jsdom",
-    "test-coverage": "jest --env=jsdom --coverage --collectCoverageFrom=client/src/**/*.{js,jsx}",
+    "test": "jest --env=jsdom --coverage --collectCoverageFrom=client/src/**/*.{js,jsx}",
     "client-dev": "npx webpack --watch",
     "server-dev": "nodemon --watch server",
     "lint": "./node_modules/.bin/eslint"

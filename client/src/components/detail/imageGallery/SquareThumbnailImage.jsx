@@ -26,6 +26,7 @@ export default function SquareThumbnailImage({
       )}
       {displayList.map((item, index) => (
         <SquareImageRow
+          data-testid="row-thumbnail-image"
           key={index}
           src={item.url}
           alt="img"
