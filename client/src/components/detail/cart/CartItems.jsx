@@ -3,6 +3,7 @@ import Item from './Item';
 import Summary from './Summary';
 import {
   CartContainer,
+  CartItemsContainer,
   ProductName,
   ProductInfo,
   ProductStyle,
@@ -11,6 +12,8 @@ import {
 
 export default function CartItems({ cartItems }) {
   console.log(cartItems);
+  const totalPrice = cartItems.reduce((acc, item) => acc + item.total_price, 0);
+  const tax = Number((totalPrice * 0.062).toFixed(2));
   return (
     <>
       {cartItems.length === 0 ? (
@@ -18,8 +21,8 @@ export default function CartItems({ cartItems }) {
           <h1>Your cart is empty </h1>
         </div>
       ) : (
-        <div style={{ display: 'flex' }}>
-          <CartContainer>
+        <CartContainer>
+          <CartItemsContainer>
             <HeadContainer>
               <ProductName>Product Name</ProductName>
               <ProductInfo>Category</ProductInfo>
@@ -32,9 +35,9 @@ export default function CartItems({ cartItems }) {
             {cartItems.map((item) => (
               <Item key={item.style_id} item={item} />
             ))}
-          </CartContainer>
-          <Summary />
-        </div>
+          </CartItemsContainer>
+          <Summary totalPrice={totalPrice} tax={tax} />
+        </CartContainer>
       )}
     </>
   );
