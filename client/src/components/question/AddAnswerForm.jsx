@@ -73,10 +73,9 @@ export default function AddAnswerForm(props) {
     <QuestionModal
     onClick={(e) => {
       props.setAnswerForm(!props.showAnswerForm);
-      e.stopPropagation();
     }}
     >
-      <ModalForm>
+      <ModalForm onClick={(e) => e.stopPropagation()}>
         <form
           onSubmit={(e) => {
             e.preventDefault();

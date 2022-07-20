@@ -41,7 +41,7 @@ export default function AddQuestionForm(props) {
         e.stopPropagation();
       }}
     >
-      <ModalForm>
+      <ModalForm onClick={(e) => e.stopPropagation()}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
