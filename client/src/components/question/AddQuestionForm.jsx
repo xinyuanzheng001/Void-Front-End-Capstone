@@ -45,7 +45,7 @@ export default function AddQuestionForm(props) {
           }}
         >
           <h3>Ask Your Question</h3>
-          <h4>About the {props.productName}</h4>
+          <h4>About the {props.product_name}</h4>
           <button
             onClick={() => props.setQuestionForm(!props.showQuestionForm)}
           >

@@ -30,5 +30,5 @@ export const CharFill = styled.div`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #27AE60;
+  border-top: 10px solid #458161;
 `;

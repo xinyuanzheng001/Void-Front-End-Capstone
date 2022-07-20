@@ -6,12 +6,13 @@ import { useDispatch } from 'react-redux';
 import Question from './Question';
 import { useParams } from 'react-router';
 import getProductQuestion from '../../actions/productQuestionAction';
-import AddAnswerForm from './AddAnswerForm';
 import AddQuestionForm from './AddQuestionForm';
 import SearchQuestions from './SearchQuestions';
 import { QuestionButton } from './styles/QuestionButton';
 
 export default function Questions() {
+  const productDetail = useSelector((state) => state.productDetail);
+  const { name } = productDetail.productDetail;
   let { id } = useParams();
   id = id >= 37311 ? id : 37311;
   const dispatch = useDispatch();
@@ -30,7 +31,12 @@ export default function Questions() {
 
   if (showQuestionForm) {
     questionForm = (
-      <AddQuestionForm product_id={id} productName={'insertProductName'} setQuestionForm={setQuestionForm} showQuestionForm={showQuestionForm}/>
+      <AddQuestionForm
+        product_id={id}
+        product_name={name}
+        setQuestionForm={setQuestionForm}
+        showQuestionForm={showQuestionForm}
+      />
     );
   }
 
@@ -41,9 +47,7 @@ export default function Questions() {
         <QuestionButton
           style={{ margin: '10px' }}
           onClick={() => {
-            console.log(howManyQuestions);
             setHowManyQuestions(howManyQuestions + 2);
-            console.log(howManyQuestions);
           }}
         >
           See More Questions
@@ -52,22 +56,44 @@ export default function Questions() {
         <></>
       );
 
-    QuestionsList = (searchValue.length >= 3) ? (productQuestions.productQuestions.results.filter(question => question.question_body.toLowerCase().includes(searchValue.toLowerCase()))).map((question) => {
-      return <Question key={question.question_id} question={question} />;
-    }) : (productQuestions.productQuestions.results
-      .slice(0, howManyQuestions)
-      .map((question) => {
-        return <Question key={question.question_id} question={question}/>;
-      }))
+    QuestionsList =
+      searchValue.length >= 3
+        ? productQuestions.productQuestions.results
+            .filter((question) =>
+              question.question_body
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            )
+            .map((question) => {
+              return (
+                <Question
+                  key={question.question_id}
+                  product_name={name}
+                  question={question}
+                />
+              );
+            })
+        : productQuestions.productQuestions.results
+            .slice(0, howManyQuestions)
+            .map((question) => {
+              return (
+                <Question
+                  key={question.question_id}
+                  product_name={name}
+                  question={question}
+                  productName={name}
+                />
+              );
+            });
   }
 
   return (
     <>
       <h2>Questions & Answers</h2>
       <SearchQuestions
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       <div
         style={{
           overflow: 'auto',
@@ -79,17 +105,18 @@ export default function Questions() {
       >
         <div>{QuestionsList}</div>
       </div>
-      <div id='buttonContainer' style={{
-  margin: 'auto',
-  width: '100%',
-  padding: '3%'
-}}>
-      <QuestionButton
-        onClick={() => setQuestionForm(!showQuestionForm)}
+      <div
+        id="buttonContainer"
+        style={{
+          margin: 'auto',
+          width: '100%',
+          padding: '3%'
+        }}
       >
-        Add A Question
-      </QuestionButton>
-      {showLoadQuestions}
+        <QuestionButton onClick={() => setQuestionForm(!showQuestionForm)}>
+          Add A Question
+        </QuestionButton>
+        {showLoadQuestions}
       </div>
       {questionForm}
     </>

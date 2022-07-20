@@ -1,29 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import RelatedCard from './RelatedCard';
 import OutfitCard from './OutfitCard';
 import getRelatedDetails from '../../actions/relatedDetailsAction';
 import getRelatedStyle from '../../actions/relatedStyleAction';
 import { addOutfits, removeOutfits } from '../../actions/addOutfitsAction';
-import {
-  backClick,
-  forwardClick,
-  horizontalSlide
-} from './Helpers/helperFunctions';
-import {
-  OutfitCardContainer,
-  AddOutfitsStyled,
-  CardSliderContainer,
-  BackArrow,
-  ForwardArrow
-} from './styles/Outfits.styled';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import transparentStar from '../../images/transparentstar.png';
+import { OutfitCardContainer, AddOutfitsStyled } from './styles/Outfits.styled';
 
 export default function Outfits() {
-  var slidingCards = '';
-  var navigation = '';
-  var outfitSliderRef = useRef(null);
-  var outfitsBack = useRef(null);
-  var outfitsForward = useRef(null);
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2.5,
+    slidesToScroll: 2
+  };
   const { relatedProducts } = useSelector((state) => state.relatedProducts);
   const dispatch = useDispatch();
   const { productDetail } = useSelector((state) => state.productDetail);
@@ -48,49 +43,19 @@ export default function Outfits() {
       />
     );
   });
-
   function RelatedSlider() {
     return (
-      <CardSliderContainer
-        ref={outfitSliderRef}
-        style={{ width:"75%" }}
-      >
+      <Slider {...settings} style={{ display: 'flex' }}>
         {cards}
-      </CardSliderContainer>
+      </Slider>
     );
   }
-  function Icons() {
-    return (
-      <div style={{width: '90%', position: 'absolute'}}>
-        <BackArrow
-          style={{  }}
-          onClick={() =>
-            backClick(outfitSliderRef, outfitsBack, outfitsForward)
-          }
-          ref={outfitsBack}
-          className="fa-solid fa-circle-chevron-left"
-        ></BackArrow>
-        <ForwardArrow
-          style={{}}
-          onClick={() =>
-            forwardClick(outfitSliderRef, outfitsBack, outfitsForward)
-          }
-          ref={outfitsForward}
-          className="fa-solid fa-circle-chevron-right"
-        ></ForwardArrow>
-      </div>
-    );
-  }
-  if (cards.length > 0) {
-    var slidingCards = RelatedSlider();
-    var navigation = Icons();
-  }
+  var slidingCards = RelatedSlider();
   // }
 
   return (
-    <div style={{ positon: 'relative' }}>
+    <div style={{ width: '100%', backgroundColor: 'white' }}>
       <h3>Your Outfit</h3>
-      {navigation}
       <div style={{ display: 'flex' }}>
         <div
           style={{
@@ -113,7 +78,9 @@ export default function Outfits() {
             ></AddOutfitsStyled>
           </OutfitCardContainer>
         </div>
-        {slidingCards}
+        <div style={{ minWidth: '600px', maxWidth: '610px' }}>
+          {slidingCards}
+        </div>
       </div>
     </div>
   );

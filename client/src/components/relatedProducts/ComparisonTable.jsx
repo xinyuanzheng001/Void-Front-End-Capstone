@@ -1,6 +1,6 @@
 import React from 'react';
 import ComparisonTableEntry from './ComparisonTableEntry';
-import combineThem from './Helpers/helperFunctions';
+import {combineThem} from './Helpers/helperFunctions';
 
 export default function ComparisonTable({
   relatedFeatures,
