@@ -155,6 +155,7 @@ export default function ModalReview({
                         id={characteristics[characteristic].id}
                         name={characteristic}
                         type="radio"
+                        required="required"
                         value="1"
                         onChange={(e) => {
                           setChars(() => {
@@ -167,6 +168,7 @@ export default function ModalReview({
                         id={characteristics[characteristic].id}
                         name={characteristic}
                         type="radio"
+                        required="required"
                         value="2"
                         onChange={(e) => {
                           setChars(() => {
@@ -179,6 +181,7 @@ export default function ModalReview({
                         id={characteristics[characteristic].id}
                         name={characteristic}
                         type="radio"
+                        required="required"
                         value="3"
                         onChange={(e) => {
                           setChars(() => {
@@ -191,6 +194,7 @@ export default function ModalReview({
                         id={characteristics[characteristic].id}
                         name={characteristic}
                         type="radio"
+                        required="required"
                         value="4"
                         onChange={(e) => {
                           setChars(() => {
@@ -203,6 +207,7 @@ export default function ModalReview({
                         id={characteristics[characteristic].id}
                         name={characteristic}
                         type="radio"
+                        required="required"
                         value="5"
                         onChange={(e) => {
                           setChars(() => {
