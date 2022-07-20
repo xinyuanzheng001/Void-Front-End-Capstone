@@ -26,9 +26,12 @@ export default function SizeSelector({
       onChange={changeSize}
       value={selectedSize}
       disabled={selectedQuantity.length === 0}
+      role="size-selector"
     >
       {selectedQuantity.length === 0 ? (
-        <option value="">OUT OF STOCK</option>
+        <option value="" data-testid="out-of-stock">
+          OUT OF STOCK
+        </option>
       ) : (
         <>
           <option value="">SELECT SIZE</option>

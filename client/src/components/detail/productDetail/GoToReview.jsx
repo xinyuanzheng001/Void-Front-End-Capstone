@@ -14,7 +14,9 @@ export default function GoToReview() {
   return (
     <GoToReviewContainer>
       {totalReviews !== 0 && (
-        <Link to="#rating">Read all {totalReviews} reviews</Link>
+        <Link to="#rating" data-testid="link-to-rating">
+          Read all {totalReviews} reviews
+        </Link>
       )}
     </GoToReviewContainer>
   );

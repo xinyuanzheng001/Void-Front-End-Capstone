@@ -27,25 +27,9 @@ export default function ImageGallery({ style, expandViewController }) {
   const [firstImageIndex, setFirstImageIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [expandView, setExpandView] = useState(false);
-  const [zoom, setZoom] = useState(false);
-  const [start, setStart] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [test, setTest] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [globalCoords, setGlobalCoords] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    const handleWindowMouseMove = (event) => {
-      setGlobalCoords({
-        x: event.screenX,
-        y: event.screenY
-      });
-    };
-    window.addEventListener('mousemove', handleWindowMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleWindowMouseMove);
-    };
-  }, []);
   const handleMouseMove = (event) => {
     setCoords({
       x: event.clientX - event.target.offsetLeft,
@@ -63,11 +47,6 @@ export default function ImageGallery({ style, expandViewController }) {
     setCurrentImageIndex(0);
   }, [style]);
 
-  useEffect(() => {
-    window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
-  }, []);
-
-  console.log();
   const onClickHandler = (src) => {
     setCurrentImage(src);
     let a;
@@ -116,7 +95,6 @@ export default function ImageGallery({ style, expandViewController }) {
   const expandViewHandler = () => {
     expandViewController(!expandView);
     setExpandView(!expandView);
-    setZoom(false);
   };
   return (
     <>
@@ -137,13 +115,15 @@ export default function ImageGallery({ style, expandViewController }) {
         <SquareImageContainer>
           {displayList.length !== 0 && displayList[0].url !== style[0].url && (
             <FSiconUpDownArrow
+              data-testid="up-arrow"
               className="fa-solid fa-angle-up"
               onClick={prevDisplayList}
               // style={{ marginBottom: '25px' }}
-            ></FSiconUpDownArrow>
+            />
           )}
           {displayList.map((item, index) => (
             <SquareImage
+              data-testid="square-image"
               src={item.url}
               alt="img"
               key={index}
@@ -157,15 +137,17 @@ export default function ImageGallery({ style, expandViewController }) {
             displayList[displayList.length - 1].url !==
               style[style.length - 1].url && (
               <FSiconUpDownArrow
+                data-testid="down-arrow"
                 className="fa-solid fa-angle-down"
                 onClick={nextDisplayList}
                 // style={{ marginTop: '25px' }}
-              ></FSiconUpDownArrow>
+              />
             )}
         </SquareImageContainer>
         <FillImageContainer>
           {displayList.length !== 0 && currentImageIndex !== 0 && !test && (
             <FSiconLeftRightArrow
+              data-testid="left-arrow"
               className="fa-solid fa-angle-left"
               onClick={prevDisplayImage}
               style={{ paddingLeft: '30px' }}
@@ -173,66 +155,35 @@ export default function ImageGallery({ style, expandViewController }) {
           )}
           {/* {expandView && windowWidth > 768 ? ( */}
           {expandView ? (
-            zoom ? (
-              <MagnifierContainer
-                style={{ maxWidth: '100%', display: 'flex', maxHeight: '100%' }}
-              >
-                <MagnifierPreview
-                  imageSrc={currentImage}
-                  style={{ width: '25%', margin: 'auto 5%' }}
-                  onZoomStart={() => setStart(true)}
-                  onZoomEnd={() => setStart(false)}
-                />
-                {start ? (
-                  <MagnifierZoom
-                    imageSrc={currentImage}
-                    style={{ width: '62.5%', maxHeight: '100%' }}
-                  />
-                ) : (
-                  <img
-                    src={currentImage}
-                    style={{
-                      width: '62.5%',
-                      objectFit: 'contain',
-                      maxHeight: '100%',
-                      transform: test ? 'scale(2.5)' : '',
-                      transformOrigin: `${coords.x}px ${coords.y}px`
-                    }}
-                    onClick={() => setTest(!test)}
-                    onMouseMove={handleMouseMove}
-                  />
-                )}
-              </MagnifierContainer>
-            ) : (
-              <div
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                // overflow: 'hidden',
+                position: 'relative'
+              }}
+            >
+              <img
+                data-testid="expand-view-image"
+                src={currentImage}
                 style={{
-                  width: '100%',
+                  transform: test ? 'scale(2.5)' : '',
+                  transformOrigin: `${coords.x}px ${coords.y}px`,
+                  objectFit: 'contain',
+                  position: 'absolute',
                   height: '100%',
-                  // overflow: 'hidden',
-                  position: 'relative'
+                  width: '100%',
+                  cursor: test ? 'zoom-out' : 'crosshair'
                 }}
-              >
-                <img
-                  id="img_id"
-                  src={currentImage}
-                  onClick={() => setZoom(true)}
-                  style={{
-                    transform: test ? 'scale(2.5)' : '',
-                    transformOrigin: `${coords.x}px ${coords.y}px`,
-                    objectFit: 'contain',
-                    position: 'absolute',
-                    height: '100%',
-                    width: '100%',
-                    cursor: test ? 'zoom-out' : 'crosshair'
-                  }}
-                  onClick={() => setTest(!test)}
-                  onMouseMove={handleMouseMove}
-                />
-              </div>
-            )
+                alt="img"
+                onClick={() => setTest(!test)}
+                onMouseMove={handleMouseMove}
+              />
+            </div>
           ) : (
             <FillImage
               id="img_id"
+              data-testid="default-view-image"
               src={currentImage}
               onClick={expandViewHandler}
             />
@@ -240,12 +191,14 @@ export default function ImageGallery({ style, expandViewController }) {
           {!test && (
             <FSRightArrowAndExpandContainer>
               <FSiconExpand
+                data-testid="expand-icon"
                 className="fa-solid fa-expand"
                 onClick={expandViewHandler}
-              ></FSiconExpand>
+              />
               {displayList.length !== 0 &&
                 currentImageIndex !== style.length - 1 && (
                   <FSiconLeftRightArrow
+                    data-testid="right-arrow"
                     className="fa-solid fa-angle-right"
                     onClick={nextDisplayImage}
                     style={{ paddingBottom: '25px' }}
