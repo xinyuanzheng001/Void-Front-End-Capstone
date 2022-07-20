@@ -18,6 +18,7 @@ export default function ModalReview({
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [rating, setRating] = useState(0);
+  const [chars, setChars] = useState({});
 
   const starMeanings = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
@@ -85,17 +86,22 @@ export default function ModalReview({
             e.preventDefault();
             const review = {
               product_id: id,
-              rating: 0, //Add stars
+              rating: rating,
               summary: reviewSummary,
               body: reviewBody,
               recommend: recommend,
               name: nickname,
               email: email,
-              characteristics: {
-                characterisitic_id: 0 //Add radio for each
-              }
+              characteristics: chars
             };
-            setShowForm(!showForm);
+            if (rating === 0) {
+              alert(
+                'Please choose a rating by clicking on a star before submitting your review.'
+              );
+            } else {
+              console.log(review);
+              // setShowForm(!showForm);
+            }
           }}
         >
           <h3>Write Your Review</h3>
@@ -107,6 +113,7 @@ export default function ModalReview({
           <p>Would you recommend this product?</p>
           <fieldset>
             <input
+              name="recommend"
               id="recommend-yes"
               type="radio"
               checked
@@ -121,6 +128,7 @@ export default function ModalReview({
             ></input>
             <label htmlFor="recommend-yes">Yes</label>
             <input
+              name="recommend"
               id="recommend-no"
               type="radio"
               value="no"
@@ -134,26 +142,87 @@ export default function ModalReview({
             ></input>
             <label htmlFor="recommend-no">No</label>
           </fieldset>
+          <br></br>
           {characteristicList.map((characteristic) => {
             if (characteristics[characteristic]) {
               return (
-                <fieldset
-                  key={characteristics[characteristic].characterisitic_id}
-                >
-                  <legend>{characteristic}</legend>
-                  <input
-                    id={characteristics[characteristic].characterisitic_id}
-                    type="radio"
-                    value="no"
-                    onChange={(e) => {
-                      setRecommend(() => {
-                        if (e.target.value === 'no') {
-                          return false;
-                        }
-                      });
-                    }}
-                  ></input>
-                </fieldset>
+                <div key={characteristics[characteristic].id}>
+                  <fieldset>
+                    <legend>{characteristic}</legend>
+                    <br></br>
+                    <div className="charButtons">
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="1"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="2"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="3"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="4"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="5"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                    </div>
+                    <br></br>
+                    <div className="labels">
+                      <div className="left label">
+                        {characlabels[characteristic][0]}
+                      </div>
+                      <div className="right label">
+                        {characlabels[characteristic][1]}
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
               );
             }
           })}
@@ -162,6 +231,7 @@ export default function ModalReview({
             id="review-summary"
             type="text"
             maxLength="60"
+            size="60"
             onChange={(e) => {
               setReviewSummary(e.target.value);
             }}
@@ -186,6 +256,7 @@ export default function ModalReview({
             required
             type="text"
             maxLength="60"
+            size="60"
             placeholder="Example: jackson11!"
             onChange={(e) => {
               setNickname(e.target.value);
@@ -198,6 +269,7 @@ export default function ModalReview({
             required
             type="email"
             maxLength="60"
+            size="60"
             placeholder="Example: jackson11@email.com"
             onChange={(e) => {
               setEmail(e.target.value);
