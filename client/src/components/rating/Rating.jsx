@@ -17,7 +17,6 @@ import {
   StyledFooter
 } from './styles/FlexContainers.styled';
 
-
 export default function Rating() {
   const { productReviews } = useSelector((state) => state.productReviews);
   const { productMetaData } = useSelector((state) => state.productMetaData);
@@ -41,7 +40,7 @@ export default function Rating() {
       }
       setReviewArray(tempViewable);
     }
-  }, [filters, viewable]);
+  }, [filters, viewable, productReviews]);
 
   let header;
   if (productReviews.results.length > 0) {
@@ -58,10 +57,7 @@ export default function Rating() {
         </BreakdownContainer>
         <ReviewContainer>
           {header}
-          <Reviews
-            reviewArray={reviewArray}
-            viewable={viewable}
-          />
+          <Reviews reviewArray={reviewArray} viewable={viewable} />
           <StyledFooter>
             <ReviewFooter
               reviewArray={reviewArray}
