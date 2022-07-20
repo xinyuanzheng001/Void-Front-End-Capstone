@@ -26,7 +26,7 @@ export default function ComparisonModal({
   }
   return ReactDOM.createPortal(
     <>
-      <ModalContainer>
+      <ModalContainer onClick={onClose}>
         <div
           style={{
             display: 'flex',
