@@ -18,7 +18,7 @@ export default function ModalReview({
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [rating, setRating] = useState(0);
-  const [chars, setChars] = useState([]);
+  const [chars, setChars] = useState({});
 
   const starMeanings = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
@@ -92,11 +92,14 @@ export default function ModalReview({
               recommend: recommend,
               name: nickname,
               email: email,
-              characteristics: {
-                characterisitic_id: 0 //Add radio for each
-              }
+              characteristics: chars
             };
-            setShowForm(!showForm);
+            if (rating === 0) {
+              alert('Please choose a rating by clicking on a star before submitting your review.');
+            } else {
+              console.log(review);
+              // setShowForm(!showForm);
+            }
           }}
         >
           <h3>Write Your Review</h3>
@@ -142,82 +145,82 @@ export default function ModalReview({
             if (characteristics[characteristic]) {
               return (
                 <div key={characteristics[characteristic].characteristic_id}>
-                  <fieldset>
+                  <fieldset
+                    key={`${characteristics[characteristic].characteristic_id}.fieldset`}
+                  >
                     <legend>{characteristic}</legend>
                     <div style={{ clear: 'both' }}></div>
-                    <span className="left">
+                    <div className="left label">
                       {characlabels[characteristic][0]}
-                    </span>
-                    <input
-                      id={characteristics[characteristic].id}
-                      name={characteristic}
-                      type="radio"
-                      value="1"
-                      onChange={(e) => {
-                        setChars(() => {
-                          let tempChars = chars.slice();
-                          tempChars[e.target.id] = e.target.value;
-                          return tempChars;
-                        });
-                      }}
-                    ></input>
-                    <input
-                      id={characteristics[characteristic].id}
-                      name={characteristic}
-                      type="radio"
-                      value="2"
-                      onChange={(e) => {
-                        setChars(() => {
-                          let tempChars = chars.slice();
-                          tempChars[e.target.id] = e.target.value;
-                          return tempChars;
-                        });
-                      }}
-                    ></input>
-                    <input
-                      id={characteristics[characteristic].id}
-                      name={characteristic}
-                      type="radio"
-                      value="3"
-                      onChange={(e) => {
-                        setChars(() => {
-                          let tempChars = chars.slice();
-                          tempChars[e.target.id] = e.target.value;
-                          return tempChars;
-                        });
-                      }}
-                    ></input>
-                    <input
-                      id={characteristics[characteristic].id}
-                      name={characteristic}
-                      type="radio"
-                      value="4"
-                      onChange={(e) => {
-                        setChars(() => {
-                          let tempChars = chars.slice();
-                          tempChars[e.target.id] = e.target.value;
-                          return tempChars;
-                        });
-                      }}
-                    ></input>
-                    <input
-                      id={characteristics[characteristic].id}
-                      name={characteristic}
-                      type="radio"
-                      value="5"
-                      onChange={(e) => {
-                        setChars(() => {
-                          let tempChars = chars.slice();
-                          tempChars[e.target.id] = e.target.value;
-                          return tempChars;
-                        });
-                      }}
-                    ></input>
+                    </div>
+
                     <br></br>
-                    <div style={{ clear: 'both' }}></div>
-                    <span className="right">
+                    <div className="charButtons">
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="1"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="2"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="3"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="4"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        value="5"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = e.target.value;
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                    </div>
+                    <br></br>
+                    <div className="right label">
                       {characlabels[characteristic][1]}
-                    </span>
+                    </div>
                   </fieldset>
                 </div>
               );

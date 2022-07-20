@@ -45,11 +45,18 @@ export const ModalReviewStyle = styled.div`
   fieldset {
     text-align: left;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .left {
     padding: 5px;
+    margin-bottom: 10px;
     text-align: left;
+  }
+
+  .charButtons {
+    min-width: 100px;
   }
 
   .right {
@@ -57,10 +64,14 @@ export const ModalReviewStyle = styled.div`
     text-align: right;
   }
 
+  .label {
+    padding: 5px;
+  }
+
   [type=radio] {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 15px;
+    height: 15px;
     opacity: 100;
   }
 `;
