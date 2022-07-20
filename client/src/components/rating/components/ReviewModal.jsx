@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+//Components
+import ReviewGallery from './ReviewGallery';
 
 //Styles
 import { Modal, ModalReviewStyle } from '../styles/Modals.styled';
@@ -19,6 +23,7 @@ export default function ModalReview({
   const [email, setEmail] = useState('');
   const [rating, setRating] = useState(0);
   const [chars, setChars] = useState({});
+  const [photos, setPhotos] = useState([]);
 
   const starMeanings = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
@@ -50,6 +55,25 @@ export default function ModalReview({
     return stars;
   };
 
+  let uploadReviewImage = async function (id) {
+    Object.keys(document.getElementById(id).files).forEach((index) => {
+      const formData = new FormData();
+      formData.append('file', document.getElementById(id).files[0]);
+      formData.append('upload_preset', 'fjemxkdw');
+      axios
+        .post(
+          'https://api.cloudinary.com/v1_1/dxuyk9gso/image/upload',
+          formData
+        )
+        .then((res) => {
+          let currentPhotos = photos.slice();
+          currentPhotos.push(res.data.secure_url);
+          setPhotos(currentPhotos);
+          console.log(currentPhotos);
+        });
+    });
+  };
+
   let characteristicList = Object.keys(characteristics);
 
   const characlabels = {
@@ -68,6 +92,12 @@ export default function ModalReview({
     );
   } else {
     remainingBody = <p>Minimum reached</p>;
+  }
+
+  let imageGallery;
+  if (photos.length > 1) {
+    console.log('images are here, where gallery');
+    imageGallery = <ReviewGallery photos={photos} />;
   }
 
   if (!showForm) {
@@ -92,7 +122,8 @@ export default function ModalReview({
               recommend: recommend,
               name: nickname,
               email: email,
-              characteristics: chars
+              characteristics: chars,
+              photos: photos
             };
             if (rating === 0) {
               alert(
@@ -254,6 +285,53 @@ export default function ModalReview({
               setReviewBody(e.target.value);
             }}
           ></textarea>
+          {imageGallery}
+          <input
+            multiple
+            id="reviewImage"
+            name="review-images"
+            onChange={(e) => {
+              console.log(e.target.id);
+              uploadReviewImage(e.target.id);
+              let files = document.getElementById(e.target.id).files;
+              if (files.length > 5) {
+                alert('Only first 5 images will be uploaded');
+              }
+              // let previousImages = [];
+              // Object.keys(files).forEach((file, i) => {
+              //   previousImages.push([
+              //     window.URL.createObjectURL(files[i])
+              //   ]);
+              // });
+              // setPreviewImages(previousImages);
+            }}
+            type="file"
+            name="img"
+            accept="image/*"
+          />
+          <input
+            multiple
+            id="reviewImage2"
+            name="review-images2"
+            onChange={(e) => {
+              uploadReviewImage(e.target.id);
+              console.log(e.target.id);
+              let files = document.getElementById(e.target.id).files;
+              if (files.length > 5) {
+                alert('Only first 5 images will be uploaded');
+              }
+              // let previousImages = [];
+              // Object.keys(files).forEach((file, i) => {
+              //   previousImages.push([
+              //     window.URL.createObjectURL(files[i])
+              //   ]);
+              // });
+              // setPreviewImages(previousImages);
+            }}
+            type="file"
+            name="img"
+            accept="image/*"
+          />
           {remainingBody}
           <label htmlFor="nickname">Your Nickname *</label>
           <input
