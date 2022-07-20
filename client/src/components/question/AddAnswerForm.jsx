@@ -9,13 +9,14 @@ export default function AddAnswerForm(props) {
   const [answerName, setAnswerName] = useState('');
   const [answerEmail, setAnswerEmail] = useState('');
   const [previewImages, setPreviewImages] = useState([]);
+  const [cloudinaryArray, setCloudinaryArray] = useState([]);
 
   async function postAnswer() {
     var data = JSON.stringify({
       body: `${answerText}`,
       name: `${answerName}`,
       email: `${answerEmail}`,
-      photos: []
+      photos: cloudinaryArray
     });
     var config = {
       method: 'post',
@@ -48,6 +49,32 @@ export default function AddAnswerForm(props) {
       );
     }
   });
+
+  let translateImagesToURLs = async function () {
+    Object.keys(document.getElementById('input').files).forEach(
+      (index) => {
+        const formData = new FormData();
+        formData.append(
+          'file',
+          document.getElementById('input').files[index]
+        );
+        formData.append('upload_preset', 'omvh5u77');
+        axios
+          .post(
+            'https://api.cloudinary.com/v1_1/juannncodes/image/upload',
+            formData
+          )
+          .then((res) => {
+            let copyOfCurrentArray = cloudinaryArray;
+            copyOfCurrentArray.push(res.data.secure_url)
+            setCloudinaryArray(
+              copyOfCurrentArray
+            );
+            console.log(cloudinaryArray);
+          });
+      }
+    );
+  }
 
   return ReactDOM.createPortal(
     <QuestionModal>
@@ -109,6 +136,7 @@ export default function AddAnswerForm(props) {
             id="input"
             name="files[]"
             onChange={(e) => {
+              translateImagesToURLs();
               let files = document.getElementById('input').files;
               if (files.length > 5) {
                 alert('Only first 5 images will be uploaded');
