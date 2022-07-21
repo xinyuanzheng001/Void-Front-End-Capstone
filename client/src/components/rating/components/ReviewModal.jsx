@@ -5,6 +5,8 @@ import axios from 'axios';
 //Components
 import ReviewGallery from './ReviewGallery';
 
+import postReview from '../helpers/postReview';
+
 //Styles
 import { Modal, ModalReviewStyle } from '../styles/Modals.styled';
 import { ReviewButton } from '../styles/ReviewButton.styled';
@@ -24,6 +26,7 @@ export default function ModalReview({
   const [rating, setRating] = useState(0);
   const [chars, setChars] = useState({});
   const [photos, setPhotos] = useState([]);
+  const [thumbnails, setThumbnails] = useState([]);
 
   const starMeanings = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
@@ -66,10 +69,9 @@ export default function ModalReview({
           formData
         )
         .then((res) => {
-          let currentPhotos = photos.slice();
+          let currentPhotos = photos;
           currentPhotos.push(res.data.secure_url);
           setPhotos(currentPhotos);
-          console.log(currentPhotos);
         });
     });
   };
@@ -94,10 +96,31 @@ export default function ModalReview({
     remainingBody = <p>Minimum reached</p>;
   }
 
-  let imageGallery;
-  if (photos.length > 1) {
-    console.log('images are here, where gallery');
-    imageGallery = <ReviewGallery photos={photos} />;
+  let imageInputs = [];
+  for (let i = 0; i < 5; i++) {
+    imageInputs.push(
+      <div key={`imageInput${i}`}>
+        <input
+          id={`reviewImages${i}`}
+          name={`review-images${i}`}
+          onChange={(e) => {
+            uploadReviewImage(e.target.id);
+            let files = document.getElementById(`reviewImages${i}`).files;
+            let localImages = [];
+            Object.keys(files).forEach((file, i) => {
+              localImages.push([window.URL.createObjectURL(files[i])]);
+            });
+            setThumbnails(() => {
+              let thumbSlice = thumbnails.slice();
+              return thumbSlice.concat(localImages);
+            });
+          }}
+          type="file"
+          name="img"
+          accept="image/*"
+        />
+      </div>
+    );
   }
 
   if (!showForm) {
@@ -114,7 +137,7 @@ export default function ModalReview({
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            const review = {
+            const review = JSON.stringify({
               product_id: id,
               rating: rating,
               summary: reviewSummary,
@@ -124,13 +147,13 @@ export default function ModalReview({
               email: email,
               characteristics: chars,
               photos: photos
-            };
+            });
             if (rating === 0) {
               alert(
                 'Please choose a rating by clicking on a star before submitting your review.'
               );
             } else {
-              console.log(review);
+              postReview(review);
               // setShowForm(!showForm);
             }
           }}
@@ -190,7 +213,7 @@ export default function ModalReview({
                         value="1"
                         onChange={(e) => {
                           setChars(() => {
-                            chars[e.target.id] = e.target.value;
+                            chars[e.target.id] = Number(e.target.value);
                             return chars;
                           });
                         }}
@@ -203,7 +226,7 @@ export default function ModalReview({
                         value="2"
                         onChange={(e) => {
                           setChars(() => {
-                            chars[e.target.id] = e.target.value;
+                            chars[e.target.id] = Number(e.target.value);
                             return chars;
                           });
                         }}
@@ -216,7 +239,7 @@ export default function ModalReview({
                         value="3"
                         onChange={(e) => {
                           setChars(() => {
-                            chars[e.target.id] = e.target.value;
+                            chars[e.target.id] = Number(e.target.value);
                             return chars;
                           });
                         }}
@@ -229,7 +252,7 @@ export default function ModalReview({
                         value="4"
                         onChange={(e) => {
                           setChars(() => {
-                            chars[e.target.id] = e.target.value;
+                            chars[e.target.id] = Number(e.target.value);
                             return chars;
                           });
                         }}
@@ -242,7 +265,7 @@ export default function ModalReview({
                         value="5"
                         onChange={(e) => {
                           setChars(() => {
-                            chars[e.target.id] = e.target.value;
+                            chars[e.target.id] = Number(e.target.value);
                             return chars;
                           });
                         }}
@@ -285,54 +308,23 @@ export default function ModalReview({
               setReviewBody(e.target.value);
             }}
           ></textarea>
-          {imageGallery}
-          <input
-            multiple
-            id="reviewImage"
-            name="review-images"
-            onChange={(e) => {
-              console.log(e.target.id);
-              uploadReviewImage(e.target.id);
-              let files = document.getElementById(e.target.id).files;
-              if (files.length > 5) {
-                alert('Only first 5 images will be uploaded');
-              }
-              // let previousImages = [];
-              // Object.keys(files).forEach((file, i) => {
-              //   previousImages.push([
-              //     window.URL.createObjectURL(files[i])
-              //   ]);
-              // });
-              // setPreviewImages(previousImages);
-            }}
-            type="file"
-            name="img"
-            accept="image/*"
-          />
-          <input
-            multiple
-            id="reviewImage2"
-            name="review-images2"
-            onChange={(e) => {
-              uploadReviewImage(e.target.id);
-              console.log(e.target.id);
-              let files = document.getElementById(e.target.id).files;
-              if (files.length > 5) {
-                alert('Only first 5 images will be uploaded');
-              }
-              // let previousImages = [];
-              // Object.keys(files).forEach((file, i) => {
-              //   previousImages.push([
-              //     window.URL.createObjectURL(files[i])
-              //   ]);
-              // });
-              // setPreviewImages(previousImages);
-            }}
-            type="file"
-            name="img"
-            accept="image/*"
-          />
           {remainingBody}
+          <div className="submissionGallery">
+            {thumbnails.map((photo, index) => {
+              return (
+                <img
+                  key={`galleryThumnail${index}`}
+                  className="thumbnail"
+                  src={photo}
+                ></img>
+              );
+            })}
+          </div>
+          <br></br>
+          <div className="submissionInputs">
+            {imageInputs.slice(0, 1 + thumbnails.length)}
+          </div>
+          <br></br>
           <label htmlFor="nickname">Your Nickname *</label>
           <input
             id="yourNickname"
