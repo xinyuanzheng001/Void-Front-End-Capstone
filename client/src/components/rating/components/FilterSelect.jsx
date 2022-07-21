@@ -7,7 +7,7 @@ import { sortProductReviews } from '../../../actions/productReviewsAction';
 //Styles
 import { StyledSelect } from '../styles/FilterSelect.styled';
 
-export default function FilterSelect() {
+export default function FilterSelect({ sort, setSort }) {
   const { productReviews } = useSelector((state) => state.productReviews);
   const dispatch = useDispatch();
 
