@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+//Components
+import ReviewGallery from './ReviewGallery';
+
+import postReview from '../helpers/postReview';
 
 //Styles
 import { Modal, ModalReviewStyle } from '../styles/Modals.styled';
@@ -18,6 +24,9 @@ export default function ModalReview({
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [rating, setRating] = useState(0);
+  const [chars, setChars] = useState({});
+  const [photos, setPhotos] = useState([]);
+  const [thumbnails, setThumbnails] = useState([]);
 
   const starMeanings = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
@@ -49,6 +58,24 @@ export default function ModalReview({
     return stars;
   };
 
+  let uploadReviewImage = async function (id) {
+    Object.keys(document.getElementById(id).files).forEach((index) => {
+      const formData = new FormData();
+      formData.append('file', document.getElementById(id).files[0]);
+      formData.append('upload_preset', 'fjemxkdw');
+      axios
+        .post(
+          'https://api.cloudinary.com/v1_1/dxuyk9gso/image/upload',
+          formData
+        )
+        .then((res) => {
+          let currentPhotos = photos;
+          currentPhotos.push(res.data.secure_url);
+          setPhotos(currentPhotos);
+        });
+    });
+  };
+
   let characteristicList = Object.keys(characteristics);
 
   const characlabels = {
@@ -69,6 +96,33 @@ export default function ModalReview({
     remainingBody = <p>Minimum reached</p>;
   }
 
+  let imageInputs = [];
+  for (let i = 0; i < 5; i++) {
+    imageInputs.push(
+      <div key={`imageInput${i}`}>
+        <input
+          id={`reviewImages${i}`}
+          name={`review-images${i}`}
+          onChange={(e) => {
+            uploadReviewImage(e.target.id);
+            let files = document.getElementById(`reviewImages${i}`).files;
+            let localImages = [];
+            Object.keys(files).forEach((file, i) => {
+              localImages.push([window.URL.createObjectURL(files[i])]);
+            });
+            setThumbnails(() => {
+              let thumbSlice = thumbnails.slice();
+              return thumbSlice.concat(localImages);
+            });
+          }}
+          type="file"
+          name="img"
+          accept="image/*"
+        />
+      </div>
+    );
+  }
+
   if (!showForm) {
     return;
   }
@@ -83,19 +137,25 @@ export default function ModalReview({
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            const review = {
+            const review = JSON.stringify({
               product_id: id,
-              rating: 0, //Add stars
+              rating: rating,
               summary: reviewSummary,
               body: reviewBody,
               recommend: recommend,
               name: nickname,
               email: email,
-              characteristics: {
-                characterisitic_id: 0 //Add radio for each
-              }
-            };
-            setShowForm(!showForm);
+              characteristics: chars,
+              photos: photos
+            });
+            if (rating === 0) {
+              alert(
+                'Please choose a rating by clicking on a star before submitting your review.'
+              );
+            } else {
+              postReview(review);
+              // setShowForm(!showForm);
+            }
           }}
         >
           <h3>Write Your Review</h3>
@@ -107,6 +167,7 @@ export default function ModalReview({
           <p>Would you recommend this product?</p>
           <fieldset>
             <input
+              name="recommend"
               id="recommend-yes"
               type="radio"
               checked
@@ -121,6 +182,7 @@ export default function ModalReview({
             ></input>
             <label htmlFor="recommend-yes">Yes</label>
             <input
+              name="recommend"
               id="recommend-no"
               type="radio"
               value="no"
@@ -134,26 +196,92 @@ export default function ModalReview({
             ></input>
             <label htmlFor="recommend-no">No</label>
           </fieldset>
+          <br></br>
           {characteristicList.map((characteristic) => {
             if (characteristics[characteristic]) {
               return (
-                <fieldset
-                  key={characteristics[characteristic].characterisitic_id}
-                >
-                  <legend>{characteristic}</legend>
-                  <input
-                    id={characteristics[characteristic].characterisitic_id}
-                    type="radio"
-                    value="no"
-                    onChange={(e) => {
-                      setRecommend(() => {
-                        if (e.target.value === 'no') {
-                          return false;
-                        }
-                      });
-                    }}
-                  ></input>
-                </fieldset>
+                <div key={characteristics[characteristic].id}>
+                  <fieldset>
+                    <legend>{characteristic}</legend>
+                    <br></br>
+                    <div className="charButtons">
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        required="required"
+                        value="1"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = Number(e.target.value);
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        required="required"
+                        value="2"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = Number(e.target.value);
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        required="required"
+                        value="3"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = Number(e.target.value);
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        required="required"
+                        value="4"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = Number(e.target.value);
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                      <input
+                        id={characteristics[characteristic].id}
+                        name={characteristic}
+                        type="radio"
+                        required="required"
+                        value="5"
+                        onChange={(e) => {
+                          setChars(() => {
+                            chars[e.target.id] = Number(e.target.value);
+                            return chars;
+                          });
+                        }}
+                      ></input>
+                    </div>
+                    <br></br>
+                    <div className="labels">
+                      <div className="left label">
+                        {characlabels[characteristic][0]}
+                      </div>
+                      <div className="right label">
+                        {characlabels[characteristic][1]}
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
               );
             }
           })}
@@ -162,6 +290,7 @@ export default function ModalReview({
             id="review-summary"
             type="text"
             maxLength="60"
+            size="60"
             onChange={(e) => {
               setReviewSummary(e.target.value);
             }}
@@ -180,12 +309,29 @@ export default function ModalReview({
             }}
           ></textarea>
           {remainingBody}
+          <div className="submissionGallery">
+            {thumbnails.map((photo, index) => {
+              return (
+                <img
+                  key={`galleryThumnail${index}`}
+                  className="thumbnail"
+                  src={photo}
+                ></img>
+              );
+            })}
+          </div>
+          <br></br>
+          <div className="submissionInputs">
+            {imageInputs.slice(0, 1 + thumbnails.length)}
+          </div>
+          <br></br>
           <label htmlFor="nickname">Your Nickname *</label>
           <input
             id="yourNickname"
             required
             type="text"
             maxLength="60"
+            size="60"
             placeholder="Example: jackson11!"
             onChange={(e) => {
               setNickname(e.target.value);
@@ -198,6 +344,7 @@ export default function ModalReview({
             required
             type="email"
             maxLength="60"
+            size="60"
             placeholder="Example: jackson11@email.com"
             onChange={(e) => {
               setEmail(e.target.value);
