@@ -23,6 +23,7 @@ export default function RelatedProducts() {
   const forwardButton = useRef(null);
 
   const { relatedProducts } = useSelector((state) => state.relatedProducts);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getRelatedDetails(relatedProducts));

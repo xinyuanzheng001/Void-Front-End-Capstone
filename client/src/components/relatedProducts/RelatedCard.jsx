@@ -65,6 +65,7 @@ export default function RelatedCard({ item, index }) {
               // zIndex: '9px',
             }}
           ></div>
+          <img ></img>
           <img
             src={photo}
             style={{
