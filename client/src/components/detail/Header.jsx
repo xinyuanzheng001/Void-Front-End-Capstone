@@ -22,7 +22,9 @@ export default function Header() {
         value={keyWord}
         onChange={(e) => setKeyWord(e.target.value)}
       ></SearchInput>
-      <SearchIcon className="fa-solid fa-magnifying-glass"></SearchIcon>
+      <label style={{ border: 'none' }}>
+        <SearchIcon className="fa-solid fa-magnifying-glass"></SearchIcon>
+      </label>
       <CartIcon
         as={Link}
         to="/mycart"
