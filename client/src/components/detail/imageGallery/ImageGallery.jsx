@@ -19,7 +19,9 @@ import {
   FSiconExpand,
   FSRightArrowAndExpandContainer
 } from '../styles/Image.styled';
+import star from '../../../images/star.png';
 import SquareThumbnailImage from './SquareThumbnailImage';
+import clickTracker from '../clickTracker';
 
 export default function ImageGallery({ style, expandViewController }) {
   const [currentImage, setCurrentImage] = useState('');
@@ -47,15 +49,15 @@ export default function ImageGallery({ style, expandViewController }) {
     setCurrentImageIndex(0);
   }, [style]);
 
-  const onClickHandler = (src) => {
-    setCurrentImage(src);
+  const onClickHandler = (e, src) => {
+    clickTracker('ProductOverview', 'ImageGallery');
+    setCurrentImage(src.url);
     let a;
     for (let i = 0; i < style.length; i++) {
-      if (src === style[i].url) {
+      if (src.url === style[i].url) {
         a = i;
       }
     }
-    setCurrentImage(src);
     setCurrentImageIndex(a);
   };
   const nextDisplayList = () => {
@@ -124,10 +126,12 @@ export default function ImageGallery({ style, expandViewController }) {
           {displayList.map((item, index) => (
             <SquareImage
               data-testid="square-image"
-              src={item.url}
+              src={item.thumbnail_url === null ? star : item.thumbnail_url}
               alt="img"
               key={index}
-              onClick={(e) => onClickHandler(e.target.src)}
+              onClick={(e) => {
+                onClickHandler(e, item);
+              }}
               style={{
                 border: currentImage === item.url ? '2px red solid' : ''
               }}
@@ -184,6 +188,7 @@ export default function ImageGallery({ style, expandViewController }) {
             <FillImage
               id="img_id"
               data-testid="default-view-image"
+              alt="img"
               src={currentImage}
               onClick={expandViewHandler}
             />

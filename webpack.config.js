@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
@@ -48,15 +49,14 @@ module.exports = {
       'process.env': {
         API_KEY: JSON.stringify(process.env.API_KEY)
       }
+    }),
+    new CompressionPlugin({
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
     })
   ]
-  // devServer: {
-  //   index: "",
-  //   proxy: {
-  //     context: () => true,
-  //     target: "http://localhost:3000",
-  //   },
-  // },
 };
 
 /**
