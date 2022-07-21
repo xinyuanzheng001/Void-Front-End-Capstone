@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import getRelatedStyle from '../../actions/relatedStyleAction';
-import Stars from '../detail/Stars.jsx';
+import Stars from '../detail/Stars';
 import transparentStar from '../../images/transparentstar.png';
-import star from '../../images/star.png';
-import {
-  OutfitCardContainer,
-  AddOutfitsStyled,
-  CardsIconStyled,
-  OutfitContainer
-} from './styles/Outfits.styled';
+import { CardsIconStyled, OutfitContainer } from './styles/Outfits.styled';
 import ComparisonModal from './ComparisonModal';
+
 export default function RelatedCard({ item, index }) {
   const { id, name, category, default_price, features } = item;
-  const dispatch = useDispatch();
-  const productDetail = useSelector((state) => state.productDetail);
   const { relatedStyle, loading, ModalContainer } = useSelector(
     (state) => state.relatedStyle
   );
@@ -35,7 +27,12 @@ export default function RelatedCard({ item, index }) {
   };
   return (
     <>
-      <ComparisonModal relatedComparisonFeatures={features} relatedName={name} show={show} onClose={handleClose} />
+      <ComparisonModal
+        relatedComparisonFeatures={features}
+        relatedName={name}
+        show={show}
+        onClose={handleClose}
+      />
 
       <OutfitContainer>
         <CardsIconStyled>
@@ -51,7 +48,10 @@ export default function RelatedCard({ item, index }) {
             onClick={handleClick}
           />
         </CardsIconStyled>
-        <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#458161' }}>
+        <Link
+          to={`/${id}`}
+          style={{ textDecoration: 'none', color: '#458161' }}
+        >
           <div
             style={{
               display: 'flex',
@@ -65,7 +65,6 @@ export default function RelatedCard({ item, index }) {
               // zIndex: '9px',
             }}
           ></div>
-          <img ></img>
           <img
             src={photo}
             style={{

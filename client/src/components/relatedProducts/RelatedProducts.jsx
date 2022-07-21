@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import RelatedCard from './RelatedCard';
 import Outfits from './Outfits';
@@ -6,18 +6,21 @@ import Outfits from './Outfits';
 import getRelatedDetails from '../../actions/relatedDetailsAction';
 import getRelatedStyle from '../../actions/relatedStyleAction';
 
-import transparentStar from '../../images/transparentstar.png';
 import {
   CardSliderContainer,
   BackArrow,
   ForwardArrow
 } from './styles/Outfits.styled';
-import {
-  backClick,
-  forwardClick,
-  horizontalSlide
-} from './Helpers/helperFunctions';
+import { backClick, forwardClick } from './Helpers/helperFunctions';
+
 export default function RelatedProducts() {
+  function RelatedSlider() {
+    return (
+      <CardSliderContainer ref={relatedSliderRef} id="relatedSlider">
+        {cards}
+      </CardSliderContainer>
+    );
+  }
   const relatedSliderRef = useRef(null);
   const backButton = useRef(null);
   const forwardButton = useRef(null);
@@ -32,24 +35,16 @@ export default function RelatedProducts() {
   const { relatedDetails, loading } = useSelector(
     (state) => state.relatedDetails
   );
+  var cards = '';
+  var slidingCards = '';
   const { relatedStyle, loading: relatedStyleLoading } = useSelector(
     (state) => state.relatedStyle
   );
-
-  var cards = '';
-  var slidingCards = '';
   if (!loading && relatedDetails) {
-    var cards = relatedDetails.map((item, index) => {
-      return <RelatedCard item={item} key={index} index={index} />;
-    });
-    function RelatedSlider() {
-      return (
-        <CardSliderContainer ref={relatedSliderRef} id="relatedSlider">
-          {cards}
-        </CardSliderContainer>
-      );
-    }
-    var slidingCards = RelatedSlider();
+    cards = relatedDetails.map((item, index) => (
+      <RelatedCard item={item} key={item.id} index={index} />
+    ));
+    slidingCards = RelatedSlider();
   }
 
   return (
@@ -71,19 +66,15 @@ export default function RelatedProducts() {
           }
         >
           <BackArrow
-            onClick={() =>
-              backClick(relatedSliderRef, backButton, forwardButton)
-            }
+            onClick={() => backClick(relatedSliderRef, backButton, forwardButton)}
             ref={backButton}
             className="fa-solid fa-circle-chevron-left fa-36px"
-          ></BackArrow>
+          />
           <ForwardArrow
-            onClick={() =>
-              forwardClick(relatedSliderRef, backButton, forwardButton)
-            }
+            onClick={() => forwardClick(relatedSliderRef, backButton, forwardButton)}
             ref={forwardButton}
             className="fa-solid fa-circle-chevron-right fa-36px"
-          ></ForwardArrow>
+          />
           {slidingCards}
         </div>
       </div>
