@@ -291,6 +291,7 @@ export default function ModalReview({
             type="text"
             maxLength="60"
             size="60"
+            placeholder="Example: Best purchase ever!"
             onChange={(e) => {
               setReviewSummary(e.target.value);
             }}
