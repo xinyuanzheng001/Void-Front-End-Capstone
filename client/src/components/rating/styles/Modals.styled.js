@@ -38,6 +38,25 @@ export const ModalReviewStyle = styled.div`
   justify-content: center;
   padding: 2%;
 
+  .submissionGallery {
+    dislplay: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: fit-content;
+  }
+
+  .submissionInputs {
+    dislplay: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    padding: 5px;
+  }
+
   .checked {
     color: #f1dc19;
   }

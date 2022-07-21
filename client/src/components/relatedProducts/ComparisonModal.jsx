@@ -26,7 +26,7 @@ export default function ComparisonModal({
   }
   return ReactDOM.createPortal(
     <>
-      <ModalContainer>
+      <ModalContainer onClick={onClose}>
         <div
           style={{
             display: 'flex',
@@ -40,7 +40,9 @@ export default function ComparisonModal({
             boxShadow: '0px 0px 4px 0px white',
             borderRadius: '1%',
             overflow: 'auto',
+
           }}
+          onClick={(e) => {e.stopPropagation()}}
         >
 
           <div style={{color: '#458161', position: 'relative', left: '5px'}}>Comparing</div>

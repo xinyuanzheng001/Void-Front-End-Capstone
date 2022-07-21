@@ -1,17 +1,15 @@
 const axios = require('axios');
 
 const postReview = (reviewObj) => {
-  var data = JSON.stringify(reviewObj);
-  console.log(reviewObj);
 
   var config = {
     method: 'post',
-    url:  `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews`,
+    url:  'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews',
     headers: {
       Authorization: `${process.env.API_KEY}`,
       'Content-Type': 'application/json'
     },
-    data: data
+    data: reviewObj
   };
 
   axios(config)
