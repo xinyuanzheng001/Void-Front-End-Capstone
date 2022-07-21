@@ -70,17 +70,12 @@ export default function AddAnswerForm(props) {
   };
 
   return ReactDOM.createPortal(
-<<<<<<< HEAD
-    <QuestionModal onClick={() => props.setAnswerForm(!props.showAnswerForm)}>
-      <ModalForm onClick={e => e.stopPropagation()} >
-=======
     <QuestionModal
     onClick={(e) => {
       props.setAnswerForm(!props.showAnswerForm);
     }}
     >
       <ModalForm onClick={(e) => e.stopPropagation()}>
->>>>>>> d820d9ea63ab2cd88d6d26c8a72004a3e392ec75
         <form
           onSubmit={(e) => {
             e.preventDefault();
