@@ -91,3 +91,4 @@ export function horizontalSlide(
     }
   }, speed);
 }
+//could use transition and transform to move things around

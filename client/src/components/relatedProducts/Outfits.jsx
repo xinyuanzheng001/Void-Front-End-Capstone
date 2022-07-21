@@ -36,6 +36,7 @@ export default function Outfits() {
   };
   const handleRemoveClick = (outfit) => {
     dispatch(removeOutfits(outfit));
+    localStorage.setItem('outfitsPersist', JSON.stringify(outfits));
   };
   var cards = outfits.map((item, index) => {
     return (
