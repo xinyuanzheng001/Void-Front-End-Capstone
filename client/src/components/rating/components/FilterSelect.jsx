@@ -13,7 +13,6 @@ export default function FilterSelect({ sort, setSort }) {
 
   const handleSelect = (e) => {
     let id = productReviews.product;
-    console.log(e.target.value);
     dispatch(sortProductReviews(id, e.target.value));
   };
 
