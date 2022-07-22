@@ -52,19 +52,16 @@ export default function Outfits() {
 
   function RelatedSlider() {
     return (
-      <CardSliderContainer
-        ref={outfitSliderRef}
-        style={{ width:"75%" }}
-      >
+      <CardSliderContainer ref={outfitSliderRef} style={{ width: '75%' }}>
         {cards}
       </CardSliderContainer>
     );
   }
   function Icons() {
     return (
-      <div style={{width: '90%', position: 'absolute'}}>
+      <div style={{ width: '90%', position: 'absolute' }}>
         <BackArrow
-          style={{  }}
+          style={{}}
           onClick={() =>
             backClick(outfitSliderRef, outfitsBack, outfitsForward)
           }

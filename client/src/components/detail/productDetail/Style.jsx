@@ -6,6 +6,7 @@ import { FlexImageContainer, CircleImage } from '../styles/Image.styled';
 import { LineThroughPrice, DiscountPrice } from '../styles/Price.styled';
 import Select from './Select';
 import './style.css';
+import image_not_found from '../../../images/image_not_found.png';
 
 export default function Style({ changeStyleHandler }) {
   const productStyle = useSelector((state) => state.productStyle);
@@ -69,7 +70,7 @@ export default function Style({ changeStyleHandler }) {
             />
             <label htmlFor={`myCheckbox${index}`}>
               <CircleImage
-                src={style[1].thumbnail_url}
+                src={style[1].thumbnail_url || image_not_found}
                 alt="style img"
                 title={style[2]}
               />
