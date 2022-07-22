@@ -12,10 +12,11 @@ export const QuestionModal = styled.div`
   justify-content: center;
 `;
 export const ModalForm = styled.div`
+  border-radius: 10px;
   width: 500px;
   background-color: #fff;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2%;
