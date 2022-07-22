@@ -5,6 +5,8 @@ import Stars from '../detail/Stars';
 import transparentStar from '../../images/transparentstar.png';
 import { CardsIconStyled, OutfitContainer } from './styles/Outfits.styled';
 import ComparisonModal from './ComparisonModal';
+import isImage from '../rating/helpers/isImage';
+import image_not_found from '../../images/image_not_found.png';
 
 export default function RelatedCard({ item, index }) {
   const { id, name, category, default_price, features } = item;
@@ -30,6 +32,8 @@ export default function RelatedCard({ item, index }) {
       );
     }
   }
+
+  var checkedImgSrc = isImage(photo) ? (photo) : image_not_found
 
   var handleClick = () => {
     setShow(true);
@@ -91,7 +95,7 @@ export default function RelatedCard({ item, index }) {
             }}
           ></div>
           <img
-            src={photo}
+            src={checkedImgSrc}
             style={{
               width: '200px',
               height: '225px',
