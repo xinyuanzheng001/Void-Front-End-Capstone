@@ -22,6 +22,7 @@ import {
 import star from '../../../images/star.png';
 import SquareThumbnailImage from './SquareThumbnailImage';
 import clickTracker from '../clickTracker';
+import image_not_found from '../../../images/image_not_found.png';
 
 export default function ImageGallery({ style, expandViewController }) {
   const [currentImage, setCurrentImage] = useState('');
@@ -126,7 +127,11 @@ export default function ImageGallery({ style, expandViewController }) {
           {displayList.map((item, index) => (
             <SquareImage
               data-testid="square-image"
-              src={item.thumbnail_url === null ? star : item.thumbnail_url}
+              src={
+                item.thumbnail_url === null
+                  ? image_not_found
+                  : item.thumbnail_url
+              }
               alt="img"
               key={index}
               onClick={(e) => {
@@ -158,7 +163,7 @@ export default function ImageGallery({ style, expandViewController }) {
             />
           )}
           {/* {expandView && windowWidth > 768 ? ( */}
-          {expandView ? (
+          {expandView && currentImage !== null ? (
             <div
               style={{
                 width: '100%',
@@ -189,7 +194,7 @@ export default function ImageGallery({ style, expandViewController }) {
               id="img_id"
               data-testid="default-view-image"
               alt="img"
-              src={currentImage}
+              src={currentImage || image_not_found}
               onClick={expandViewHandler}
             />
           )}

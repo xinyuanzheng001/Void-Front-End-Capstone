@@ -30,7 +30,7 @@ export default function Detail() {
   return (
     <>
       {/* <Header /> */}
-      <OverviewContainer>
+      <OverviewContainer style={{ backgroundColor: 'white', color: 'black' }}>
         <ImageGallery
           style={style}
           expandViewController={expandViewController}
