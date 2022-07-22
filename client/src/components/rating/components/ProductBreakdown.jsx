@@ -11,7 +11,7 @@ import {
 } from '../styles/ProductBreakdown.styled';
 import { ProductBreakdownContainer } from '../styles/FlexContainers.styled';
 
-export default function ProductBreakdown() {
+export default function ProductBreakdown({ clickTracker }) {
   const { productMetaData } = useSelector((state) => state.productMetaData);
 
   const characteristics = productMetaData.characteristics;
@@ -27,13 +27,20 @@ export default function ProductBreakdown() {
   };
 
   return (
-    <ProductBreakdownContainer>
+    <ProductBreakdownContainer
+      onClick={() => {
+        clickTracker('RatingReviews', 'ProductBreakdown');
+        console.log('RatingReviews', 'ProductBreakdown');
+      }}
+    >
       {charartisticList.map((char) => {
         let percentFill = (Number(characteristics[char].value) / 5) * 100;
         if (characteristics[char].value) {
           return (
             <div key={characteristics[char].id}>
-              <CharLabelTop><b>{char}</b></CharLabelTop>
+              <CharLabelTop>
+                <b>{char}</b>
+              </CharLabelTop>
               <br></br>
               <CharBar>
                 <CharFill fill={percentFill}></CharFill>

@@ -13,18 +13,19 @@ import twitterLogo from '../../../images/twitterLogo.png';
 import pinterestLogo from '../../../images/pinterestLogo.png';
 
 export default function SocialMedia({ currentImage }) {
-  // const url = window.location.href;
+  const url = window.location.href;
   console.log(currentImage);
+  console.log(url);
   return (
     <SocialMediaContainer>
-      <FacebookShareButton url="www.google.com" data-testid="icons">
+      <FacebookShareButton url={url} data-testid="icons">
         <SocialMediaIcon src={facebookLogo} title="Facebook" />
       </FacebookShareButton>
-      <TwitterShareButton url="www.google.com" data-testid="icons">
+    <TwitterShareButton url={url} data-testid="icons">
         <SocialMediaIcon src={twitterLogo} title="Twitter" />
       </TwitterShareButton>
       <PinterestShareButton
-        url="www.google.com"
+        url={url}
         media={currentImage}
         data-testid="icons"
       >
