@@ -5,6 +5,7 @@ import AddAnswerForm from './AddAnswerForm';
 import { useState } from 'react';
 import { ReviewButton } from '../rating/styles/ReviewButton.styled';
 import axios from 'axios';
+import clickTracker from '../detail/clickTracker';
 
 export default function Question(props) {
   const [showAnswerForm, setAnswerForm] = useState(false);
@@ -71,7 +72,11 @@ export default function Question(props) {
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div
+    onClick={() => {
+      clickTracker('Q&A', 'Question Element')
+    }}
+    style={{ padding: '20px' }}>
       <h4 style={{ display: 'inline' }}>Q: {props.question.question_body} </h4>
       <HelpfulQuestion
         helpfulness={props.question.question_helpfulness}

@@ -37,7 +37,7 @@ export default function Questions() {
         product_name={name}
         setQuestionForm={setQuestionForm}
         showQuestionForm={showQuestionForm}
-        onClick={clickTracker('Q&A', 'AddQuestionFormButton')}
+        onClick={clickTracker('Q&A', 'ShowQuestionFormButton')}
       />
     );
   }
@@ -50,6 +50,7 @@ export default function Questions() {
           style={{ margin: '10px' }}
           onClick={() => {
             setHowManyQuestions(howManyQuestions + 2);
+            clickTracker('Q&A', 'MoreQuestionsButton')
           }}
         >
           See More Questions
