@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
   height: 70px;
-  margin-bottom: 25px;
   width: 100%;
   min-width: 400px;
   display: flex;
@@ -37,16 +36,25 @@ export const SearchInput = styled.input`
 
 export const SearchIcon = styled.i`
   margin: 25px 0 0 10px;
-  fontsize: 20px;
+  font-size: 20px;
   color: white;
 `;
 
 export const CartIcon = styled.i`
   margin: 25px 5px 0 10px;
-  fontsize: 20px;
+  font-size: 20px;
   color: black;
   &:hover {
     cursor: pointer;
   }
   text-decoration: none;
+`;
+
+export const ToggleIcon = styled.i`
+  margin: auto 5px;
+  font-size: 30px;
+  color: green;
+  &: hover {
+    cursor: pointer;
+  }
 `;
