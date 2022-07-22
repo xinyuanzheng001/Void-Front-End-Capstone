@@ -163,7 +163,7 @@ export default function ImageGallery({ style, expandViewController }) {
             />
           )}
           {/* {expandView && windowWidth > 768 ? ( */}
-          {expandView ? (
+          {expandView && currentImage !== null ? (
             <div
               style={{
                 width: '100%',
