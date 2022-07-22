@@ -14,11 +14,12 @@ export default function AddAnswerForm(props) {
   const [cloudinaryArray, setCloudinaryArray] = useState([]);
 
   async function postAnswer() {
+    var slicedArray = (cloudinaryArray.length > 5) ? cloudinaryArray.slice(5) : cloudinaryArray
     var data = JSON.stringify({
       body: `${answerText}`,
       name: `${answerName}`,
       email: `${answerEmail}`,
-      photos: cloudinaryArray
+      photos: slicedArray
     });
     var config = {
       method: 'post',
