@@ -1,30 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import getRelatedStyle from '../../actions/relatedStyleAction';
-import Stars from '../detail/Stars.jsx';
+import Stars from '../detail/Stars';
 import transparentStar from '../../images/transparentstar.png';
-import star from '../../images/star.png';
-import {
-  OutfitCardContainer,
-  AddOutfitsStyled,
-  CardsIconStyled,
-  OutfitContainer
-} from './styles/Outfits.styled';
+import { CardsIconStyled, OutfitContainer } from './styles/Outfits.styled';
 import ComparisonModal from './ComparisonModal';
+
 export default function RelatedCard({ item, index }) {
   const { id, name, category, default_price, features } = item;
-  const dispatch = useDispatch();
-  const productDetail = useSelector((state) => state.productDetail);
   const { relatedStyle, loading, ModalContainer } = useSelector(
     (state) => state.relatedStyle
   );
   const [show, setShow] = useState(false);
   var photo = '';
+  var price = <div>${default_price}</div>;
+  var priceStyle = { margin: '0 0 0px 10px' };
 
   if (!loading && relatedStyle) {
     photo = relatedStyle[index].results[0].photos[0].url;
     var { results } = relatedStyle;
+    if (relatedStyle[index].results[0].sale_price) {
+      price = (
+        <>
+          <div style={{ color: 'red' }}>
+            ${relatedStyle[index].results[0].sale_price}
+          </div>
+          <div style={{ textDecoration: 'line-through' }}>${default_price}</div>
+        </>
+      );
+    }
   }
 
   var handleClick = () => {
@@ -35,7 +39,12 @@ export default function RelatedCard({ item, index }) {
   };
   return (
     <>
-      <ComparisonModal relatedComparisonFeatures={features} relatedName={name} show={show} onClose={handleClose} />
+      <ComparisonModal
+        relatedComparisonFeatures={features}
+        relatedName={name}
+        show={show}
+        onClose={handleClose}
+      />
 
       <OutfitContainer>
         <CardsIconStyled>
@@ -51,7 +60,23 @@ export default function RelatedCard({ item, index }) {
             onClick={handleClick}
           />
         </CardsIconStyled>
-        <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#458161' }}>
+        <Link
+          to={`/${id}`}
+          style={{ textDecoration: 'none', color: '#458161' }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              left: '0',
+              right: '0',
+              width: '112px',
+              bottom: '5px'
+            }}
+          >
+            <Stars product_id={id} />
+          </div>
           <div
             style={{
               display: 'flex',
@@ -65,7 +90,6 @@ export default function RelatedCard({ item, index }) {
               // zIndex: '9px',
             }}
           ></div>
-          <img ></img>
           <img
             src={photo}
             style={{
@@ -77,26 +101,15 @@ export default function RelatedCard({ item, index }) {
             }}
             alt={name}
           />
-          <div style={{ margin: '0 0 0 10px' }}>{category}</div>
-          <br />
+          <div style={{ margin: '0px 0 10px 10px' }}>{category}</div>
+
           <div
             className="placeholder"
             style={{ fontWeight: 'bold', margin: '0 0 0 10px' }}
           >
             {name}
           </div>
-          <div style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              margin: '7px auto',
-              height: '30px',
-              width: '130px'
-            }}
-          >
-            <Stars product_id={id} style={{}} />
-          </div>
+          <div style={priceStyle}>{price}</div>
         </Link>
       </OutfitContainer>
     </>
