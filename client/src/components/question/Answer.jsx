@@ -2,7 +2,9 @@ import React from 'react';
 import HelpfulAnswer from './HelpfulAnswer';
 import moment from 'moment';
 import axios from 'axios';
+import image_not_found from '../../images/image_not_found.png';
 import { useState } from 'react';
+import isImage from '../rating/helpers/isImage';
 
 export default function Answer(props) {
   const [answerReported, setAnswerReported] = useState(false);
@@ -72,7 +74,7 @@ export default function Answer(props) {
               display: 'inline-block',
               margin: '10px'
             }}
-            src={photo}
+            src={ (isImage(photo)) ? photo : image_not_found}
           ></img>
         );
       })
@@ -83,7 +85,7 @@ export default function Answer(props) {
   return (
     <div style={{ marginTop: '10px', padding: '15px' }}>
       <div>
-        <h3 style={{ display: 'inline' }}>A: </h3>
+        <h4 style={{ display: 'inline' }}>A: </h4>
         <span>{props.answer.body}</span>
       </div>
       <div>{answerPhotos}</div>
