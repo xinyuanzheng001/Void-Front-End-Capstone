@@ -13,7 +13,7 @@ import { getProductReviews } from '../../actions/productReviewsAction';
 import getRelatedProducts from '../../actions/relatedProductsAction';
 import axios from 'axios';
 
-export default function ProductScreen() {
+export default function ProductScreen({ globalTheme }) {
   // 37311 - First product ID in the API
   let { id } = useParams();
   id = id >= 37311 ? id : 37311;
@@ -24,17 +24,16 @@ export default function ProductScreen() {
   const productReviews = useSelector((state) => state.productReviews);
   const relatedProducts = useSelector((state) => state.relatedProducts);
 
-  const [globalTheme, setGlobalTheme] = useState(false);
-
   //Theme
   const light = {
     backgroundColor: 'white',
-    color: 'black',
+    color: 'black'
   };
 
   const dark = {
+    paddingTop: '1px',
     backgroundColor: '#444a44',
-    color: 'white',
+    color: 'white'
   };
 
   const { loading } = productDetail;
@@ -50,17 +49,14 @@ export default function ProductScreen() {
     dispatch(getRelatedProducts(id));
   }, [id, dispatch]);
   return (
-    <div style={globalTheme ? light : dark}>
-      <Container >
+    <div style={!globalTheme ? light : dark}>
+      <Container>
         {loading === false &&
           styleLoading === false &&
           relatedProductsLoading === false &&
           metaDataLoading === false &&
           reviewsLoading === false && (
             <>
-              <button onClick={() => setGlobalTheme(!globalTheme)}>
-                Theme!
-              </button>
               <Detail />
               <RelatedProducts />
               <Questions />
