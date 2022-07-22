@@ -24,7 +24,7 @@ import percentRec from '../helpers/percentRec';
 import starCounter from '../helpers/starCounter';
 import totalReviews from '../helpers/totalReviews';
 
-export default function RatingBreakdown({ filters, setFilters }) {
+export default function RatingBreakdown({ filters, setFilters, clickTracker }) {
   const { productMetaData } = useSelector((state) => state.productMetaData);
   const percent = percentRec(productMetaData.recommended);
   const reviews = totalReviews(productMetaData.ratings);
@@ -57,13 +57,19 @@ export default function RatingBreakdown({ filters, setFilters }) {
 
   return (
     <>
-      <RatingBreakdownContainer>
+      <RatingBreakdownContainer onClick={() => {
+              clickTracker('RatingReviews', 'RatingBreakdown');
+              console.log('RatingReviews', 'RatingBreakdown');
+            }}>
         <span className="rating">{averageNumber(productMetaData.ratings)}</span>
         <span>
           <Stars className="stars" />
         </span>
       </RatingBreakdownContainer>
-      <TableContainer>
+      <TableContainer onClick={() => {
+              clickTracker('RatingReviews', 'RatingBreakdown');
+              console.log('RatingReviews', 'RatingBreakdown');
+            }}>
         {starBreakdown.map((star, index) => {
           const starRating = 5 - index;
           return (

@@ -9,6 +9,9 @@ import RatingBreakdown from './components/RatingBreakdown';
 import ProductBreakdown from './components/ProductBreakdown';
 import ReviewModal from './components/ReviewModal';
 
+//Helpers
+import clickTracker from '../detail/clickTracker';
+
 //Styles
 import {
   MainContainer,
@@ -52,10 +55,19 @@ export default function Rating() {
       <h3>RATINGS & REVIEWS</h3>
       <MainContainer>
         <BreakdownContainer>
-          <RatingBreakdown filters={filters} setFilters={setFilters} />
-          <ProductBreakdown />
+          <RatingBreakdown
+            filters={filters}
+            setFilters={setFilters}
+            clickTracker={clickTracker}
+          />
+          <ProductBreakdown clickTracker={clickTracker} />
         </BreakdownContainer>
-        <ReviewContainer>
+        <ReviewContainer
+          onClick={() => {
+            console.log('RatingReviews');
+            clickTracker('RatingReviews', 'Reviews');
+          }}
+        >
           {header}
           <Reviews reviewArray={reviewArray} viewable={viewable} />
           <StyledFooter>
@@ -74,6 +86,7 @@ export default function Rating() {
           productName={productDetail.name}
           id={productDetail.id}
           characteristics={productMetaData.characteristics}
+          clickTracker={clickTracker}
         />
       </MainContainer>
     </div>

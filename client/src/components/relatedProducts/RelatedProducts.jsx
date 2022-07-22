@@ -54,15 +54,14 @@ export default function RelatedProducts() {
 
   return (
     <>
+      <h3>RELATED PRODUCTS</h3>
       <div
         style={{
           width: '90%',
-          backgroundColor: 'white',
           position: 'relative',
           margin: '25px'
         }}
       >
-        <h3>RELATED PRODUCTS</h3>
         <div
           style={
             {
