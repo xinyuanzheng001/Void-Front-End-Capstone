@@ -133,7 +133,7 @@ export default function Outfits() {
               ></AddOutfitsStyled>
           </OutfitCardContainer>
         </div>
-        <div style={{position: 'relative',width: '82%'}}>
+        <div style={{position: 'relative',width: '81%'}}>
               {iconLeft}
 
             {iconRight}

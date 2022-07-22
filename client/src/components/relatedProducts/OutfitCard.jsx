@@ -11,6 +11,7 @@ import { CardsIconStyled, OutfitContainer } from './styles/Outfits.styled';
 export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   const { id, name, category, default_price } = item;
   const { results } = outfitStyle;
+  console.log(outfitStyle)
   const dispatch = useDispatch();
   const outfitToRemove = { style: outfitStyle, details: item };
   const productDetail = useSelector((state) => state.productDetail);
@@ -21,19 +22,20 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
   const handleClick = (event) => {
     dispatch(removeOutfits(outfitToRemove));
   };
-  if (!loading && relatedStyle) {
-    photo = results[0].photos[0].url;
-    if (relatedStyle[index].results[0].sale_price) {
-      price = (
-        <>
-          <div style={{ color: 'red' }}>
-            ${relatedStyle[index].results[0].sale_price}
-          </div>
-          <div style={{ textDecoration: 'line-through' }}>${default_price}</div>
-        </>
-      );
-    }
-  }
+  // if (!loading && relatedStyle) {
+      photo = results[0].photos[0].url;
+      if (results[0].sale_price) {
+        price = (
+          <>
+            <div style={{ color: 'red' }}>
+              ${results[0].sale_price}
+            </div>
+            <div style={{ textDecoration: 'line-through' }}>${default_price}</div>
+          </>
+        );
+      }
+
+  // }
   return (
     <>
       <OutfitContainer>
