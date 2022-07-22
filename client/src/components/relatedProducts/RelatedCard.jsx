@@ -13,10 +13,22 @@ export default function RelatedCard({ item, index }) {
   );
   const [show, setShow] = useState(false);
   var photo = '';
+  var price = <div>${default_price}</div>;
+  var priceStyle = { margin: '0 0 0px 10px' };
 
   if (!loading && relatedStyle) {
     photo = relatedStyle[index].results[0].photos[0].url;
     var { results } = relatedStyle;
+    if (relatedStyle[index].results[0].sale_price) {
+      price = (
+        <>
+          <div style={{ color: 'red' }}>
+            ${relatedStyle[index].results[0].sale_price}
+          </div>
+          <div style={{ textDecoration: 'line-through' }}>${default_price}</div>
+        </>
+      );
+    }
   }
 
   var handleClick = () => {
@@ -54,6 +66,19 @@ export default function RelatedCard({ item, index }) {
         >
           <div
             style={{
+              position: 'absolute',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              left: '0',
+              right: '0',
+              width: '112px',
+              bottom: '5px'
+            }}
+          >
+            <Stars product_id={id} />
+          </div>
+          <div
+            style={{
               display: 'flex',
               justifyContent: 'center',
               boxShadow: '3px 1px 10px 0px white inset',
@@ -76,26 +101,15 @@ export default function RelatedCard({ item, index }) {
             }}
             alt={name}
           />
-          <div style={{ margin: '0 0 0 10px' }}>{category}</div>
-          <br />
+          <div style={{ margin: '0px 0 10px 10px' }}>{category}</div>
+
           <div
             className="placeholder"
             style={{ fontWeight: 'bold', margin: '0 0 0 10px' }}
           >
             {name}
           </div>
-          <div style={{ margin: '0 0 0 10px' }}>{`$${default_price}`}</div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              margin: '7px auto',
-              height: '30px',
-              width: '130px'
-            }}
-          >
-            <Stars product_id={id} style={{}} />
-          </div>
+          <div style={priceStyle}>{price}</div>
         </Link>
       </OutfitContainer>
     </>

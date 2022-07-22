@@ -28,11 +28,24 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
       <OutfitContainer >
         <div onClick={handleClick}>
         <CardsIconStyled>
-          <i className="fa-solid fa-x" style={{opacity:'80%', fontSize: '15px'}} />
+          <i className="fa-solid fa-x" style={{opacity:'80%', fontSize: '15px', color: '#458161'}} />
         </CardsIconStyled>
         </div>
         <div>
           <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#458161' }}>
+          <div
+            style={{
+              position: 'absolute',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              left: '0',
+              right: '0',
+              width: '112px',
+              bottom: '5px'
+            }}
+          >
+            <Stars product_id={id} />
+          </div>
             <div
               style={{
                 boxShadow: '3px 1px 10px 0px white inset',
@@ -73,7 +86,6 @@ export default function OutfitCard({ item, index, outfitStyle, removeOutfit }) {
                 width: '130px'
               }}
             >
-              <Stars product_id={id} style={{}} />
             </div>
           </Link>
         </div>
