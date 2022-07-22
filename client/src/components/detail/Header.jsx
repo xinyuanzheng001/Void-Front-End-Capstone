@@ -7,11 +7,17 @@ import {
   Logo,
   SearchInput,
   SearchIcon,
-  CartIcon
+  CartIcon,
+  ToggleIcon
 } from './styles/Header.styled';
 
-export default function Header() {
+export default function Header({ globalThemeHandler }) {
+  const [globalTheme, setGlobalTheme] = useState(false);
   const [keyWord, setKeyWord] = useState('');
+  const onClickHandler = () => {
+    setGlobalTheme(!globalTheme);
+    globalThemeHandler();
+  };
   return (
     <HeaderContainer>
       <LogoContainer>
@@ -32,6 +38,17 @@ export default function Header() {
         style={{ color: 'black' }}
         title="My shopping cart"
       ></CartIcon>
+      {globalTheme ? (
+        <ToggleIcon
+          className="fa-solid fa-toggle-on"
+          onClick={onClickHandler}
+        />
+      ) : (
+        <ToggleIcon
+          className="fa-solid fa-toggle-off"
+          onClick={onClickHandler}
+        />
+      )}
     </HeaderContainer>
   );
 }
