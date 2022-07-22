@@ -21,7 +21,7 @@ export default function SocialMedia({ currentImage }) {
       <FacebookShareButton url={url} data-testid="icons">
         <SocialMediaIcon src={facebookLogo} title="Facebook" />
       </FacebookShareButton>
-    <TwitterShareButton url=url} data-testid="icons">
+    <TwitterShareButton url={url} data-testid="icons">
         <SocialMediaIcon src={twitterLogo} title="Twitter" />
       </TwitterShareButton>
       <PinterestShareButton
