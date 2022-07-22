@@ -52,9 +52,9 @@ export default function RelatedProducts() {
       <h3>RELATED PRODUCTS</h3>
       <div
         style={{
-          width: '90%',
+          width: '100%',
           position: 'relative',
-          margin: '25px'
+          margin: '0'
         }}
       >
         <div

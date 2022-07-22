@@ -49,6 +49,8 @@ export default function Outfits() {
       />
     );
   });
+  var iconLeft = '';
+  var iconRight = '';
 
   function RelatedSlider() {
     return (
@@ -82,13 +84,31 @@ export default function Outfits() {
   if (cards.length > 0) {
     var slidingCards = RelatedSlider();
     var navigation = Icons();
+    iconLeft = (
+      <BackArrow
+        style={{left: '0px'}}
+        onClick={() => backClick(outfitSliderRef, outfitsBack, outfitsForward)}
+        ref={outfitsBack}
+        className="fa-solid fa-circle-chevron-left"
+      ></BackArrow>
+    );
+    iconRight = (
+      <ForwardArrow
+        style={{right: '45px'}}
+        onClick={() =>
+          forwardClick(outfitSliderRef, outfitsBack, outfitsForward)
+        }
+        ref={outfitsForward}
+        className="fa-solid fa-circle-chevron-right"
+      ></ForwardArrow>
+    );
   }
   // }
 
   return (
-    <div style={{ positon: 'relative' }}>
+    <div style={{ positon: 'relative', size:'100%' }}>
       <h3>Your Outfit</h3>
-      {navigation}
+      {/* {navigation} */}
       <div style={{ display: 'flex' }}>
         <div
           style={{
@@ -96,22 +116,31 @@ export default function Outfits() {
             flexDirection: 'columns',
             boxShadow: '3px 1px 10px 0px white inset',
             margin: '25px',
+            marginLeft: '20px',
             position: 'relative',
             backgroundColor: '#458161',
             width: '200px',
             height: '350px',
             borderRadius: '10px'
           }}
-        >
-          <OutfitCardContainer>
+          >
+          <OutfitCardContainer style={{}}>
+
             <span>Add to Oufit</span>
             <AddOutfitsStyled
               className="fa-solid fa-plus fa-5x"
               onClick={handleClick}
-            ></AddOutfitsStyled>
+              ></AddOutfitsStyled>
           </OutfitCardContainer>
         </div>
-        {slidingCards}
+        <div style={{position: 'relative',width: '82%'}}>
+              {iconLeft}
+
+            {iconRight}
+        <CardSliderContainer ref={outfitSliderRef} style={{ width: '100%', minWidth: '100%', right: '0px' }}>
+        {cards}
+      </CardSliderContainer>
+        </div>
       </div>
     </div>
   );

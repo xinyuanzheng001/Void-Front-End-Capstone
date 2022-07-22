@@ -3,7 +3,7 @@ export const CardSliderContainer = styled.div`
   display:flex;
   flex-direction: row;
   position: relative;
-  width: 90%;
+  width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
   &::-webkit-scrollbar{
@@ -112,7 +112,7 @@ font-size: 30px;
 `
 export const ForwardArrow = styled.i`
 position: absolute;
-right: 20px;
+right: 30px;
 top:200px;
 color: #458161;
 font-size: 30px;
