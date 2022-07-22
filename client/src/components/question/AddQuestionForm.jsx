@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import { QuestionModal, ModalForm } from './styles/QuestionModal';
 import ReactDOM from 'react-dom';
+import {QuestionButton} from './styles/QuestionButton';
+import {QuestionInput, QuestionTextArea} from './styles/QuestionSearchBar';
 
 export default function AddQuestionForm(props) {
   const [questionText, setQuestionText] = useState('');
@@ -51,13 +53,8 @@ export default function AddQuestionForm(props) {
         >
           <h3>Ask Your Question</h3>
           <h4>About the {props.product_name}</h4>
-          <button
-            onClick={() => props.setQuestionForm(!props.showQuestionForm)}
-          >
-            Close Form
-          </button>
           <label htmlFor="yourQuestion">Your Question</label>
-          <textarea
+          <QuestionTextArea
             id="yourQuestion"
             required
             maxLength="1000"
@@ -67,9 +64,9 @@ export default function AddQuestionForm(props) {
             onChange={(e) => {
               setQuestionText(e.target.value);
             }}
-          ></textarea>
+          ></QuestionTextArea>
           <label htmlFor="yourNickName">What is your nickname</label>
-          <input
+          <QuestionInput
             id="yourNickname"
             required
             type="text"
@@ -78,10 +75,10 @@ export default function AddQuestionForm(props) {
             onChange={(e) => {
               setQuestionName(e.target.value);
             }}
-          ></input>
+          ></QuestionInput>
           <p>For privacy reasons, do not use your full name or email address</p>
           <label htmlFor="yourEmail">Your email</label>
-          <input
+          <QuestionInput
             id="yourEmail"
             required
             type="email"
@@ -90,9 +87,9 @@ export default function AddQuestionForm(props) {
             onChange={(e) => {
               setQuestionEmail(e.target.value);
             }}
-          ></input>
+          ></QuestionInput>
           <p>For authentication reasons, you will not be emailed</p>
-          <button>Submit A Question</button>
+          <QuestionButton>Submit A Question</QuestionButton>
         </form>
       </ModalForm>
     </QuestionModal>,
