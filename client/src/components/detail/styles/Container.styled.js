@@ -26,6 +26,7 @@ export const FlexSelectContainer = styled.div`
 `;
 
 export const OverviewContainer = styled.div`
+  margin-top: 25px;
   display: flex;
   flex-direction: row;
   @media (max-width: 768px) {
