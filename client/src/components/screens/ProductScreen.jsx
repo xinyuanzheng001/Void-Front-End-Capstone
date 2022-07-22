@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Detail from '../detail/Detail';
@@ -23,6 +23,20 @@ export default function ProductScreen() {
   const productMetaData = useSelector((state) => state.productMetaData);
   const productReviews = useSelector((state) => state.productReviews);
   const relatedProducts = useSelector((state) => state.relatedProducts);
+
+  const [globalTheme, setGlobalTheme] = useState(false);
+
+  //Theme
+  const light = {
+    backgroundColor: 'white',
+    color: 'black',
+  };
+
+  const dark = {
+    backgroundColor: '#444a44',
+    color: 'white',
+  };
+
   const { loading } = productDetail;
   const { loading: styleLoading } = productStyle;
   const { loading: metaDataLoading } = productMetaData;
@@ -36,19 +50,24 @@ export default function ProductScreen() {
     dispatch(getRelatedProducts(id));
   }, [id, dispatch]);
   return (
-    <Container>
-      {loading === false &&
-        styleLoading === false &&
-        relatedProductsLoading === false &&
-        metaDataLoading === false &&
-        reviewsLoading === false && (
-          <>
-            <Detail />
-            <RelatedProducts />
-            <Questions />
-            <Rating />
-          </>
-        )}
-    </Container>
+    <div style={globalTheme ? light : dark}>
+      <Container >
+        {loading === false &&
+          styleLoading === false &&
+          relatedProductsLoading === false &&
+          metaDataLoading === false &&
+          reviewsLoading === false && (
+            <>
+              <button onClick={() => setGlobalTheme(!globalTheme)}>
+                Theme!
+              </button>
+              <Detail />
+              <RelatedProducts />
+              <Questions />
+              <Rating />
+            </>
+          )}
+      </Container>
+    </div>
   );
 }

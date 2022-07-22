@@ -16,7 +16,8 @@ export default function ModalReview({
   setShowForm,
   productName,
   id,
-  characteristics
+  characteristics,
+  clickTracker
 }) {
   const [recommend, setRecommend] = useState(true);
   const [reviewSummary, setReviewSummary] = useState('');
@@ -133,7 +134,12 @@ export default function ModalReview({
         setShowForm(false);
       }}
     >
-      <ModalReviewStyle onClick={(e) => e.stopPropagation()}>
+      <ModalReviewStyle
+        onClick={(e) => {
+          e.stopPropagation();
+          clickTracker('RatingReviews', 'ReviewSubmission');
+        }}
+      >
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -154,7 +160,7 @@ export default function ModalReview({
               );
             } else {
               postReview(review);
-              // setShowForm(!showForm);
+              setShowForm(!showForm);
             }
           }}
         >
