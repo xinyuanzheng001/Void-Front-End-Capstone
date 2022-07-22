@@ -83,7 +83,7 @@ export const FillImageContainer = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  height: 600px;
+  height: 60vh;
 `;
 
 export const ImageGalleryContainer = styled.div`
