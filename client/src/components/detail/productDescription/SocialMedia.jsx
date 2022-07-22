@@ -15,6 +15,7 @@ import pinterestLogo from '../../../images/pinterestLogo.png';
 export default function SocialMedia({ currentImage }) {
   const url = window.location.href;
   console.log(currentImage);
+  console.log(url);
   return (
     <SocialMediaContainer>
       <FacebookShareButton url={url} data-testid="icons">
