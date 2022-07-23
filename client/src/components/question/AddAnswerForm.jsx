@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import { QuestionModal, ModalForm } from './styles/QuestionModal';
 import ReactDOM from 'react-dom';
+import {QuestionButton} from './styles/QuestionButton';
+import {QuestionInput, QuestionTextArea} from './styles/QuestionSearchBar';
 
 export default function AddAnswerForm(props) {
   const [answerText, setAnswerText] = useState('');
@@ -12,11 +14,12 @@ export default function AddAnswerForm(props) {
   const [cloudinaryArray, setCloudinaryArray] = useState([]);
 
   async function postAnswer() {
+    var slicedArray = (cloudinaryArray.length > 5) ? cloudinaryArray.slice(5) : cloudinaryArray
     var data = JSON.stringify({
       body: `${answerText}`,
       name: `${answerName}`,
       email: `${answerEmail}`,
-      photos: cloudinaryArray
+      photos: slicedArray
     });
     var config = {
       method: 'post',
@@ -88,11 +91,8 @@ export default function AddAnswerForm(props) {
           <h4>
             {`${props.product_name}`} : {props.question_body}
           </h4>
-          <button onClick={() => props.setAnswerForm(!props.showAnswerForm)}>
-            Close Form
-          </button>
           <label htmlFor="yourQuestion">Your Answer</label>
-          <textarea
+          <QuestionTextArea
             required
             id="yourAnswer"
             required
@@ -103,9 +103,9 @@ export default function AddAnswerForm(props) {
             onChange={(e) => {
               setAnswerText(e.target.value);
             }}
-          ></textarea>
+          ></QuestionTextArea>
           <label htmlFor="yourNickName">What is your nickname</label>
-          <input
+          <QuestionInput
             id="yourNickname"
             required
             type="text"
@@ -114,10 +114,10 @@ export default function AddAnswerForm(props) {
             onChange={(e) => {
               setAnswerName(e.target.value);
             }}
-          ></input>
+          ></QuestionInput>
           <p>For privacy reasons, do not use your full name or email address</p>
           <label htmlFor="yourEmail">Your email</label>
-          <input
+          <QuestionInput
             id="yourEmail"
             required
             type="email"
@@ -126,10 +126,11 @@ export default function AddAnswerForm(props) {
             onChange={(e) => {
               setAnswerEmail(e.target.value);
             }}
-          ></input>
+          ></QuestionInput>
           <p>For authentication reasons, you will not be emailed</p>
-          <input
+          <QuestionInput
             multiple
+            style={{border: 'none', margin:'10px'}}
             id="input"
             name="files[]"
             onChange={(e) => {
@@ -151,7 +152,7 @@ export default function AddAnswerForm(props) {
             accept="image/*"
           />
           <div>{previewImgList}</div>
-          <button>Submit An Answer</button>
+          <QuestionButton>Submit An Answer</QuestionButton>
         </form>
       </ModalForm>
     </QuestionModal>,

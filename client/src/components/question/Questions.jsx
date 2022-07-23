@@ -9,6 +9,7 @@ import getProductQuestion from '../../actions/productQuestionAction';
 import AddQuestionForm from './AddQuestionForm';
 import SearchQuestions from './SearchQuestions';
 import { QuestionButton } from './styles/QuestionButton';
+import clickTracker from '../detail/clickTracker';
 
 export default function Questions() {
   const productDetail = useSelector((state) => state.productDetail);
@@ -36,6 +37,7 @@ export default function Questions() {
         product_name={name}
         setQuestionForm={setQuestionForm}
         showQuestionForm={showQuestionForm}
+        onClick={clickTracker('Q&A', 'ShowQuestionFormButton')}
       />
     );
   }
@@ -48,6 +50,7 @@ export default function Questions() {
           style={{ margin: '10px' }}
           onClick={() => {
             setHowManyQuestions(howManyQuestions + 2);
+            clickTracker('Q&A', 'MoreQuestionsButton')
           }}
         >
           See More Questions
@@ -89,7 +92,7 @@ export default function Questions() {
 
   return (
     <>
-      <h2>Questions & Answers</h2>
+      <h3>Questions & Answers</h3>
       <SearchQuestions
         searchValue={searchValue}
         setSearchValue={setSearchValue}
