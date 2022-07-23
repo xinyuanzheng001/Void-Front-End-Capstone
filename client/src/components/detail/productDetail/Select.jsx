@@ -15,6 +15,7 @@ import getProductDetail from '../../../actions/productDetailAction';
 import star from '../../../images/star.png';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
+import clickTracker from '../clickTracker';
 
 export default function Select({ sizes, quantity, style }) {
   const localCarts = JSON.parse(localStorage.getItem('cartItems'));
@@ -69,6 +70,7 @@ export default function Select({ sizes, quantity, style }) {
     generateArray(quantity[0])
   );
   const onChangeHandler = (s) => {
+    clickTracker('ProductOverview', 'Size Selector');
     const newQty = generateArray(quantity[sizes.indexOf(s)]);
     setSelectedQuantity(
       newQty.length === 0 ? generateArray(quantity[0]) : newQty
@@ -78,11 +80,12 @@ export default function Select({ sizes, quantity, style }) {
   };
 
   const onQtyChangeHandler = (q) => {
+    clickTracker('ProductOverview', 'Quantity Selector');
     setSelectedQty(q);
   };
 
   const addItemHandler = () => {
-    console.log(style);
+    clickTracker('ProductOverview', 'Add to Cart');
     if (selectedSize === '') {
       setError(true);
       setSuccess(false);
