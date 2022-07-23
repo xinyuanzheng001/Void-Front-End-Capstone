@@ -11,12 +11,15 @@ import {
 import facebookLogo from '../../../images/facebookLogo.png';
 import twitterLogo from '../../../images/tLogo.png';
 import pinterestLogo from '../../../images/pinterestLogo.png';
+import clickTracker from '../clickTracker';
 
 export default function SocialMedia({ currentImage }) {
   const url = window.location.href;
 
   return (
-    <SocialMediaContainer>
+    <SocialMediaContainer
+      onClick={() => clickTracker('ProductOverview', 'Social media share')}
+    >
       <FacebookShareButton url={url} data-testid="icons">
         <SocialMediaIcon src={facebookLogo} title="Facebook" />
       </FacebookShareButton>

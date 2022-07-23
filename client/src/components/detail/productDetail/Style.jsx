@@ -7,6 +7,7 @@ import { LineThroughPrice, DiscountPrice } from '../styles/Price.styled';
 import Select from './Select';
 import './style.css';
 import image_not_found from '../../../images/image_not_found.png';
+import clickTracker from '../clickTracker';
 
 export default function Style({ changeStyleHandler }) {
   const productStyle = useSelector((state) => state.productStyle);
@@ -16,6 +17,7 @@ export default function Style({ changeStyleHandler }) {
   const [selectedStyle, setSelectedStyle] = useState(0);
 
   const allKeys = Object.keys(results);
+  const [style, setStyle] = useState(results[0].name);
   let sizes = [];
   let quantity = [];
   const allStyles = allKeys.map((key) => [
@@ -31,8 +33,10 @@ export default function Style({ changeStyleHandler }) {
     }
   }
   const onChangeHandler = (index) => {
+    clickTracker('ProductOverview', 'Style Selector');
     setSelectedStyle(index);
     changeStyleHandler(results[index].photos);
+    setStyle(results[index].name);
     for (let key in results[index].skus) {
       if (results[index].skus[key].quantity > 0) {
         sizes.push(results[index].skus[key].size);
@@ -56,7 +60,7 @@ export default function Style({ changeStyleHandler }) {
         </FlexContainer>
       )}
       <p style={{ marginTop: '0px' }}>
-        <b>STYLE ></b> SELECTED STYLE
+        <b>STYLE > {style}</b>
       </p>
       <FlexImageContainer>
         {allStyles.map((style, index) => (

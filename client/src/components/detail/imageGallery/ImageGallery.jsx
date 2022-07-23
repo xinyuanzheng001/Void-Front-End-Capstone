@@ -62,12 +62,14 @@ export default function ImageGallery({ style, expandViewController }) {
     setCurrentImageIndex(a);
   };
   const nextDisplayList = () => {
+    clickTracker('ProductOverview', 'Thumbnail image display list');
     if (firstImageIndex + 7 < style.length) {
       setDisplayList(style.slice(firstImageIndex + 1, firstImageIndex + 8));
       setFirstImageIndex(firstImageIndex + 1);
     }
   };
   const prevDisplayList = (reset) => {
+    clickTracker('ProductOverview', 'Thumbnail image display list');
     if (reset !== undefined) {
       setDisplayList(style.slice(0, 7));
     }
@@ -80,6 +82,7 @@ export default function ImageGallery({ style, expandViewController }) {
     setFirstImageIndex(firstImageIndex - 1 >= 0 ? firstImageIndex - 1 : 0);
   };
   const nextDisplayImage = () => {
+    clickTracker('ProductOverview', 'Main image');
     if (currentImageIndex >= 3) {
       nextDisplayList();
     }
@@ -87,6 +90,7 @@ export default function ImageGallery({ style, expandViewController }) {
     setCurrentImageIndex(currentImageIndex + 1);
   };
   const prevDisplayImage = () => {
+    clickTracker('ProductOverview', 'Main image');
     if (currentImageIndex > 6) {
       prevDisplayList();
     } else {
@@ -96,6 +100,7 @@ export default function ImageGallery({ style, expandViewController }) {
     setCurrentImageIndex(currentImageIndex - 1);
   };
   const expandViewHandler = () => {
+    clickTracker('ProductOverview', 'Main image');
     expandViewController(!expandView);
     setExpandView(!expandView);
   };
@@ -163,7 +168,7 @@ export default function ImageGallery({ style, expandViewController }) {
             />
           )}
           {/* {expandView && windowWidth > 768 ? ( */}
-          {expandView && currentImage !== null ? (
+          {expandView ? (
             <div
               style={{
                 width: '100%',
