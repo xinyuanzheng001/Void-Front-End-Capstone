@@ -29,7 +29,11 @@ export default function Header({ globalThemeHandler }) {
         onChange={(e) => setKeyWord(e.target.value)}
       ></SearchInput>
       <label style={{ border: 'none' }}>
-        <SearchIcon className="fa-solid fa-magnifying-glass"></SearchIcon>
+        <SearchIcon
+          className="fa-solid fa-magnifying-glass"
+          as={Link}
+          to={`/${keyWord}`}
+        ></SearchIcon>
       </label>
       <CartIcon
         as={Link}

@@ -21,7 +21,7 @@ export default function Description() {
           (feature, index) =>
             feature.value !== null && (
               <p key={index} data-testid="features">
-                <CheckIcon className="fa-solid fa-check"></CheckIcon>
+                <CheckIcon className="fa-solid fa-check" />
                 {feature.value}
               </p>
             )

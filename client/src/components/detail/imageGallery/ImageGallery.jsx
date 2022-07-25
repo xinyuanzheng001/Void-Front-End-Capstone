@@ -135,9 +135,11 @@ export default function ImageGallery({ style, expandViewController }) {
               src={
                 item.thumbnail_url === null
                   ? image_not_found
+                  : item.thumbnail_url[0] !== 'h'
+                  ? item.thumbnail_url.slice(1)
                   : item.thumbnail_url
               }
-              alt="img"
+              alt={currentImage}
               key={index}
               onClick={(e) => {
                 onClickHandler(e, item);

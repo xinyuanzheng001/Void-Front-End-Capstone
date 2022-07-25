@@ -38,6 +38,7 @@ export const SearchIcon = styled.i`
   margin: 25px 0 0 10px;
   font-size: 20px;
   color: white;
+  text-decoration: none;
 `;
 
 export const CartIcon = styled.i`
